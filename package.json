@@ -19,6 +19,7 @@
     "@uidotdev/usehooks": "2.4.1",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
     "react-github-calendar": "^4.0.2",
     "typeit-react": "^2.6.4"

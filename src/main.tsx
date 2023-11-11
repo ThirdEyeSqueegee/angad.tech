@@ -13,6 +13,7 @@ const theme = extendTheme({
         variant: "soft",
         arrow: true,
         followCursor: true,
+        placement: "top",
       },
     },
     JoyCard: {

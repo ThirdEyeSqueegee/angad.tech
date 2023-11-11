@@ -1,5 +1,6 @@
 import { Tooltip } from "@mui/joy";
 import { motion } from "framer-motion";
+import { isMobile } from "react-device-detect";
 
 export const TooltipIcon = (props: {
   src: string;
@@ -15,7 +16,7 @@ export const TooltipIcon = (props: {
       animate={{ opacity: [0, 1] }}
     >
       {props.href ? (
-        <a
+        <motion.a
           href={props.href}
           target="_blank"
           rel="noopener noreferrer"
@@ -28,7 +29,7 @@ export const TooltipIcon = (props: {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           />
-        </a>
+        </motion.a>
       ) : (
         <motion.img
           src={props.src}
@@ -36,6 +37,11 @@ export const TooltipIcon = (props: {
           height={props.height ? props.height : "50px"}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
+          {...(!isMobile && {
+            drag: true,
+            dragSnapToOrigin: true,
+            dragTransition: { bounceStiffness: 500, bounceDamping: 10 },
+          })}
         />
       )}
     </Tooltip>

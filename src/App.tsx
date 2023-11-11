@@ -1,6 +1,7 @@
 import { Box, Card, Divider, Grid, Link, Tooltip, Typography } from "@mui/joy";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { motion } from "framer-motion";
+import { isMobile } from "react-device-detect";
 import GitHubCalendar from "react-github-calendar";
 import TypeIt from "typeit-react";
 import resume from "./assets/Angad Misra - Resume.pdf";
@@ -66,7 +67,7 @@ export default function App() {
         <Card
           component={motion.div}
           animate={{ scaleX: [0, 1] }}
-          transition={{ type: "spring", duration: 0.75 }}
+          transition={{ type: "spring", duration: 1, delay: 0.5 }}
         >
           <Typography
             fontSize={ratio > 4 / 3 ? "3rem" : "2.75rem"}
@@ -91,13 +92,20 @@ export default function App() {
               className="responsive"
               style={{
                 borderRadius: "100%",
+                outline: "slategray dashed 2px",
+                outlineOffset: "5px",
                 minWidth: "20px",
                 minHeight: "20px",
                 maxWidth: "250px",
                 maxHeight: "250px",
               }}
               animate={{ scale: [0, 1], rotate: -360 }}
-              transition={{ delay: 0.25 }}
+              transition={{ type: "spring", delay: 0.5 }}
+              {...(!isMobile && {
+                drag: true,
+                dragSnapToOrigin: true,
+                dragTransition: { bounceStiffness: 500, bounceDamping: 10 },
+              })}
             />
             <Box
               display="flex"
@@ -174,8 +182,8 @@ export default function App() {
           >
             <Card
               component={motion.div}
-              animate={{ y: [500, 0] }}
-              transition={{ type: "spring", duration: 0.75 }}
+              animate={{ y: [-500, 0], opacity: [0, 1] }}
+              transition={{ type: "spring", duration: 1, delay: 0.5 }}
             >
               <Typography level="body-lg">I speak</Typography>
               <Grid
@@ -253,8 +261,8 @@ export default function App() {
           >
             <Card
               component={motion.div}
-              animate={{ y: [500, 0] }}
-              transition={{ type: "spring", duration: 0.75, delay: 0.1 }}
+              animate={{ y: [-500, 0], opacity: [0, 1] }}
+              transition={{ type: "spring", duration: 1, delay: 0.6 }}
             >
               <Typography level="body-lg">Tools/frameworks I know</Typography>
               <Grid
@@ -374,8 +382,8 @@ export default function App() {
           >
             <Card
               component={motion.div}
-              animate={{ y: [500, 0] }}
-              transition={{ type: "spring", duration: 0.75, delay: 0.2 }}
+              animate={{ y: [-500, 0], opacity: [0, 1] }}
+              transition={{ type: "spring", duration: 1, delay: 0.7 }}
             >
               <Typography level="body-lg">Projects</Typography>
               <Grid
@@ -393,7 +401,12 @@ export default function App() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <Link href="https://github.com/Starfield-Reverse-Engineering/CommonLibSF">
+                  <Link
+                    href="https://github.com/Starfield-Reverse-Engineering/CommonLibSF"
+                    component={motion.a}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
                     CommonLibSF
                   </Link>
                   <Typography level="body-sm" width="67%" textAlign="center">
@@ -410,7 +423,14 @@ export default function App() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <Link href="https://gig.quest">gig.quest</Link>
+                  <Link
+                    href="https://gig.quest"
+                    component={motion.a}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    gig.quest
+                  </Link>
                   <Typography level="body-sm" width="67%" textAlign="center">
                     A simple web app for finding concerts and other events
                     nearby
@@ -423,7 +443,12 @@ export default function App() {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <Link href="https://en.wikipedia.org/wiki/Pintos">
+                  <Link
+                    href="https://en.wikipedia.org/wiki/Pintos"
+                    component={motion.a}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
                     PintOS
                   </Link>
                   <Typography level="body-sm" width="67%" textAlign="center">
