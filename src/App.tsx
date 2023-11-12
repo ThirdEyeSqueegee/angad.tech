@@ -94,7 +94,7 @@ export default function App() {
             flexDirection="column"
             alignItems="center"
             width={ratio > 4 / 3 ? "50%" : "80%"}
-            gap={1}
+            gap={2}
           >
             <Typography>
               I am a B.S. Computer Science & Engineering graduate from UCLA,
