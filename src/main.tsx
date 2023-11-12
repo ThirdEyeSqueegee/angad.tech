@@ -16,11 +16,6 @@ const theme = extendTheme({
         placement: "top",
       },
     },
-    JoyCard: {
-      defaultProps: {
-        sx: { width: "100%", height: "100%", alignItems: "center" },
-      },
-    },
     JoyLink: {
       defaultProps: {
         target: "_blank",
