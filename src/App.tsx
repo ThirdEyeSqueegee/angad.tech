@@ -1,3 +1,4 @@
+import { GitHub, LinkedIn, TextSnippet } from "@mui/icons-material";
 import { Box, Card, Divider, Grid, Link, Tooltip, Typography } from "@mui/joy";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { motion } from "framer-motion";
@@ -34,7 +35,7 @@ export default function App() {
       justifyContent="center"
       alignItems="center"
       gap={2}
-      p={isMobile ? 1 : 2}
+      p={ratio < 4 / 3 ? 1 : 2}
     >
       <Card
         component={motion.div}
@@ -45,15 +46,16 @@ export default function App() {
           delay: 0.5,
         }}
         sx={{
-          width: isMobile ? "97.5%" : "80%",
+          width: ratio < 4 / 3 ? "97.5%" : "80%",
           alignItems: "center",
         }}
       >
         <Typography
-          fontSize={ratio > 4 / 3 ? "3rem" : "2.75rem"}
+          fontSize={ratio > 4 / 3 ? "4rem" : "2.75rem"}
           component={motion.span}
           whileHover={{ rotate: [0, 3, -3, 3, -3, 0] }}
           transition={{ duration: 0.75 }}
+          sx={{ userSelect: "none" }}
         >
           <TypeIt>Hello, world!</TypeIt>
         </Typography>
@@ -64,8 +66,8 @@ export default function App() {
           alignItems="center"
           justifyContent="space-evenly"
           width="100%"
-          gap={2}
-          mt={1}
+          gap={3}
+          my={3}
         >
           <motion.img
             src={mugshot}
@@ -106,14 +108,16 @@ export default function App() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 href={resume}
+                startDecorator={<TextSnippet />}
               >
-                Resum&eacute;
+                R&eacute;sum&eacute;
               </Link>
               <Link
                 component={motion.a}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 href="https://github.com/ThirdEyeSqueegee"
+                startDecorator={<GitHub />}
               >
                 GitHub
               </Link>
@@ -122,6 +126,7 @@ export default function App() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 href=""
+                startDecorator={<LinkedIn />}
               >
                 LinkedIn
               </Link>
@@ -149,7 +154,7 @@ export default function App() {
       <Box
         display="flex"
         justifyContent="center"
-        width={isMobile ? "97.5%" : "80%"}
+        width={ratio < 4 / 3 ? "97.5%" : "80%"}
         gap={2}
         {...(ratio < 4 / 3 && { flexDirection: "column" })}
       >
@@ -161,10 +166,10 @@ export default function App() {
             sx={{ alignItems: "center", width: "100%" }}
           >
             <Typography level="body-lg">I speak</Typography>
+            <Divider />
             <Grid
               container
               justifyContent="center"
-              mt={1}
               rowSpacing={5}
               height="100%"
               width="100%"
@@ -236,10 +241,10 @@ export default function App() {
             sx={{ alignItems: "center", width: "100%" }}
           >
             <Typography level="body-lg">Tools/frameworks I know</Typography>
+            <Divider />
             <Grid
               container
               justifyContent="center"
-              mt={1}
               rowSpacing={5}
               height="100%"
               width="100%"
@@ -353,10 +358,10 @@ export default function App() {
             sx={{ alignItems: "center", width: "100%" }}
           >
             <Typography level="body-lg">Projects</Typography>
+            <Divider />
             <Grid
               container
               justifyContent="center"
-              mt={1}
               rowSpacing={3}
               height="100%"
               width="100%"
