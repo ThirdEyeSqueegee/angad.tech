@@ -20,6 +20,7 @@ import postgres from "./assets/postgres.svg";
 import python from "./assets/python.svg";
 import pytorch from "./assets/pytorch.svg";
 import react from "./assets/react.svg";
+import spring from "./assets/spring.svg";
 import ts from "./assets/typescript.svg";
 import x64 from "./assets/x64.svg";
 import { TooltipIcon } from "./components/TooltipIcon";
@@ -101,6 +102,7 @@ export default function App() {
                 <GitHubCalendar
                   username="ThirdEyeSqueegee"
                   hideColorLegend
+                  hideMonthLabels
                   blockSize={ratio > 4 / 3 ? 10 : 6}
                   blockMargin={ratio > 4 / 3 ? 2 : 1}
                   renderBlock={(b, a) => (
@@ -108,7 +110,6 @@ export default function App() {
                       {b}
                     </Tooltip>
                   )}
-                  {...(ratio < 4 / 3 && { hideMonthLabels: true })}
                 />
               </m.div>
             </Box>
@@ -183,10 +184,13 @@ export default function App() {
                 <Grid xs={4} display="flex" justifyContent="center" alignItems="center">
                   <TooltipIcon src={node} title="Node.js" width="75px" href="https://nodejs.org" />
                 </Grid>
-                <Grid xs={6} display="flex" justifyContent="center" alignItems="center">
+                <Grid xs={4} display="flex" justifyContent="center" alignItems="center">
                   <TooltipIcon src={pytorch} title="PyTorch" href="https://pytorch.org" />
                 </Grid>
-                <Grid xs={6} display="flex" justifyContent="center" alignItems="center">
+                <Grid xs={4} display="flex" justifyContent="center" alignItems="center">
+                  <TooltipIcon src={spring} title="Spring" href="https://spring.io" />
+                </Grid>
+                <Grid xs={4} display="flex" justifyContent="center" alignItems="center">
                   <TooltipIcon src={ida} title="IDA Pro" href="https://hex-rays.com/ida-pro" />
                 </Grid>
               </Grid>
