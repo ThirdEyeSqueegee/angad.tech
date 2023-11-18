@@ -15,16 +15,9 @@ export const MainCard = () => {
   return (
     <Card
       component={m.div}
-      animate={{ scaleX: [0, 1] }}
-      transition={{
-        type: "spring",
-        duration: 1,
-        delay: 0.5,
-      }}
-      sx={{
-        width: isWidescreen ? "80%" : "97.5%",
-        alignItems: "center",
-      }}
+      animate={{ scaleX: [0, 1], transition: { type: "spring", duration: 1, delay: 0.5 } }}
+      whileHover={{ boxShadow: "#555555 0 0 10px", transition: { duration: 0.25 } }}
+      sx={{ alignItems: "center", width: isWidescreen ? "80%" : "97.5%" }}
     >
       <Header isWidescreen={isWidescreen} />
       <Divider />
