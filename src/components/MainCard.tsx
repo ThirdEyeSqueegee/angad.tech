@@ -25,8 +25,7 @@ export const MainCard = () => {
         <Box
           display="grid"
           component={m.div}
-          animate={{ scale: [0, 1], rotate: 360 }}
-          transition={{ type: "spring", delay: 0.5 }}
+          animate={{ scale: [0, 1], rotate: 360, transition: { type: "spring", delay: 0.5 } }}
           {...(!isMobile && {
             drag: true,
             dragSnapToOrigin: true,
@@ -58,8 +57,7 @@ export const MainCard = () => {
               gridRow: 1,
               gridColumn: 1,
             }}
-            animate={{ rotate: 360 }}
-            transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+            animate={{ rotate: 360, transition: { repeat: Infinity, duration: 25, ease: "linear" } }}
           />
         </Box>
         <Box display="flex" flexDirection="column" alignItems="center" width={isWidescreen ? "50%" : "80%"} gap={2}>
@@ -80,11 +78,17 @@ export const MainCard = () => {
             >
               GitHub
             </Link>
-            <Link component={m.a} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} href="" startDecorator={<LinkedIn />}>
+            <Link
+              component={m.a}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              href="https://www.linkedin.com/in/angadmisra"
+              startDecorator={<LinkedIn />}
+            >
               LinkedIn
             </Link>
           </Box>
-          <m.div animate={{ scale: [0, 1] }} transition={{ delay: 1 }}>
+          <m.div animate={{ scale: [0, 1], transition: { delay: 1 } }}>
             <GitHubCalendar
               username="ThirdEyeSqueegee"
               hideColorLegend
@@ -92,7 +96,12 @@ export const MainCard = () => {
               blockSize={isWidescreen ? 10 : 6}
               blockMargin={isWidescreen ? 2 : 1}
               renderBlock={(b, a) => (
-                <Tooltip title={`${new Date(a.date).toLocaleDateString()}`} size="sm" component={m.div} animate={{ opacity: [0, 1] }}>
+                <Tooltip
+                  title={`${a.count} contributions on ${new Date(a.date).toLocaleDateString()}`}
+                  size="sm"
+                  component={m.div}
+                  animate={{ opacity: [0, 1] }}
+                >
                   {b}
                 </Tooltip>
               )}

@@ -5,8 +5,8 @@ export const ProjectsCard = () => {
   return (
     <Card
       component={m.div}
-      animate={{ y: [-500, 0], opacity: [0, 1] }}
-      transition={{ type: "spring", duration: 1, delay: 0.7 }}
+      animate={{ y: [-500, 0], opacity: [0, 1], transition: { type: "spring", duration: 1, delay: 0.7 } }}
+      whileHover={{ boxShadow: "#555555 0 0 10px", transition: { duration: 0.25 } }}
       sx={{ alignItems: "center", width: "100%" }}
     >
       <Typography level="body-lg">Projects</Typography>

@@ -1,4 +1,4 @@
-import "@fontsource/fira-code";
+import "@fontsource-variable/fira-code";
 import CssBaseline from "@mui/joy/CssBaseline";
 import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
 import React from "react";
@@ -24,10 +24,10 @@ const theme = extendTheme({
     },
   },
   fontFamily: {
-    body: "Fira Code",
-    display: "Fira Code",
-    code: "Fira Code",
-    fallback: "Fira Code",
+    body: "Fira Code Variable",
+    display: "Fira Code Variable",
+    code: "Fira Code Variable",
+    fallback: "Fira Code Variable",
   },
 });
 
