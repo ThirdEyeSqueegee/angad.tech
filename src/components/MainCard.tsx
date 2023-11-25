@@ -64,7 +64,7 @@ export const MainCard = () => {
         <Box alignItems="center" display="flex" flexDirection="column" gap={2} width={isWidescreen ? "50%" : "80%"}>
           <Typography>
             I am a B.S. Computer Science & Engineering graduate from UCLA, focusing in system programming and data engineering. My interests include
-            reverse engineering, game programming, neural networks and deep learning, computer vision, and artificial intelligence.
+            reverse engineering, game programming, web development, AI/ML, and computability theory.
           </Typography>
           <Box display="flex" gap={3} mb={1}>
             <Link component={m.a} href={resume} startDecorator={<TextSnippet />} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
