@@ -4,40 +4,40 @@ import { m } from "framer-motion";
 export const ProjectsCard = () => {
   return (
     <Card
+      animate={{ opacity: [0, 1], transition: { delay: 0.7, duration: 1, type: "spring" }, y: [-500, 0] }}
       component={m.div}
-      animate={{ y: [-500, 0], opacity: [0, 1], transition: { type: "spring", duration: 1, delay: 0.7 } }}
-      whileHover={{ boxShadow: "#555555 0 0 10px", transition: { duration: 0.25 } }}
       sx={{ alignItems: "center", width: "100%" }}
+      whileHover={{ boxShadow: "#555555 0 0 10px", transition: { duration: 0.25 } }}
     >
       <Typography level="body-lg">Projects</Typography>
       <Divider />
-      <Grid container justifyContent="center" rowSpacing={3} height="100%" width="100%">
-        <Grid xs={12} display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+      <Grid container height="100%" justifyContent="center" rowSpacing={3} width="100%">
+        <Grid alignItems="center" display="flex" flexDirection="column" justifyContent="center" xs={12}>
           <Link
-            href="https://github.com/Starfield-Reverse-Engineering/CommonLibSF"
             component={m.a}
+            href="https://github.com/Starfield-Reverse-Engineering/CommonLibSF"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
             CommonLibSF
           </Link>
-          <Typography level="body-sm" width="67%" textAlign="center">
+          <Typography level="body-sm" textAlign="center" width="67%">
             A collaborative reverse-engineered library for hacking <Link href="https://bethesda.net/en/game/starfield">Starfield</Link>
           </Typography>
         </Grid>
-        <Grid xs={12} display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-          <Link href="https://gig.quest" component={m.a} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+        <Grid alignItems="center" display="flex" flexDirection="column" justifyContent="center" xs={12}>
+          <Link component={m.a} href="https://gig.quest" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             gig.quest
           </Link>
-          <Typography level="body-sm" width="67%" textAlign="center">
+          <Typography level="body-sm" textAlign="center" width="67%">
             A simple web app for finding concerts and other events nearby
           </Typography>
         </Grid>
-        <Grid xs={12} display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-          <Link href="https://en.wikipedia.org/wiki/Pintos" component={m.a} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+        <Grid alignItems="center" display="flex" flexDirection="column" justifyContent="center" xs={12}>
+          <Link component={m.a} href="https://en.wikipedia.org/wiki/Pintos" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             PintOS
           </Link>
-          <Typography level="body-sm" width="67%" textAlign="center">
+          <Typography level="body-sm" textAlign="center" width="67%">
             Full implementation of a POSIX-compliant operating system in C{" "}
             <Typography fontSize="0.75rem">(source code provided upon request)</Typography>
           </Typography>

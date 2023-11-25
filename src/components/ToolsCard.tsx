@@ -1,5 +1,6 @@
 import { Card, Divider, Grid, Typography } from "@mui/joy";
 import { m } from "framer-motion";
+
 import aws from "../assets/aws.svg";
 import cmake from "../assets/cmake.svg";
 import ida from "../assets/ida.svg";
@@ -14,40 +15,40 @@ import { TooltipIcon } from "./TooltipIcon";
 export const ToolsCard = () => {
   return (
     <Card
+      animate={{ opacity: [0, 1], transition: { delay: 0.6, duration: 1, type: "spring" }, y: [-500, 0] }}
       component={m.div}
-      animate={{ y: [-500, 0], opacity: [0, 1], transition: { type: "spring", duration: 1, delay: 0.6 } }}
-      whileHover={{ boxShadow: "#555555 0 0 10px", transition: { duration: 0.25 } }}
       sx={{ alignItems: "center", width: "100%" }}
+      whileHover={{ boxShadow: "#555555 0 0 10px", transition: { duration: 0.25 } }}
     >
       <Typography level="body-lg">Tools/frameworks I know</Typography>
       <Divider />
-      <Grid container justifyContent="center" rowSpacing={5} height="100%" width="100%">
-        <Grid xs={4} display="flex" justifyContent="center" alignItems="center">
-          <TooltipIcon src={cmake} title="CMake" href="https://cmake.org" />
+      <Grid container height="100%" justifyContent="center" rowSpacing={5} width="100%">
+        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
+          <TooltipIcon href="https://cmake.org" src={cmake} title="CMake" />
         </Grid>
-        <Grid xs={4} display="flex" justifyContent="center" alignItems="center">
-          <TooltipIcon src={react} title="React" href="https://react.dev" />
+        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
+          <TooltipIcon href="https://react.dev" src={react} title="React" />
         </Grid>
-        <Grid xs={4} display="flex" justifyContent="center" alignItems="center">
-          <TooltipIcon src={postgres} title="PostgreSQL" href="https://www.postgresql.org" />
+        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
+          <TooltipIcon href="https://www.postgresql.org" src={postgres} title="PostgreSQL" />
         </Grid>
-        <Grid xs={4} display="flex" justifyContent="center" alignItems="center">
-          <TooltipIcon src={aws} title="AWS Cloud Suite" href="https://aws.amazon.com" />
+        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
+          <TooltipIcon href="https://aws.amazon.com" src={aws} title="AWS Cloud Suite" />
         </Grid>
-        <Grid xs={4} display="flex" justifyContent="center" alignItems="center">
-          <TooltipIcon src={pandas} title="Pandas" width="75px" href="https://pandas.pydata.org" />
+        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
+          <TooltipIcon href="https://pandas.pydata.org" src={pandas} title="Pandas" width="75px" />
         </Grid>
-        <Grid xs={4} display="flex" justifyContent="center" alignItems="center">
-          <TooltipIcon src={node} title="Node.js" width="75px" href="https://nodejs.org" />
+        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
+          <TooltipIcon href="https://nodejs.org" src={node} title="Node.js" width="75px" />
         </Grid>
-        <Grid xs={4} display="flex" justifyContent="center" alignItems="center">
-          <TooltipIcon src={pytorch} title="PyTorch" href="https://pytorch.org" />
+        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
+          <TooltipIcon href="https://pytorch.org" src={pytorch} title="PyTorch" />
         </Grid>
-        <Grid xs={4} display="flex" justifyContent="center" alignItems="center">
-          <TooltipIcon src={spring} title="Spring" href="https://spring.io" />
+        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
+          <TooltipIcon href="https://spring.io" src={spring} title="Spring" />
         </Grid>
-        <Grid xs={4} display="flex" justifyContent="center" alignItems="center">
-          <TooltipIcon src={ida} title="IDA Pro" href="https://hex-rays.com/ida-pro" />
+        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
+          <TooltipIcon href="https://hex-rays.com/ida-pro" src={ida} title="IDA Pro" />
         </Grid>
       </Grid>
     </Card>

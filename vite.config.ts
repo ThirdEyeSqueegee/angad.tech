@@ -1,11 +1,30 @@
 import react from "@vitejs/plugin-react-swc";
-import { defineConfig } from "vite";
+import { defineConfig, splitVendorChunkPlugin } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react({ devTarget: "esnext" })],
   build: {
+    cssMinify: "lightningcss",
+    rollupOptions: {
+      output: {
+        generatedCode: {
+          arrowFunctions: true,
+          constBindings: true,
+          objectShorthand: true,
+          preset: "es2015",
+        },
+      },
+    },
     target: "esnext",
-    sourcemap: true,
+  },
+  css: {
+    transformer: "lightningcss",
+  },
+  plugins: [react({ devTarget: "esnext" }), splitVendorChunkPlugin()],
+  resolve: {
+    alias: {
+      "@mui/joy": "@mui/joy/modern",
+      "@mui/material": "@mui/joy/modern",
+    },
   },
 });
