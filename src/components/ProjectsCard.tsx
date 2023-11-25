@@ -1,13 +1,14 @@
 import { Card, Divider, Grid, Link, Typography } from "@mui/joy";
 import { m } from "framer-motion";
+import { memo } from "react";
 
-export const ProjectsCard = () => {
+export const ProjectsCard = memo(function ProjectsCard() {
   return (
     <Card
       animate={{ opacity: [0, 1], transition: { delay: 0.7, duration: 1, type: "spring" }, y: [-500, 0] }}
       component={m.div}
       sx={{ alignItems: "center", width: "100%" }}
-      whileHover={{ boxShadow: "#555555 0 0 10px", transition: { duration: 0.25 } }}
+      whileHover={{ boxShadow: "#555555 0 0 10px", transition: { duration: 0.05 } }}
     >
       <Typography level="body-lg">Projects</Typography>
       <Divider />
@@ -45,4 +46,4 @@ export const ProjectsCard = () => {
       </Grid>
     </Card>
   );
-};
+});

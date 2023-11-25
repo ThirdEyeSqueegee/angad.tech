@@ -1,8 +1,9 @@
 import { Tooltip } from "@mui/joy";
 import { m } from "framer-motion";
+import { memo } from "react";
 import { isMobile } from "react-device-detect";
 
-export const TooltipIcon = (props: { height?: string; href?: string; src: string; title: string; width?: string }) => {
+export const TooltipIcon = memo(function TooltipIcon(props: { height?: string; href?: string; src: string; title: string; width?: string }) {
   const { height, href, src, title, width } = props;
 
   return (
@@ -27,4 +28,4 @@ export const TooltipIcon = (props: { height?: string; href?: string; src: string
       )}
     </Tooltip>
   );
-};
+});

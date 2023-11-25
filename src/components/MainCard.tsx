@@ -1,26 +1,27 @@
 import { GitHub, LinkedIn, TextSnippet } from "@mui/icons-material";
 import { Box, Card, Divider, Link, Tooltip, Typography } from "@mui/joy";
+import { useWindowSize } from "@uidotdev/usehooks";
 import { m } from "framer-motion";
-import { useContext } from "react";
+import { memo } from "react";
 import { isMobile } from "react-device-detect";
 import GitHubCalendar from "react-github-calendar";
 
 import resume from "../assets/Angad Misra - Resume.pdf";
 import mugshot from "../assets/mugshot.png";
-import { ScreenContext } from "../contexts/ScreenContext";
 import { Header } from "./Header";
 
-export const MainCard = () => {
-  const { isWidescreen } = useContext(ScreenContext);
+export const MainCard = memo(function MainCard() {
+  const { height, width } = useWindowSize();
+  const isWidescreen = width! / height! > 4 / 3;
 
   return (
     <Card
       animate={{ scaleX: [0, 1], transition: { delay: 0.5, duration: 1, type: "spring" } }}
       component={m.div}
       sx={{ alignItems: "center", width: isWidescreen ? "80%" : "97.5%" }}
-      whileHover={{ boxShadow: "#555555 0 0 10px", transition: { duration: 0.25 } }}
+      whileHover={{ boxShadow: "#555555 0 0 10px", transition: { duration: 0.05 } }}
     >
-      <Header isWidescreen={isWidescreen} />
+      <Header />
       <Divider />
       <Box alignItems="center" display="flex" flexWrap="wrap" gap={3} justifyContent="space-evenly" my={3} width="100%">
         <Box
@@ -112,4 +113,4 @@ export const MainCard = () => {
       </Box>
     </Card>
   );
-};
+});

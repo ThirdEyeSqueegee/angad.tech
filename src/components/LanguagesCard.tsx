@@ -1,5 +1,6 @@
 import { Card, Divider, Grid, Typography } from "@mui/joy";
 import { m } from "framer-motion";
+import { memo } from "react";
 
 import c from "../assets/c.svg";
 import cpp from "../assets/cpp.svg";
@@ -10,13 +11,13 @@ import ts from "../assets/typescript.svg";
 import x64 from "../assets/x64.svg";
 import { TooltipIcon } from "./TooltipIcon";
 
-export const LanguagesCard = () => {
+export const LanguagesCard = memo(function LanguagesCard() {
   return (
     <Card
       animate={{ opacity: [0, 1], transition: { delay: 0.5, duration: 1, type: "spring" }, y: [-500, 0] }}
       component={m.div}
       sx={{ alignItems: "center", width: "100%" }}
-      whileHover={{ boxShadow: "#555555 0 0 10px", transition: { duration: 0.25 } }}
+      whileHover={{ boxShadow: "#555555 0 0 10px", transition: { duration: 0.05 } }}
     >
       <Typography level="body-lg">I speak</Typography>
       <Divider />
@@ -45,4 +46,4 @@ export const LanguagesCard = () => {
       </Grid>
     </Card>
   );
-};
+});

@@ -1,10 +1,13 @@
 import { GitHub } from "@mui/icons-material";
 import { IconButton, Link, Typography } from "@mui/joy";
+import { useWindowSize } from "@uidotdev/usehooks";
 import { m } from "framer-motion";
+import { memo } from "react";
 import TypeIt from "typeit-react";
 
-export const Header = (props: { isWidescreen: boolean }) => {
-  const { isWidescreen } = props;
+export const Header = memo(function Header() {
+  const { height, width } = useWindowSize();
+  const isWidescreen = width! / height! > 4 / 3;
 
   return (
     <>
@@ -18,8 +21,8 @@ export const Header = (props: { isWidescreen: boolean }) => {
         sx={{ userSelect: "none" }}
         whileHover={{ rotate: [0, 3, -3, 3, -3, 0], transition: { duration: 0.75 } }}
       >
-        <TypeIt>Hello, world!</TypeIt>
+        <TypeIt options={{ cursor: false }}>Hello, world!</TypeIt>
       </Typography>
     </>
   );
-};
+});
