@@ -4,14 +4,14 @@ import { memo } from "react";
 
 import aws from "../assets/aws.svg";
 import cmake from "../assets/cmake.svg";
-import ida from "../assets/ida.svg";
+import ida from "../assets/ida.png";
 import node from "../assets/node.svg";
 import pandas from "../assets/pandas.svg";
 import postgres from "../assets/postgres.svg";
 import pytorch from "../assets/pytorch.svg";
 import react from "../assets/react.svg";
 import spring from "../assets/spring.svg";
-import { TooltipIcon } from "./TooltipIcon";
+import { TooltipIcon } from "../atoms/TooltipIcon";
 
 export const ToolsCard = memo(function ToolsCard() {
   return (

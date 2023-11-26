@@ -23,7 +23,7 @@
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
     "react-github-calendar": "^4.0.6",
-    "typeit-react": "^2.6.4"
+    "typeit-react": "^2.7.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.38",
@@ -48,7 +48,7 @@
       "prettier-plugin-organize-imports"
     ],
     "printWidth": 150,
-    "arrowParens": "avoid",
-    "endOfLine": "crlf"
+    "endOfLine": "crlf",
+    "experimentalTernaries": true
   }
 }

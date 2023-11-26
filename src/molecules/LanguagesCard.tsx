@@ -9,7 +9,7 @@ import java from "../assets/java.svg";
 import python from "../assets/python.svg";
 import ts from "../assets/typescript.svg";
 import x64 from "../assets/x64.svg";
-import { TooltipIcon } from "./TooltipIcon";
+import { TooltipIcon } from "../atoms/TooltipIcon";
 
 export const LanguagesCard = memo(function LanguagesCard() {
   return (

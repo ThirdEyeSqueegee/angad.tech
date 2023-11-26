@@ -3,10 +3,10 @@ import { useWindowSize } from "@uidotdev/usehooks";
 import { LazyMotion, domMax } from "framer-motion";
 import { memo } from "react";
 
-import { LanguagesCard } from "./components/LanguagesCard";
-import { MainCard } from "./components/MainCard";
-import { ProjectsCard } from "./components/ProjectsCard";
-import { ToolsCard } from "./components/ToolsCard";
+import { LanguagesCard } from "./molecules/LanguagesCard";
+import { MainCard } from "./molecules/MainCard";
+import { ProjectsCard } from "./molecules/ProjectsCard";
+import { ToolsCard } from "./molecules/ToolsCard";
 
 export const App = memo(function App() {
   const { height, width } = useWindowSize();

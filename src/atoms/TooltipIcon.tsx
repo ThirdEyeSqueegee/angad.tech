@@ -8,12 +8,11 @@ export const TooltipIcon = memo(function TooltipIcon(props: { height?: string; h
 
   return (
     <Tooltip animate={{ opacity: [0, 1] }} component={m.div} title={title}>
-      {href ? (
+      {href ?
         <m.a href={href} rel="noopener noreferrer" style={{ height: height ? height : "50px" }} target="_blank">
           <m.img height={height ? height : "50px"} src={src} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} width={width ? width : "50px"} />
         </m.a>
-      ) : (
-        <m.img
+      : <m.img
           height={height ? height : "50px"}
           src={src}
           whileHover={{ scale: 1.1 }}
@@ -25,7 +24,7 @@ export const TooltipIcon = memo(function TooltipIcon(props: { height?: string; h
             dragTransition: { bounceDamping: 10, bounceStiffness: 500 },
           })}
         />
-      )}
+      }
     </Tooltip>
   );
 });

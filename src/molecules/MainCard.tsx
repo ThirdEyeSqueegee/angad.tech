@@ -8,7 +8,7 @@ import GitHubCalendar from "react-github-calendar";
 
 import resume from "../assets/Angad Misra - Resume.pdf";
 import mugshot from "../assets/mugshot.png";
-import { Header } from "./Header";
+import { Header } from "../atoms/Header";
 
 export const MainCard = memo(function MainCard() {
   const { height, width } = useWindowSize();
