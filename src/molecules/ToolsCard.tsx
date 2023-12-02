@@ -1,5 +1,4 @@
 import { Card, Divider, Grid, Typography } from "@mui/joy";
-import { m } from "framer-motion";
 import { memo } from "react";
 
 import aws from "../assets/aws.svg";
@@ -15,43 +14,58 @@ import { TooltipIcon } from "../atoms/TooltipIcon";
 
 export const ToolsCard = memo(function ToolsCard() {
   return (
-    <Card
-      animate={{ opacity: [0, 1], transition: { delay: 0.6, duration: 1, type: "spring" }, y: [-500, 0] }}
-      component={m.div}
-      sx={{ alignItems: "center", width: "100%" }}
-      whileHover={{ boxShadow: "#555555 0 0 10px", transition: { duration: 0.05 } }}
-    >
+    <Card {...styles.card}>
       <Typography level="body-lg">Tools/frameworks I know</Typography>
       <Divider />
-      <Grid container height="100%" justifyContent="center" rowSpacing={5} width="100%">
-        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
+      <Grid {...styles.gridContainer}>
+        <Grid {...styles.gridItem}>
           <TooltipIcon href="https://cmake.org" src={cmake} title="CMake" />
         </Grid>
-        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
+        <Grid {...styles.gridItem}>
           <TooltipIcon href="https://react.dev" src={react} title="React" />
         </Grid>
-        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
+        <Grid {...styles.gridItem}>
           <TooltipIcon href="https://www.postgresql.org" src={postgres} title="PostgreSQL" />
         </Grid>
-        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
+        <Grid {...styles.gridItem}>
           <TooltipIcon href="https://aws.amazon.com" src={aws} title="AWS Cloud Suite" />
         </Grid>
-        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
-          <TooltipIcon href="https://pandas.pydata.org" src={pandas} title="Pandas" width="75px" />
+        <Grid {...styles.gridItem}>
+          <TooltipIcon href="https://pandas.pydata.org" src={pandas} title="Pandas" width={75} />
         </Grid>
-        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
-          <TooltipIcon href="https://nodejs.org" src={node} title="Node.js" width="75px" />
+        <Grid {...styles.gridItem}>
+          <TooltipIcon href="https://nodejs.org" src={node} title="Node.js" width={75} />
         </Grid>
-        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
+        <Grid {...styles.gridItem}>
           <TooltipIcon href="https://pytorch.org" src={pytorch} title="PyTorch" />
         </Grid>
-        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
+        <Grid {...styles.gridItem}>
           <TooltipIcon href="https://spring.io" src={spring} title="Spring" />
         </Grid>
-        <Grid alignItems="center" display="flex" justifyContent="center" xs={4}>
+        <Grid {...styles.gridItem}>
           <TooltipIcon href="https://hex-rays.com/ida-pro" src={ida} title="IDA Pro" />
         </Grid>
       </Grid>
     </Card>
   );
 });
+
+const styles = {
+  card: {
+    animate: { opacity: [0, 1], transition: { delay: 0.6, duration: 1, type: "spring" }, y: [-500, 0] },
+    whileHover: { boxShadow: "#555555 0 0 10px", transition: { duration: 0.05 } },
+  },
+  gridContainer: {
+    container: true,
+    height: 1,
+    justifyContent: "center",
+    rowSpacing: 5,
+    width: 1,
+  },
+  gridItem: {
+    alignItems: "center",
+    display: "flex",
+    justifyContent: "center",
+    xs: 4,
+  },
+};

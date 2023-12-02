@@ -4,7 +4,7 @@ import { CssVarsProvider } from "@mui/joy/styles";
 import { createRoot } from "react-dom/client";
 
 import { App } from "./App.tsx";
-import { theme } from "./theme.ts";
+import { theme } from "./Theme.ts";
 
 createRoot(document.getElementById("root")!).render(
   <CssVarsProvider defaultMode="dark" theme={theme}>

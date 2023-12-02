@@ -1,7 +1,19 @@
 import { extendTheme } from "@mui/joy";
+import { m } from "framer-motion";
 
 export const theme = extendTheme({
   components: {
+    JoyCard: {
+      defaultProps: {
+        component: m.div,
+        sx: {
+          alignItems: "center",
+          height: 1,
+          justifyContent: "center",
+          width: 1,
+        },
+      },
+    },
     JoyLink: {
       defaultProps: {
         rel: "noopener noreferrer",
@@ -15,8 +27,8 @@ export const theme = extendTheme({
         followCursor: true,
         placement: "top",
         sx: {
-          backdropFilter: "blur(10px)",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          backdropFilter: "blur(8px)",
+          backgroundColor: "rgba(0, 0, 0, 0.25)",
         },
         variant: "soft",
       },

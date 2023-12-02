@@ -1,8 +1,8 @@
-import { Box } from "@mui/joy";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { LazyMotion, domMax } from "framer-motion";
 import { memo } from "react";
 
+import { Flexbox } from "./atoms/Flexbox.tsx";
 import { LanguagesCard } from "./molecules/LanguagesCard";
 import { MainCard } from "./molecules/MainCard";
 import { ProjectsCard } from "./molecules/ProjectsCard";
@@ -14,26 +14,20 @@ export const App = memo(function App() {
 
   return (
     <LazyMotion features={domMax} strict>
-      <Box alignItems="center" display="flex" flexDirection="column" gap={2} justifyContent="center" p={isWidescreen ? 2 : 1}>
+      <Flexbox flexDirection="column" gap={2} p={isWidescreen ? 2 : 1}>
         <MainCard />
-        <Box
-          display="flex"
-          gap={2}
-          justifyContent="center"
-          width={isWidescreen ? "80%" : "97.5%"}
-          {...(!isWidescreen && { flexDirection: "column" })}
-        >
-          <Box display="flex" flex={1} justifyContent="center">
+        <Flexbox alignItems="stretch" gap={2} width={isWidescreen ? 0.8 : 0.975} {...(!isWidescreen && { flexDirection: "column" })}>
+          <Flexbox flex={1}>
             <LanguagesCard />
-          </Box>
-          <Box display="flex" flex={1} justifyContent="center">
+          </Flexbox>
+          <Flexbox flex={1}>
             <ToolsCard />
-          </Box>
-          <Box display="flex" flex={1} justifyContent="center">
+          </Flexbox>
+          <Flexbox flex={1}>
             <ProjectsCard />
-          </Box>
-        </Box>
-      </Box>
+          </Flexbox>
+        </Flexbox>
+      </Flexbox>
     </LazyMotion>
   );
 });

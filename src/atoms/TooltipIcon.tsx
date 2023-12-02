@@ -1,30 +1,32 @@
 import { Tooltip } from "@mui/joy";
 import { m } from "framer-motion";
 import { memo } from "react";
-import { isMobile } from "react-device-detect";
 
-export const TooltipIcon = memo(function TooltipIcon(props: { height?: string; href?: string; src: string; title: string; width?: string }) {
+export const TooltipIcon = memo(function TooltipIcon(props: { height?: number; href?: string; src: string; title: string; width?: number }) {
   const { height, href, src, title, width } = props;
 
   return (
-    <Tooltip animate={{ opacity: [0, 1] }} component={m.div} title={title}>
+    <Tooltip title={title} {...styles.tooltip}>
       {href ?
-        <m.a href={href} rel="noopener noreferrer" style={{ height: height ? height : "50px" }} target="_blank">
-          <m.img height={height ? height : "50px"} src={src} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} width={width ? width : "50px"} />
+        <m.a href={href} {...styles.a}>
+          <m.img height={height ?? 50} src={src} width={width ?? 50} {...styles.img} />
         </m.a>
-      : <m.img
-          height={height ? height : "50px"}
-          src={src}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          width={width ? width : "50px"}
-          {...(!isMobile && {
-            drag: true,
-            dragSnapToOrigin: true,
-            dragTransition: { bounceDamping: 10, bounceStiffness: 500 },
-          })}
-        />
-      }
+      : <m.img height={height ?? 50} src={src} width={width ?? 50} {...styles.img} />}
     </Tooltip>
   );
 });
+
+const styles = {
+  a: {
+    rel: "noopener noreferrer",
+    target: "_blank",
+  },
+  img: {
+    whileHover: { scale: 1.1 },
+    whileTap: { scale: 0.9 },
+  },
+  tooltip: {
+    animate: { opacity: [0, 1] },
+    component: m.div,
+  },
+};

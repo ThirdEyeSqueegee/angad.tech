@@ -11,18 +11,27 @@ export const Header = memo(function Header() {
 
   return (
     <>
-      <IconButton sx={{ "&:hover": { backgroundColor: "transparent" }, position: "absolute", right: "0.5rem", top: "0.5rem" }}>
+      <IconButton sx={styles.iconButton}>
         <GitHub />
         <Link href="https://github.com/ThirdEyeSqueegee/angad.tech" overlay />
       </IconButton>
-      <Typography
-        component={m.span}
-        fontSize={isWidescreen ? "4rem" : "2.75rem"}
-        sx={{ userSelect: "none" }}
-        whileHover={{ rotate: [0, 3, -3, 3, -3, 0], transition: { duration: 0.75 } }}
-      >
+      <Typography fontSize={isWidescreen ? "4rem" : "2.75rem"} {...styles.typography}>
         <TypeIt options={{ cursor: false }}>Hello, world!</TypeIt>
       </Typography>
     </>
   );
 });
+
+const styles = {
+  iconButton: {
+    "&:hover": { backgroundColor: "transparent" },
+    position: "absolute",
+    right: "0.5rem",
+    top: "0.5rem",
+  },
+  typography: {
+    component: m.span,
+    sx: { userSelect: "none" },
+    whileHover: { rotate: [0, 3, -3, 3, -3, 0], transition: { duration: 0.75 } },
+  },
+};
