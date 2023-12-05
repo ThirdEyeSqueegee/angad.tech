@@ -1,6 +1,7 @@
 import { Tooltip } from "@mui/joy";
 import { m } from "framer-motion";
 import { memo } from "react";
+import { isMobile } from "react-device-detect";
 
 export const TooltipIcon = memo(function TooltipIcon(props: { height?: number; href?: string; src: string; title: string; width?: number }) {
   const { height, href, src, title, width } = props;
@@ -18,10 +19,16 @@ export const TooltipIcon = memo(function TooltipIcon(props: { height?: number; h
 
 const styles = {
   a: {
+    drag: !isMobile,
+    dragSnapToOrigin: !isMobile,
+    dragTransition: { bounceDamping: 10, bounceStiffness: 500 },
     rel: "noopener noreferrer",
     target: "_blank",
   },
   img: {
+    drag: !isMobile,
+    dragSnapToOrigin: !isMobile,
+    dragTransition: { bounceDamping: 10, bounceStiffness: 500 },
     whileHover: { scale: 1.1 },
     whileTap: { scale: 0.9 },
   },

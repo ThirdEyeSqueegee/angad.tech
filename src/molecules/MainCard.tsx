@@ -1,10 +1,10 @@
-import { GitHub, LinkedIn, TextSnippet } from "@mui/icons-material";
 import { Card, Divider, Link, Tooltip, Typography } from "@mui/joy";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { m } from "framer-motion";
 import { memo } from "react";
 import { isMobile } from "react-device-detect";
 import GitHubCalendar from "react-github-calendar";
+import { FiFileText, FiGithub, FiLinkedin } from "react-icons/fi";
 
 import resume from "../assets/Angad Misra - Resume.pdf";
 import mugshot from "../assets/mugshot.png";
@@ -30,13 +30,13 @@ export const MainCard = memo(function MainCard() {
             reverse engineering, game programming, web development, AI/ML, and computability theory.
           </Typography>
           <Flexbox display="flex" gap={3} mb={1}>
-            <Link href={resume} startDecorator={<TextSnippet />} {...styles.link}>
+            <Link href={resume} startDecorator={<FiFileText fontSize="1.5rem" />} {...styles.link}>
               R&eacute;sum&eacute;
             </Link>
-            <Link href="https://github.com/ThirdEyeSqueegee" startDecorator={<GitHub />} {...styles.link}>
+            <Link href="https://github.com/ThirdEyeSqueegee" startDecorator={<FiGithub fontSize="1.5rem" />} {...styles.link}>
               GitHub
             </Link>
-            <Link href="https://www.linkedin.com/in/angadmisra" startDecorator={<LinkedIn />} {...styles.link}>
+            <Link href="https://www.linkedin.com/in/angadmisra" startDecorator={<FiLinkedin fontSize="1.5rem" />} {...styles.link}>
               LinkedIn
             </Link>
           </Flexbox>
