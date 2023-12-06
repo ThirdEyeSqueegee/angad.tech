@@ -10,12 +10,12 @@ import { ToolsCard } from "./molecules/ToolsCard";
 
 export const App = memo(function App() {
   const { height, width } = useWindowSize();
-  const isWidescreen = width! / height! > 4 / 3;
+  const isWidescreen = width && height ? width / height > 4 / 3 : undefined;
 
   return (
     <LazyMotion features={domMax} strict>
       <Flexbox flexDirection="column" gap={2} p={isWidescreen ? 2 : 1}>
-        <MainCard />
+        <MainCard isWidescreen={isWidescreen} />
         <Flexbox alignItems="stretch" gap={2} width={isWidescreen ? 0.8 : 0.975} {...(!isWidescreen && { flexDirection: "column" })}>
           <Flexbox flex={1}>
             <LanguagesCard />

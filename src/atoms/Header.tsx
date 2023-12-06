@@ -1,14 +1,12 @@
 import { IconButton, Link, Typography } from "@mui/joy";
-import { useWindowSize } from "@uidotdev/usehooks";
 import { m } from "framer-motion";
 import { memo } from "react";
 import { isMobile } from "react-device-detect";
 import { FiGithub } from "react-icons/fi";
 import TypeIt from "typeit-react";
 
-export const Header = memo(function Header() {
-  const { height, width } = useWindowSize();
-  const isWidescreen = width! / height! > 4 / 3;
+export const Header = memo(function Header(props: { isWidescreen?: boolean }) {
+  const { isWidescreen } = props;
 
   return (
     <>

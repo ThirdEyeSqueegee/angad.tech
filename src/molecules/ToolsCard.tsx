@@ -120,7 +120,7 @@ const styles = {
     component: m.div,
     whileHover: { scale: 1.1 },
     whileTap: { scale: 0.9 },
-    width: 0.25,
+    width: 0.35,
   },
   tooltip: {
     animate: { opacity: [0, 1] },

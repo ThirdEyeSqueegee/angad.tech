@@ -1,5 +1,4 @@
 import { Card, Divider, Link, Tooltip, Typography } from "@mui/joy";
-import { useWindowSize } from "@uidotdev/usehooks";
 import { m } from "framer-motion";
 import { memo } from "react";
 import { isMobile } from "react-device-detect";
@@ -11,9 +10,8 @@ import mugshot from "../assets/mugshot.png";
 import { Flexbox } from "../atoms/Flexbox.tsx";
 import { Header } from "../atoms/Header";
 
-export const MainCard = memo(function MainCard() {
-  const { height, width } = useWindowSize();
-  const isWidescreen = width! / height! > 4 / 3;
+export const MainCard = memo(function MainCard(props: { isWidescreen?: boolean }) {
+  const { isWidescreen } = props;
 
   return (
     <Card sx={{ alignItems: "center", height: 1, justifyContent: "center", width: isWidescreen ? 0.8 : 0.975 }} {...styles.card}>
