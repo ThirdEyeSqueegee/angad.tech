@@ -10,9 +10,9 @@ export const TooltipIcon = memo(function TooltipIcon(props: { height?: number; h
     <Tooltip title={title} {...styles.tooltip}>
       {href ?
         <m.a href={href} {...styles.a}>
-          <m.img height={height ?? 50} src={src} width={width ?? 50} {...styles.img} />
+          <m.img height={height ?? 48} src={src} width={width ?? 48} {...styles.img} />
         </m.a>
-      : <m.img height={height ?? 50} src={src} width={width ?? 50} {...styles.img} />}
+      : <m.img height={height ?? 48} src={src} width={width ?? 48} {...styles.img} />}
     </Tooltip>
   );
 });

@@ -25,7 +25,7 @@ export const MainCard = memo(function MainCard() {
           <m.div {...styles.imgBorder} />
         </Flexbox>
         <Flexbox flexDirection="column" gap={2} width={isWidescreen ? 0.5 : 0.8}>
-          <Typography>
+          <Typography sx={{ userSelect: "none" }}>
             I am a B.S. Computer Science & Engineering graduate from UCLA, focusing in system programming and data engineering. My interests include
             reverse engineering, game programming, web development, AI/ML, and computability theory.
           </Typography>
@@ -71,7 +71,7 @@ const styles = {
   },
   card: {
     animate: { scaleX: [0, 1], transition: { delay: 0.5, duration: 1, type: "spring" } },
-    whileHover: { boxShadow: "#555555 0 0 10px", transition: { duration: 0.05 } },
+    whileHover: { boxShadow: "#555555 0 0 8px", transition: { duration: 0.05 } },
   },
   img: {
     className: "responsive",

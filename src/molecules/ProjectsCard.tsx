@@ -12,7 +12,7 @@ export const ProjectsCard = memo(function ProjectsCard() {
           <Link href="https://github.com/Starfield-Reverse-Engineering/CommonLibSF" {...styles.link}>
             CommonLibSF
           </Link>
-          <Typography level="body-sm" textAlign="center" width="67%">
+          <Typography level="body-sm" textAlign="center" width={0.67}>
             A collaborative reverse-engineered library for hacking <Link href="https://bethesda.net/en/game/starfield">Starfield</Link>
           </Typography>
         </Grid>
@@ -20,7 +20,7 @@ export const ProjectsCard = memo(function ProjectsCard() {
           <Link href="https://gig.quest" {...styles.link}>
             gig.quest
           </Link>
-          <Typography level="body-sm" textAlign="center" width="67%">
+          <Typography level="body-sm" textAlign="center" width={0.67}>
             A simple web app for finding concerts and other events nearby
           </Typography>
         </Grid>
@@ -28,9 +28,8 @@ export const ProjectsCard = memo(function ProjectsCard() {
           <Link href="https://en.wikipedia.org/wiki/Pintos" {...styles.link}>
             PintOS
           </Link>
-          <Typography level="body-sm" textAlign="center" width="67%">
-            Full implementation of a POSIX-compliant operating system in C{" "}
-            <Typography fontSize="0.75rem">(source code provided upon request)</Typography>
+          <Typography level="body-sm" textAlign="center" width={0.67}>
+            Full implementation of a POSIX-compliant operating system in C <Typography fontSize="xs">(source code provided upon request)</Typography>
           </Typography>
         </Grid>
       </Grid>
@@ -41,7 +40,7 @@ export const ProjectsCard = memo(function ProjectsCard() {
 const styles = {
   card: {
     animate: { opacity: [0, 1], transition: { delay: 0.7, duration: 1, type: "spring" }, y: [-500, 0] },
-    whileHover: { boxShadow: "#555555 0 0 10px", transition: { duration: 0.05 } },
+    whileHover: { boxShadow: "#555555 0 0 8px", transition: { duration: 0.05 } },
   },
   gridContainer: {
     container: true,
