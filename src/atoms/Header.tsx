@@ -14,7 +14,7 @@ export const Header = memo(function Header(props: { isWidescreen?: boolean }) {
         <FiGithub fontSize={isMobile ? "1rem" : "1.5rem"} />
         <Link href="https://github.com/ThirdEyeSqueegee/angad.tech" overlay />
       </IconButton>
-      <Typography fontSize={isWidescreen ? "4rem" : "2.5rem"} {...styles.typography}>
+      <Typography fontSize={isWidescreen ? "3rem" : "2.5rem"} {...styles.typography}>
         <TypeIt options={{ cursor: false }}>Hello, world!</TypeIt>
       </Typography>
     </>

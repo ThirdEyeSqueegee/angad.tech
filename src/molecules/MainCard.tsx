@@ -15,7 +15,7 @@ export const MainCard = memo(function MainCard(props: { isWidescreen?: boolean }
 
   return (
     <Card sx={{ alignItems: "center", height: 1, justifyContent: "center", width: isWidescreen ? 0.8 : 0.975 }} {...styles.card}>
-      <Header />
+      <Header isWidescreen={isWidescreen} />
       <Divider />
       <Flexbox flexWrap="wrap" gap={3} justifyContent="space-evenly" my={3} width={1}>
         <Flexbox {...styles.imgBox}>
@@ -57,6 +57,9 @@ export const MainCard = memo(function MainCard(props: { isWidescreen?: boolean }
               username="ThirdEyeSqueegee"
             />
           </m.div>
+          <Link href="https://www.codewars.com/users/ThirdEyeSqueegee">
+            <img height={32} src="https://www.codewars.com/users/ThirdEyeSqueegee/badges/large" />
+          </Link>
         </Flexbox>
       </Flexbox>
     </Card>
@@ -72,7 +75,6 @@ const styles = {
     whileHover: { boxShadow: "#555555 0 0 8px", transition: { duration: 0.05 } },
   },
   img: {
-    className: "responsive",
     style: {
       borderRadius: "100%",
       gridColumn: 1,
