@@ -1,6 +1,6 @@
 import "@fontsource-variable/fira-code";
-import CssBaseline from "@mui/joy/CssBaseline";
-import { CssVarsProvider } from "@mui/joy/styles";
+import "@fontsource-variable/inter";
+import { CssBaseline, CssVarsProvider } from "@mui/joy";
 import { createRoot } from "react-dom/client";
 
 import { App } from "./App.tsx";
