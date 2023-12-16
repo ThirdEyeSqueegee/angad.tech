@@ -8,7 +8,7 @@ export const Projects = memo(function Projects() {
     <Stack gap={2}>
       <Card
         component={m.div}
-        sx={{ height: 1, maxWidth: "25rem" }}
+        sx={{ minHeight: 1 }}
         whileHover={{ backgroundColor: "#111827" }}
         whileInView={{ opacity: [0, 1], transition: { duration: 0.5 } }}
       >
@@ -19,7 +19,7 @@ export const Projects = memo(function Projects() {
       </Card>
       <Card
         component={m.div}
-        sx={{ height: 1, maxWidth: "25rem" }}
+        sx={{ minHeight: 1 }}
         whileHover={{ backgroundColor: "#111827" }}
         whileInView={{ opacity: [0, 1], transition: { duration: 0.5 } }}
       >
@@ -30,7 +30,7 @@ export const Projects = memo(function Projects() {
       </Card>
       <Card
         component={m.div}
-        sx={{ height: 1, maxWidth: "25rem" }}
+        sx={{ minHeight: 1 }}
         whileHover={{ backgroundColor: "#111827" }}
         whileInView={{ opacity: [0, 1], transition: { duration: 0.5 } }}
       >

@@ -6,7 +6,7 @@ export const Experience = memo(function Experience() {
   return (
     <Card
       component={m.div}
-      sx={{ height: 1, width: 1 }}
+      sx={{ minHeight: 1 }}
       whileHover={{ backgroundColor: "#111827" }}
       whileInView={{ opacity: [0, 1], transition: { duration: 0.5 } }}
     >

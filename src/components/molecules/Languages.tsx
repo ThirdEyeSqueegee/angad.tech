@@ -21,10 +21,10 @@ export const Languages = memo(function Languages() {
       container
       initial="hidden"
       justifyContent="start"
+      minWidth={1}
       spacing={3}
       variants={container}
       whileInView="show"
-      width="100%"
     >
       <Grid component={m.div} lg={1} variants={item} xs={2}>
         <Tooltip title="C++" {...styles.tooltip}>

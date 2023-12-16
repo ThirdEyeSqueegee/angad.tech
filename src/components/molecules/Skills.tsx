@@ -27,22 +27,11 @@ import vscode from "../../assets/logos/vscode.svg";
 
 export const Skills = memo(function Skills() {
   return (
-    <Grid
-      alignSelf="start"
-      component={m.div}
-      container
-      initial="hidden"
-      justifyContent="start"
-      mt={-1.5}
-      spacing={2}
-      variants={container}
-      whileInView="show"
-      width={1}
-    >
+    <Grid component={m.div} container initial="hidden" minWidth={1} spacing={2} variants={container} whileInView="show">
       <Grid component={m.div} variants={item} xl={3} xs={6}>
-        <Card component={m.div} sx={{ height: 1, width: 1 }} whileHover={{ backgroundColor: "#111827" }}>
+        <Card component={m.div} sx={{ minHeight: "6.5rem", minWidth: 1 }} whileHover={{ backgroundColor: "#111827" }}>
           <Typography level="title-md">Frontend</Typography>
-          <Grid alignItems="center" container justifyContent="start" rowSpacing={2}>
+          <Grid alignItems="center" container>
             <Grid xs={3}>
               <Tooltip title="React" {...styles.tooltip}>
                 <m.img height={isMobile ? 26 : 32} src={react} whileHover={{ scale: 1.15 }} />
@@ -67,9 +56,9 @@ export const Skills = memo(function Skills() {
         </Card>
       </Grid>
       <Grid component={m.div} variants={item} xl={3} xs={6}>
-        <Card component={m.div} sx={{ height: 1, width: 1 }} whileHover={{ backgroundColor: "#111827" }}>
+        <Card component={m.div} sx={{ minHeight: "6.5rem", minWidth: 1 }} whileHover={{ backgroundColor: "#111827" }}>
           <Typography level="title-md">Backend</Typography>
-          <Grid alignItems="center" container justifyContent="start" rowSpacing={2}>
+          <Grid alignItems="center" container>
             <Grid xs={8}>
               <Tooltip title="Node.js" {...styles.tooltip}>
                 <m.img height={isMobile ? 20 : 24} src={nodejs} whileHover={{ scale: 1.15 }} />
@@ -84,9 +73,9 @@ export const Skills = memo(function Skills() {
         </Card>
       </Grid>
       <Grid component={m.div} variants={item} xl={3} xs={6}>
-        <Card component={m.div} sx={{ height: 1, width: 1 }} whileHover={{ backgroundColor: "#111827" }}>
+        <Card component={m.div} sx={{ minHeight: "6.5rem", minWidth: 1 }} whileHover={{ backgroundColor: "#111827" }}>
           <Typography level="title-md">Full-stack</Typography>
-          <Grid alignItems="center" container justifyContent="start" rowSpacing={2}>
+          <Grid alignItems="center" container>
             <Grid xs={8}>
               <Tooltip title="Next.js" {...styles.tooltip}>
                 <m.img height={isMobile ? 12 : 18} src={nextjs} whileHover={{ scale: 1.15 }} />
@@ -101,21 +90,21 @@ export const Skills = memo(function Skills() {
         </Card>
       </Grid>
       <Grid component={m.div} variants={item} xl={3} xs={6}>
-        <Card component={m.div} sx={{ height: 1, width: 1 }} whileHover={{ backgroundColor: "#111827" }}>
+        <Card component={m.div} sx={{ minHeight: "6.5rem", minWidth: 1 }} whileHover={{ backgroundColor: "#111827" }}>
           <Typography level="title-md">Cloud</Typography>
-          <Grid alignItems="center" container justifyContent="start" rowSpacing={2}>
+          <Grid alignItems="center" container>
             <Grid xs={12}>
               <Tooltip title="AWS Cloud" {...styles.tooltip}>
-                <m.img height={36} src={aws} whileHover={{ scale: 1.15 }} />
+                <m.img height={24} src={aws} whileHover={{ scale: 1.15 }} />
               </Tooltip>
             </Grid>
           </Grid>
         </Card>
       </Grid>
       <Grid component={m.div} variants={item} xl={3} xs={6}>
-        <Card component={m.div} sx={{ height: 1, width: 1 }} whileHover={{ backgroundColor: "#111827" }}>
+        <Card component={m.div} sx={{ minHeight: "6.5rem", minWidth: 1 }} whileHover={{ backgroundColor: "#111827" }}>
           <Typography level="title-md">{isMobile ? "ML" : "Machine learning"}</Typography>
-          <Grid alignItems="center" container justifyContent="start" rowSpacing={2}>
+          <Grid alignItems="center" container>
             <Grid xs={4}>
               <Tooltip title="Keras" {...styles.tooltip}>
                 <m.img height={isMobile ? 26 : 32} src={keras} whileHover={{ scale: 1.15 }} />
@@ -135,9 +124,9 @@ export const Skills = memo(function Skills() {
         </Card>
       </Grid>
       <Grid component={m.div} variants={item} xl={3} xs={6}>
-        <Card component={m.div} sx={{ height: 1, width: 1 }} whileHover={{ backgroundColor: "#111827" }}>
+        <Card component={m.div} sx={{ minHeight: "6.5rem", minWidth: 1 }} whileHover={{ backgroundColor: "#111827" }}>
           <Typography level="title-md">Build systems</Typography>
-          <Grid alignItems="center" container justifyContent="start" rowSpacing={2}>
+          <Grid alignItems="center" container>
             <Grid xs={4}>
               <Tooltip title="CMake" {...styles.tooltip}>
                 <m.img height={isMobile ? 26 : 32} src={cmake} whileHover={{ scale: 1.15 }} />
@@ -152,9 +141,9 @@ export const Skills = memo(function Skills() {
         </Card>
       </Grid>
       <Grid component={m.div} variants={item} xl={3} xs={6}>
-        <Card component={m.div} sx={{ height: 1, width: 1 }} whileHover={{ backgroundColor: "#111827" }}>
+        <Card component={m.div} sx={{ minHeight: "6.5rem", minWidth: 1 }} whileHover={{ backgroundColor: "#111827" }}>
           <Typography level="title-md">Data</Typography>
-          <Grid alignItems="center" container justifyContent="start" rowSpacing={2}>
+          <Grid alignItems="center" container>
             <Grid xs={4}>
               <Tooltip title="PostgreSQL" {...styles.tooltip}>
                 <m.img height={isMobile ? 26 : 32} src={postgresql} whileHover={{ scale: 1.15 }} />
@@ -174,9 +163,9 @@ export const Skills = memo(function Skills() {
         </Card>
       </Grid>
       <Grid component={m.div} variants={item} xl={3} xs={6}>
-        <Card component={m.div} sx={{ height: 1, width: 1 }} whileHover={{ backgroundColor: "#111827" }}>
+        <Card component={m.div} sx={{ minHeight: "6.5rem", minWidth: 1 }} whileHover={{ backgroundColor: "#111827" }}>
           <Typography level="title-md">IDEs</Typography>
-          <Grid alignItems="center" container justifyContent="start" rowSpacing={2}>
+          <Grid alignItems="center" container>
             <Grid xs={3}>
               <Tooltip title="VS Code" {...styles.tooltip}>
                 <m.img height={isMobile ? 24 : 30} src={vscode} whileHover={{ scale: 1.15 }} />

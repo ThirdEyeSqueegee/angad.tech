@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, IconButton, Link, Stack, Tooltip, Typography } from "@mui/joy";
+import { Button, ButtonGroup, Grid, IconButton, Link, Stack, Tooltip, Typography } from "@mui/joy";
 import { LazyMotion, domMax, m } from "framer-motion";
 import { useState } from "react";
 import { isMobile } from "react-device-detect";
@@ -18,16 +18,6 @@ import { Header } from "./components/molecules/Header.tsx";
 import { Languages } from "./components/molecules/Languages.tsx";
 import { Projects } from "./components/molecules/Projects.tsx";
 import { Skills } from "./components/molecules/Skills.tsx";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { delay: 0.5, staggerChildren: 0.1 } },
-};
-
-const item = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 },
-};
 
 export const App = () => {
   const [showContent, setShowContent] = useState(false);
@@ -100,39 +90,43 @@ export const App = () => {
                 />
               </Flexbox>
               <Stack {...styles.contentItem}>
-                <Typography alignSelf="start" level="h3">
+                <Typography level="h3">
                   <TypeIt options={{ cursor: false }}>Languages</TypeIt>
                 </Typography>
                 <Languages />
               </Stack>
               <Stack {...styles.contentItem}>
-                <Typography alignSelf="start" level="h3">
+                <Typography level="h3">
                   <TypeIt options={{ cursor: false }}>Skills</TypeIt>
                 </Typography>
                 <Skills />
               </Stack>
-              <Flexbox alignItems="start" flexDirection={isMobile ? "column" : "row"} gap={2}>
-                <Stack {...styles.contentItem}>
-                  <Typography alignSelf="start" level="h3">
-                    <TypeIt options={{ cursor: false }}>Projects</TypeIt>
-                  </Typography>
-                  <Projects />
-                </Stack>
-                <Stack gap={2} width={1}>
+              <Grid alignItems="start" container spacing={2}>
+                <Grid lg={6} xs={12}>
                   <Stack {...styles.contentItem}>
-                    <Typography alignSelf="start" level="h3">
-                      <TypeIt options={{ cursor: false }}>Experience</TypeIt>
+                    <Typography level="h3">
+                      <TypeIt options={{ cursor: false }}>Projects</TypeIt>
                     </Typography>
-                    <Experience />
+                    <Projects />
                   </Stack>
-                  <Stack {...styles.contentItem}>
-                    <Typography alignSelf="start" level="h3">
-                      <TypeIt options={{ cursor: false }}>Education</TypeIt>
-                    </Typography>
-                    <Education />
+                </Grid>
+                <Grid lg={6} xs={12}>
+                  <Stack gap={4}>
+                    <Stack {...styles.contentItem}>
+                      <Typography level="h3">
+                        <TypeIt options={{ cursor: false }}>Experience</TypeIt>
+                      </Typography>
+                      <Experience />
+                    </Stack>
+                    <Stack {...styles.contentItem}>
+                      <Typography level="h3">
+                        <TypeIt options={{ cursor: false }}>Education</TypeIt>
+                      </Typography>
+                      <Education />
+                    </Stack>
                   </Stack>
-                </Stack>
-              </Flexbox>
+                </Grid>
+              </Grid>
               <IconButton
                 onClick={() => window.scrollTo({ behavior: "smooth", top: document.body.scrollHeight })}
                 sx={{ "&:hover,&:active": { backgroundColor: "transparent" }, bottom: "1rem", position: "fixed", right: "1rem" }}
@@ -149,21 +143,31 @@ export const App = () => {
   );
 };
 
+const container = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { delay: 0.5, staggerChildren: 0.1 } },
+} as const;
+
+const item = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1 },
+} as const;
+
 const styles = {
   content: {
     animate: "show",
     component: m.div,
     gap: 4,
     initial: "hidden",
+    maxWidth: { lg: 0.5, xs: 0.9 },
     py: 2,
     variants: container,
-    width: { lg: 0.5, xs: 0.9 },
   },
   contentItem: {
     component: m.div,
     gap: 2,
+    minWidth: 1,
     variants: item,
-    width: 1,
   },
   heptagram: {
     animate: { opacity: [1, 0], rotate: -360, scale: [0, 1], transitionEnd: { display: "none" } },
@@ -173,10 +177,8 @@ const styles = {
   img: {
     style: {
       borderRadius: "100%",
-      GridColumn: 1,
-      GridRow: 1,
-      height: "10rem",
-      width: "10rem",
+      maxHeight: "10rem",
+      maxWidth: "10rem",
     },
   },
   intro: {
@@ -186,8 +188,8 @@ const styles = {
     whileInView: { opacity: [0, 1] },
   },
   mainFlex: {
-    height: "100vh",
-    width: 1,
+    minHeight: "100vh",
+    minWidth: 1,
   },
   tooltip: {
     animate: { opacity: [0, 1] },
