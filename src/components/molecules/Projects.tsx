@@ -32,27 +32,14 @@ export const Projects = memo(function Projects() {
   );
 });
 
-const container = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.075 } },
-} as const;
-
-const item = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 },
-} as const;
-
 const styles = {
   card: {
     component: m.div,
+    initial: { opacity: 0 },
     sx: { minHeight: 1 },
-    variants: item,
+    whileInView: { opacity: 1 },
   },
   stack: {
-    component: m.div,
     gap: 2,
-    initial: "hidden",
-    variants: container,
-    whileInView: "show",
   },
 } as const;

@@ -13,17 +13,11 @@ export const Education = memo(function Education() {
   );
 });
 
-const item = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 },
-} as const;
-
 const styles = {
   card: {
     component: m.div,
-    initial: "hidden",
+    initial: { opacity: 0 },
     sx: { minHeight: 1 },
-    variants: item,
-    whileInView: "show",
+    whileInView: { opacity: 1 },
   },
 } as const;

@@ -5,6 +5,7 @@ import { isMobile } from "react-device-detect";
 import GitHubCalendar from "react-github-calendar";
 import { IconContext } from "react-icons";
 import { FaCircleArrowDown, FaGithub, FaLinkedinIn } from "react-icons/fa6";
+import { LuCopyleft } from "react-icons/lu";
 import { MdDownload } from "react-icons/md";
 import TypeIt from "typeit-react";
 
@@ -43,7 +44,7 @@ export const App = () => {
           />
           {showContent ?
             <Stack alignSelf="start" {...styles.content}>
-              <Flexbox flexDirection={isMobile ? "column" : "row"} justifyContent="space-evenly" {...styles.intro}>
+              <Flexbox flexDirection={isMobile ? "column" : "row"} {...styles.intro}>
                 <img src={mugshot} {...styles.img} />
                 <Stack gap={2}>
                   <Typography>
@@ -65,7 +66,7 @@ export const App = () => {
                   </ButtonGroup>
                 </Stack>
               </Flexbox>
-              <Flexbox alignSelf="center" component={m.div} gap={3} viewport={{ once: true }} whileInView={{ opacity: [0, 1] }}>
+              <Flexbox {...styles.calendarBox}>
                 {!isMobile ?
                   <Tooltip title="GitHub" {...styles.tooltip}>
                     <IconButton
@@ -157,12 +158,22 @@ export const App = () => {
             </Stack>
           : null}
         </Flexbox>
+        <Typography alignSelf="center" level="body-sm" startDecorator={<LuCopyleft />}>
+          Angad Misra, 2023
+        </Typography>
       </Stack>
     </LazyMotion>
   );
 };
 
 const styles = {
+  calendarBox: {
+    alignSelf: "center",
+    component: m.div,
+    gap: 3,
+    initial: { opacity: 0 },
+    whileInView: { opacity: 1 },
+  },
   content: {
     gap: 5,
     maxWidth: { lg: 0.5, xs: 0.9 },
@@ -173,7 +184,8 @@ const styles = {
     minWidth: 1,
   },
   heptagram: {
-    animate: { opacity: [1, 0], rotate: -360, scale: [0, 1], transitionEnd: { display: "none" } },
+    animate: { rotate: -360, scale: 1, transitionEnd: { display: "none" } },
+    initial: { scale: 0 },
     transition: { duration: 1, opacity: { delay: 1.5, duration: 0.5 } },
   },
   img: {
@@ -184,7 +196,11 @@ const styles = {
     },
   },
   intro: {
+    component: m.div,
     gap: isMobile ? 3 : 5,
+    initial: { opacity: 0 },
+    justifyContent: "space-evenly",
+    whileInView: { opacity: 1 },
   },
   mainFlex: {
     minHeight: "100vh",
@@ -193,4 +209,4 @@ const styles = {
   tooltip: {
     animate: { opacity: [0, 1] },
   },
-};
+} as const;
