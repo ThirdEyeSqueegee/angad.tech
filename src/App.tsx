@@ -14,13 +14,14 @@ import mugshot from "./assets/mugshot.png";
 import { Flexbox } from "./components/atoms/Flexbox.tsx";
 import { Education } from "./components/molecules/Education.tsx";
 import { Experience } from "./components/molecules/Experience.tsx";
+import { Header } from "./components/molecules/Header.tsx";
 import { Languages } from "./components/molecules/Languages.tsx";
 import { Projects } from "./components/molecules/Projects.tsx";
 import { Skills } from "./components/molecules/Skills.tsx";
 
 const container = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.1 } },
+  show: { opacity: 1, transition: { delay: 0.5, staggerChildren: 0.1 } },
 };
 
 const item = {
@@ -33,115 +34,117 @@ export const App = () => {
 
   return (
     <LazyMotion features={domMax} strict>
-      <Flexbox {...styles.mainFlex}>
-        <m.img onAnimationComplete={() => setShowContent(true)} src={heptagram} {...styles.heptagram} />
+      <Stack>
         {showContent ?
-          <Stack alignSelf="start" {...styles.content}>
-            <Typography alignSelf="center" level="h1">
-              <TypeIt options={{ cursor: false }}>Hello, world!</TypeIt>
-            </Typography>
-            <Flexbox flexDirection={isMobile ? "column" : "row"} justifyContent="space-evenly" {...styles.intro}>
-              <img src={mugshot} {...styles.img} />
-              <Stack gap={2}>
-                <Typography>
-                  I am a software engineer specialized in system programming, data engineering, and full-stack development. My interests include
-                  machine learning, reverse engineering, game programming, and computability theory.
-                </Typography>
-                <ButtonGroup sx={{ alignSelf: "center" }}>
-                  <Button component={Link} href="https://www.linkedin.com/in/angadmisra" startDecorator={<FaLinkedinIn />}>
-                    LinkedIn
-                  </Button>
-                  {isMobile ?
-                    <Button component={Link} href="https://github.com/ThirdEyeSqueegee" startDecorator={<FaGithub />}>
-                      GitHub
+          <Header />
+        : null}
+        <Flexbox {...styles.mainFlex}>
+          <m.img onAnimationComplete={() => setShowContent(true)} src={heptagram} {...styles.heptagram} />
+          {showContent ?
+            <Stack alignSelf="start" {...styles.content}>
+              <Flexbox flexDirection={isMobile ? "column" : "row"} justifyContent="space-evenly" {...styles.intro}>
+                <img src={mugshot} {...styles.img} />
+                <Stack gap={2}>
+                  <Typography>
+                    I am a software engineer specialized in system programming, data engineering, and full-stack development. My interests include
+                    machine learning, reverse engineering, game programming, and computability theory.
+                  </Typography>
+                  <ButtonGroup sx={{ alignSelf: "center" }}>
+                    <Button component={Link} href="https://www.linkedin.com/in/angadmisra" startDecorator={<FaLinkedinIn />}>
+                      LinkedIn
                     </Button>
-                  : null}
-                  <Button component={Link} href={resume} startDecorator={<MdDownload />}>
-                    R&eacute;sum&eacute;
-                  </Button>
-                </ButtonGroup>
-              </Stack>
-            </Flexbox>
-            <Flexbox alignSelf="center" component={m.div} gap={3} whileInView={{ opacity: [0, 1] }}>
-              {!isMobile ?
-                <Tooltip title="GitHub" {...styles.tooltip}>
-                  <IconButton
-                    component={m.button}
-                    sx={{ alignSelf: "start" }}
-                    whileHover={{ backgroundColor: "transparent", scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <Link href="https://github.com/ThirdEyeSqueegee" overlay />
-                    <IconContext.Provider value={{ size: "3rem" }}>
-                      <FaGithub />
-                    </IconContext.Provider>
-                  </IconButton>
-                </Tooltip>
-              : null}
-              <GitHubCalendar
-                blockMargin={isMobile ? 1 : 2}
-                blockSize={isMobile ? 6 : 10}
-                hideColorLegend
-                hideMonthLabels={isMobile}
-                labels={{ totalCount: "{{count}} contributions in the past year" }}
-                renderBlock={(b, a) => (
-                  <Tooltip
-                    animate={{ opacity: [0, 1] }}
-                    component={m.div}
-                    size="sm"
-                    title={`${a.count} contributions on ${new Date(a.date).toLocaleDateString()}`}
-                  >
-                    {b}
+                    {isMobile ?
+                      <Button component={Link} href="https://github.com/ThirdEyeSqueegee" startDecorator={<FaGithub />}>
+                        GitHub
+                      </Button>
+                    : null}
+                    <Button component={Link} href={resume} startDecorator={<MdDownload />}>
+                      R&eacute;sum&eacute;
+                    </Button>
+                  </ButtonGroup>
+                </Stack>
+              </Flexbox>
+              <Flexbox alignSelf="center" component={m.div} gap={3} whileInView={{ opacity: [0, 1] }}>
+                {!isMobile ?
+                  <Tooltip title="GitHub" {...styles.tooltip}>
+                    <IconButton
+                      component={m.button}
+                      sx={{ alignSelf: "start" }}
+                      whileHover={{ backgroundColor: "transparent", scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <Link href="https://github.com/ThirdEyeSqueegee" overlay />
+                      <IconContext.Provider value={{ size: "3rem" }}>
+                        <FaGithub />
+                      </IconContext.Provider>
+                    </IconButton>
                   </Tooltip>
-                )}
-                username="ThirdEyeSqueegee"
-              />
-            </Flexbox>
-            <Stack {...styles.contentItem}>
-              <Typography alignSelf="start" level="h3">
-                Languages
-              </Typography>
-              <Languages />
-            </Stack>
-            <Stack {...styles.contentItem}>
-              <Typography alignSelf="start" level="h3">
-                Skills
-              </Typography>
-              <Skills />
-            </Stack>
-            <Flexbox alignItems="start" flexDirection={isMobile ? "column" : "row"} gap={2}>
+                : null}
+                <GitHubCalendar
+                  blockMargin={isMobile ? 1 : 2}
+                  blockSize={isMobile ? 6 : 10}
+                  hideColorLegend
+                  hideMonthLabels={isMobile}
+                  labels={{ totalCount: "{{count}} contributions in the past year" }}
+                  renderBlock={(b, a) => (
+                    <Tooltip
+                      animate={{ opacity: [0, 1] }}
+                      component={m.div}
+                      size="sm"
+                      title={`${a.count} contributions on ${new Date(a.date).toLocaleDateString()}`}
+                    >
+                      {b}
+                    </Tooltip>
+                  )}
+                  username="ThirdEyeSqueegee"
+                />
+              </Flexbox>
               <Stack {...styles.contentItem}>
                 <Typography alignSelf="start" level="h3">
-                  Projects
+                  <TypeIt options={{ cursor: false }}>Languages</TypeIt>
                 </Typography>
-                <Projects />
+                <Languages />
               </Stack>
-              <Stack gap={2} width={1}>
+              <Stack {...styles.contentItem}>
+                <Typography alignSelf="start" level="h3">
+                  <TypeIt options={{ cursor: false }}>Skills</TypeIt>
+                </Typography>
+                <Skills />
+              </Stack>
+              <Flexbox alignItems="start" flexDirection={isMobile ? "column" : "row"} gap={2}>
                 <Stack {...styles.contentItem}>
                   <Typography alignSelf="start" level="h3">
-                    Experience
+                    <TypeIt options={{ cursor: false }}>Projects</TypeIt>
                   </Typography>
-                  <Experience />
+                  <Projects />
                 </Stack>
-                <Stack {...styles.contentItem}>
-                  <Typography alignSelf="start" level="h3">
-                    Education
-                  </Typography>
-                  <Education />
+                <Stack gap={2} width={1}>
+                  <Stack {...styles.contentItem}>
+                    <Typography alignSelf="start" level="h3">
+                      <TypeIt options={{ cursor: false }}>Experience</TypeIt>
+                    </Typography>
+                    <Experience />
+                  </Stack>
+                  <Stack {...styles.contentItem}>
+                    <Typography alignSelf="start" level="h3">
+                      <TypeIt options={{ cursor: false }}>Education</TypeIt>
+                    </Typography>
+                    <Education />
+                  </Stack>
                 </Stack>
-              </Stack>
-            </Flexbox>
-            <IconButton
-              onClick={() => window.scrollTo({ behavior: "smooth", top: document.body.scrollHeight })}
-              sx={{ "&:hover,&:active": { backgroundColor: "transparent" }, bottom: "1rem", position: "fixed", right: "1rem" }}
-            >
-              <IconContext.Provider value={{ color: "#6b7280", size: "2rem" }}>
-                <FaCircleArrowDown />
-              </IconContext.Provider>
-            </IconButton>
-          </Stack>
-        : null}
-      </Flexbox>
+              </Flexbox>
+              <IconButton
+                onClick={() => window.scrollTo({ behavior: "smooth", top: document.body.scrollHeight })}
+                sx={{ "&:hover,&:active": { backgroundColor: "transparent" }, bottom: "1rem", position: "fixed", right: "1rem" }}
+              >
+                <IconContext.Provider value={{ color: "#6b7280", size: "2rem" }}>
+                  <FaCircleArrowDown />
+                </IconContext.Provider>
+              </IconButton>
+            </Stack>
+          : null}
+        </Flexbox>
+      </Stack>
     </LazyMotion>
   );
 };

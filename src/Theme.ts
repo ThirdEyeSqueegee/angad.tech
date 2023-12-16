@@ -182,8 +182,9 @@ export const theme = extendTheme({
       defaultProps: {
         arrow: true,
         component: m.div,
+        enterTouchDelay: 0,
         placement: "top",
-        sx: { backdropFilter: "blur(1rem)", backgroundColor: "transparent" },
+        sx: { backdropFilter: "blur(0.5rem)", backgroundColor: "rgba(3, 7, 18, 0.5)" },
         variant: "outlined",
       },
     },
