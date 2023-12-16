@@ -20,7 +20,7 @@ import { Skills } from "./components/molecules/Skills.tsx";
 
 const container = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.2 } },
+  show: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
 const item = {
@@ -62,7 +62,7 @@ export const App = () => {
                 </ButtonGroup>
               </Stack>
             </Flexbox>
-            <Flexbox alignSelf="center" animate={{ opacity: [0, 1], transition: { delay: 1 } }} component={m.div} gap={3}>
+            <Flexbox alignSelf="center" component={m.div} gap={3} whileInView={{ opacity: [0, 1] }}>
               {!isMobile ?
                 <Tooltip title="GitHub" {...styles.tooltip}>
                   <IconButton
@@ -135,7 +135,7 @@ export const App = () => {
               onClick={() => window.scrollTo({ behavior: "smooth", top: document.body.scrollHeight })}
               sx={{ "&:hover,&:active": { backgroundColor: "transparent" }, bottom: "1rem", position: "fixed", right: "1rem" }}
             >
-              <IconContext.Provider value={{ size: "2rem" }}>
+              <IconContext.Provider value={{ color: "#6b7280", size: "2rem" }}>
                 <FaCircleArrowDown />
               </IconContext.Provider>
             </IconButton>
@@ -180,6 +180,7 @@ const styles = {
     component: m.div,
     gap: isMobile ? 3 : 5,
     variants: item,
+    whileInView: { opacity: [0, 1] },
   },
   mainFlex: {
     height: "100vh",

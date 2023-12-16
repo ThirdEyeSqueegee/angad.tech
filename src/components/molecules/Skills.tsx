@@ -25,21 +25,10 @@ import visualstudio from "../../assets/logos/visualstudio.svg";
 import vite from "../../assets/logos/vite.svg";
 import vscode from "../../assets/logos/vscode.svg";
 
-const container = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.1 } },
-};
-
-const item = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 },
-};
-
 export const Skills = memo(function Skills() {
   return (
     <Grid
       alignSelf="start"
-      animate="show"
       component={m.div}
       container
       initial="hidden"
@@ -47,6 +36,7 @@ export const Skills = memo(function Skills() {
       mt={-1.5}
       spacing={2}
       variants={container}
+      whileInView="show"
       width={1}
     >
       <Grid component={m.div} variants={item} xl={3} xs={6}>
@@ -70,7 +60,7 @@ export const Skills = memo(function Skills() {
             </Grid>
             <Grid xs={3}>
               <Tooltip title="Vercel" {...styles.tooltip}>
-                <m.img height={isMobile ? 26 : 32} src={vercel} whileHover={{ scale: 1.15 }} />
+                <m.img height={isMobile ? 24 : 30} src={vercel} whileHover={{ scale: 1.15 }} />
               </Tooltip>
             </Grid>
           </Grid>
@@ -220,4 +210,14 @@ const styles = {
     whileHover: { scale: 1.1 },
     whileTap: { scale: 0.9 },
   },
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.1 } },
+} as const;
+
+const item = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1 },
 } as const;

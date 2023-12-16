@@ -297,7 +297,7 @@ packages:
     resolution: {integrity: sha512-zHd0eUrf5GZoOWVCXp6koAKQTfZV07eit6bGPmJgnZdnSAvvZee6zniW2XMF7Cmc4ISOOnPy3QaSiIJGJkVEDQ==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      regenerator-runtime: 0.14.0
+      regenerator-runtime: 0.14.1
     dev: false
 
   /@babel/template@7.22.15:
@@ -787,8 +787,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: false
 
-  /@mdn/browser-compat-data@5.4.5:
-    resolution: {integrity: sha512-n3/+wko8WFd/fbiPCOuBB6HfKL6hTcygFEZ/MpmvpMRbgDSdlNMopDFGjsoTYqCbzTVTX9TL/StXco4yx2v58Q==}
+  /@mdn/browser-compat-data@5.5.0:
+    resolution: {integrity: sha512-H+jO7BSlQAf7W1md2+CcBeWGhfOpuYSOemm0cCU3ffyWEodOJLIODaYSe6+Y1hQ8JxprsoXHFwGau8Hzudd70A==}
     dev: true
 
   /@mui/base@5.0.0-beta.27(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0):
@@ -1508,7 +1508,7 @@ packages:
   /ast-metadata-inferer@0.8.0:
     resolution: {integrity: sha512-jOMKcHht9LxYIEQu+RVd22vtgrPaVCtDRQ/16IGmurdzxvYbDd5ynxjnyrzLnieG96eTcAyaoj/wN/4/1FyyeA==}
     dependencies:
-      '@mdn/browser-compat-data': 5.4.5
+      '@mdn/browser-compat-data': 5.5.0
     dev: true
 
   /asynciterator.prototype@1.0.0:
@@ -1565,7 +1565,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001570
-      electron-to-chromium: 1.4.612
+      electron-to-chromium: 1.4.614
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.2)
 
@@ -1748,8 +1748,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /electron-to-chromium@1.4.612:
-    resolution: {integrity: sha512-dM8BMtXtlH237ecSMnYdYuCkib2QHq0kpWfUnavjdYsyr/6OsAwg5ZGUfnQ9KD1Ga4QgB2sqXlB2NT8zy2GnVg==}
+  /electron-to-chromium@1.4.614:
+    resolution: {integrity: sha512-X4ze/9Sc3QWs6h92yerwqv7aB/uU8vCjZcrMjA8N9R1pjMFRe44dLsck5FzLilOYvcXuDn93B+bpGYyufc70gQ==}
 
   /error-ex@1.3.2:
     resolution: {integrity: sha512-7dFHNmqeFSEt2ZBsCriorKnn3Z2pj+fd9kmI6QoWw4//DL+icEBfc0U7qJCisqrTsKTjw4fNFy2pW9OqStD84g==}
@@ -1903,7 +1903,7 @@ packages:
     peerDependencies:
       eslint: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
-      '@mdn/browser-compat-data': 5.4.5
+      '@mdn/browser-compat-data': 5.5.0
       ast-metadata-inferer: 0.8.0
       browserslist: 4.22.2
       caniuse-lite: 1.0.30001570
@@ -3089,8 +3089,8 @@ packages:
       which-builtin-type: 1.1.3
     dev: true
 
-  /regenerator-runtime@0.14.0:
-    resolution: {integrity: sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==}
+  /regenerator-runtime@0.14.1:
+    resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
     dev: false
 
   /regexp.prototype.flags@1.5.1:

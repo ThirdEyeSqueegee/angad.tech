@@ -13,27 +13,17 @@ import rust from "../../assets/logos/rust.svg";
 import typescript from "../../assets/logos/typescript.svg";
 import x64 from "../../assets/logos/x64.svg";
 
-const container = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.1 } },
-};
-
-const item = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 },
-};
-
 export const Languages = memo(function Languages() {
   return (
     <Grid
       alignItems="center"
-      animate="show"
       component={m.div}
       container
       initial="hidden"
       justifyContent="start"
       spacing={3}
       variants={container}
+      whileInView="show"
       width="100%"
     >
       <Grid component={m.div} lg={1} variants={item} xs={2}>
@@ -94,4 +84,14 @@ const styles = {
   tooltip: {
     animate: { opacity: [0, 1] },
   },
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.075 } },
+} as const;
+
+const item = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1 },
 } as const;
