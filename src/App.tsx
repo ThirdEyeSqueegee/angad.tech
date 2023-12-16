@@ -41,12 +41,12 @@ export const App = () => {
           !isMobile ?
             {
               background: useMotionTemplate`
-            radial-gradient(
-              420px circle at ${mouseX}px ${mouseY}px,
-              rgba(31, 41, 55, 0.25),
-              transparent
-            )
-          `,
+                radial-gradient(
+                  420px circle at ${mouseX}px ${mouseY}px,
+                  ${mode === "dark" ? "rgba(17, 24, 39, 0.5)" : "rgba(229, 231, 235, 0.5)"},
+                  transparent
+                )
+              `,
             }
           : undefined
         }
@@ -92,7 +92,10 @@ export const App = () => {
 
 const styles = {
   content: {
+    animate: { opacity: 1, transition: { duration: 1 } },
+    component: m.div,
     gap: 5,
+    initial: { opacity: 0 },
     maxWidth: { lg: 0.5, xs: 0.9 },
     py: 2,
   },
@@ -103,7 +106,7 @@ const styles = {
     spacing: 2,
   },
   heptagram: {
-    animate: { rotate: -360, scale: 1, transitionEnd: { display: "none" } },
+    animate: { opacity: 0, rotate: -360, scale: 1, transitionEnd: { display: "none" } },
     initial: { scale: 0 },
     transition: { duration: 1, opacity: { delay: 1.5, duration: 0.5 } },
   },

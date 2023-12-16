@@ -36,7 +36,7 @@ export const Skills = memo(function Skills() {
       </Typography>
       <Grid {...styles.gridContainer}>
         <Grid {...styles.gridItem}>
-          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#e5e7eb" }} {...styles.card}>
+          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
             <Typography level="title-md">Frontend</Typography>
             <Grid {...styles.iconGridContainer}>
               <Grid xs>
@@ -63,7 +63,7 @@ export const Skills = memo(function Skills() {
           </Card>
         </Grid>
         <Grid {...styles.gridItem}>
-          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#e5e7eb" }} {...styles.card}>
+          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
             <Typography level="title-md">Backend</Typography>
             <Grid {...styles.iconGridContainer}>
               <Grid xs={8}>
@@ -85,7 +85,7 @@ export const Skills = memo(function Skills() {
           </Card>
         </Grid>
         <Grid {...styles.gridItem}>
-          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#e5e7eb" }} {...styles.card}>
+          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
             <Typography level="title-md">Full-stack</Typography>
             <Grid {...styles.iconGridContainer}>
               <Grid xs={8}>
@@ -107,7 +107,7 @@ export const Skills = memo(function Skills() {
           </Card>
         </Grid>
         <Grid {...styles.gridItem}>
-          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#e5e7eb" }} {...styles.card}>
+          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
             <Typography level="title-md">Cloud</Typography>
             <Grid {...styles.iconGridContainer}>
               <Grid xs>
@@ -119,7 +119,7 @@ export const Skills = memo(function Skills() {
           </Card>
         </Grid>
         <Grid {...styles.gridItem}>
-          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#e5e7eb" }} {...styles.card}>
+          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
             <Typography level="title-md">{isMobile ? "ML" : "Machine learning"}</Typography>
             <Grid {...styles.iconGridContainer}>
               <Grid xs>
@@ -141,7 +141,7 @@ export const Skills = memo(function Skills() {
           </Card>
         </Grid>
         <Grid {...styles.gridItem}>
-          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#e5e7eb" }} {...styles.card}>
+          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
             <Typography level="title-md">Build systems</Typography>
             <Grid {...styles.iconGridContainer}>
               <Grid xs={4}>
@@ -163,7 +163,7 @@ export const Skills = memo(function Skills() {
           </Card>
         </Grid>
         <Grid {...styles.gridItem}>
-          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#e5e7eb" }} {...styles.card}>
+          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
             <Typography level="title-md">Data</Typography>
             <Grid {...styles.iconGridContainer}>
               <Grid xs>
@@ -190,7 +190,7 @@ export const Skills = memo(function Skills() {
           </Card>
         </Grid>
         <Grid {...styles.gridItem}>
-          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#e5e7eb" }} {...styles.card}>
+          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
             <Typography level="title-md">IDEs</Typography>
             <Grid {...styles.iconGridContainer}>
               <Grid xs>

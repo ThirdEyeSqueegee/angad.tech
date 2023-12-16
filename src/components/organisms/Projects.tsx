@@ -13,19 +13,19 @@ export const Projects = memo(function Projects() {
         <TypeIt options={{ cursor: false }}>Projects</TypeIt>
       </Typography>
       <Stack {...styles.stack}>
-        <Card {...styles.card} whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#e5e7eb" }}>
+        <Card {...styles.card} whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }}>
           <Link endDecorator={<FaLink />} href="https://github.com/Starfield-Reverse-Engineering/CommonLibSF" level="title-md">
             CommonLibSF
           </Link>
           <Typography>A collaborative reverse-engineered library for hacking Starfield</Typography>
         </Card>
-        <Card {...styles.card} whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#e5e7eb" }}>
+        <Card {...styles.card} whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }}>
           <Link endDecorator={<FaLink />} href="https://gig.quest" level="title-md">
             gig.quest
           </Link>
           <Typography>A simple web app for finding concerts and other events nearby</Typography>
         </Card>
-        <Card {...styles.card} whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#e5e7eb" }}>
+        <Card {...styles.card} whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }}>
           <Link endDecorator={<FaLink />} href="https://en.wikipedia.org/wiki/Pintos" level="title-md">
             PintOS
           </Link>

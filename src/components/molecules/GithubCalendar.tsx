@@ -29,9 +29,9 @@ export const GithubCalendar = memo(function GithubCalendar() {
         colorScheme={mode === "dark" ? "dark" : "light"}
         hideColorLegend
         hideMonthLabels={isMobile}
-        labels={{ totalCount: "{{count}} contributions in the past year" }}
+        labels={{ totalCount: "{{count}} public contributions in the past year" }}
         renderBlock={(b, a) => (
-          <Tooltip size="sm" title={`${a.count} contributions on ${new Date(a.date).toLocaleDateString()}`} {...styles.tooltip}>
+          <Tooltip size="sm" title={`${a.count} public contributions on ${new Date(a.date).toLocaleDateString()}`} {...styles.tooltip}>
             {b}
           </Tooltip>
         )}

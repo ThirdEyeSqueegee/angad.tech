@@ -4,7 +4,7 @@ import { isMobile } from "react-device-detect";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { MdDownload } from "react-icons/md";
 
-import resume from "../../assets/Resume.pdf";
+import resume from "../../assets/Angad Misra - Resume.pdf";
 
 export const ProfileLinks = memo(function Links() {
   return (

@@ -11,7 +11,7 @@ export const Experience = memo(function Experience() {
       <Typography level="h3">
         <TypeIt options={{ cursor: false }}>Experience</TypeIt>
       </Typography>
-      <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#e5e7eb" }} {...styles.card}>
+      <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
         <Typography level="title-md">
           BuildingEase
           <Typography level="body-sm" ml={1}>
