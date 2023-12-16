@@ -1,5 +1,5 @@
-import { Button, ButtonGroup, Grid, IconButton, Link, Stack, Tooltip, Typography } from "@mui/joy";
-import { LazyMotion, domMax, m } from "framer-motion";
+import { Button, ButtonGroup, Grid, IconButton, Link, Stack, Tooltip, Typography, useColorScheme } from "@mui/joy";
+import { LazyMotion, domMax, m, scroll } from "framer-motion";
 import { useState } from "react";
 import { isMobile } from "react-device-detect";
 import GitHubCalendar from "react-github-calendar";
@@ -20,7 +20,13 @@ import { Projects } from "./components/molecules/Projects.tsx";
 import { Skills } from "./components/molecules/Skills.tsx";
 
 export const App = () => {
+  const { mode } = useColorScheme();
+
   const [showContent, setShowContent] = useState(false);
+
+  const [scrollButtonOpacity, setScrollButtonOpacity] = useState(1);
+
+  scroll((progress) => setScrollButtonOpacity(1 - progress));
 
   return (
     <LazyMotion features={domMax} strict>
@@ -29,7 +35,12 @@ export const App = () => {
           <Header />
         : null}
         <Flexbox {...styles.mainFlex}>
-          <m.img onAnimationComplete={() => setShowContent(true)} src={heptagram} {...styles.heptagram} />
+          <m.img
+            onAnimationComplete={() => setShowContent(true)}
+            src={heptagram}
+            style={{ filter: mode === "dark" ? "invert(.75)" : undefined, width: "300px" }}
+            {...styles.heptagram}
+          />
           {showContent ?
             <Stack alignSelf="start" {...styles.content}>
               <Flexbox flexDirection={isMobile ? "column" : "row"} justifyContent="space-evenly" {...styles.intro}>
@@ -54,7 +65,7 @@ export const App = () => {
                   </ButtonGroup>
                 </Stack>
               </Flexbox>
-              <Flexbox alignSelf="center" component={m.div} gap={3} whileInView={{ opacity: [0, 1] }}>
+              <Flexbox alignSelf="center" component={m.div} gap={3} viewport={{ once: true }} whileInView={{ opacity: [0, 1] }}>
                 {!isMobile ?
                   <Tooltip title="GitHub" {...styles.tooltip}>
                     <IconButton
@@ -73,6 +84,7 @@ export const App = () => {
                 <GitHubCalendar
                   blockMargin={isMobile ? 1 : 2}
                   blockSize={isMobile ? 6 : 10}
+                  colorScheme={mode === "dark" ? "dark" : "light"}
                   hideColorLegend
                   hideMonthLabels={isMobile}
                   labels={{ totalCount: "{{count}} contributions in the past year" }}
@@ -128,8 +140,15 @@ export const App = () => {
                 </Grid>
               </Grid>
               <IconButton
+                component={m.button}
                 onClick={() => window.scrollTo({ behavior: "smooth", top: document.body.scrollHeight })}
-                sx={{ "&:hover,&:active": { backgroundColor: "transparent" }, bottom: "1rem", position: "fixed", right: "1rem" }}
+                sx={{
+                  "&:hover,&:active": { backgroundColor: "transparent" },
+                  bottom: "1rem",
+                  opacity: scrollButtonOpacity,
+                  position: "fixed",
+                  right: "1rem",
+                }}
               >
                 <IconContext.Provider value={{ color: "#6b7280", size: "2rem" }}>
                   <FaCircleArrowDown />
@@ -143,35 +162,18 @@ export const App = () => {
   );
 };
 
-const container = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { delay: 0.5, staggerChildren: 0.1 } },
-} as const;
-
-const item = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 },
-} as const;
-
 const styles = {
   content: {
-    animate: "show",
-    component: m.div,
-    gap: 4,
-    initial: "hidden",
+    gap: 5,
     maxWidth: { lg: 0.5, xs: 0.9 },
     py: 2,
-    variants: container,
   },
   contentItem: {
-    component: m.div,
     gap: 2,
     minWidth: 1,
-    variants: item,
   },
   heptagram: {
     animate: { opacity: [1, 0], rotate: -360, scale: [0, 1], transitionEnd: { display: "none" } },
-    style: { filter: "invert(75%)", width: "300px" },
     transition: { duration: 1, opacity: { delay: 1.5, duration: 0.5 } },
   },
   img: {
@@ -182,10 +184,7 @@ const styles = {
     },
   },
   intro: {
-    component: m.div,
     gap: isMobile ? 3 : 5,
-    variants: item,
-    whileInView: { opacity: [0, 1] },
   },
   mainFlex: {
     minHeight: "100vh",

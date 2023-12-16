@@ -1,15 +1,12 @@
-import { Card, Typography } from "@mui/joy";
+import { Card, Typography, useColorScheme } from "@mui/joy";
 import { m } from "framer-motion";
 import { memo } from "react";
 
 export const Experience = memo(function Experience() {
+  const { mode } = useColorScheme();
+
   return (
-    <Card
-      component={m.div}
-      sx={{ minHeight: 1 }}
-      whileHover={{ backgroundColor: "#111827" }}
-      whileInView={{ opacity: [0, 1], transition: { duration: 0.5 } }}
-    >
+    <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#e5e7eb" }} {...styles.card}>
       <Typography level="title-md">
         BuildingEase
         <Typography level="body-sm" ml={1}>
@@ -24,3 +21,18 @@ export const Experience = memo(function Experience() {
     </Card>
   );
 });
+
+const item = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1 },
+} as const;
+
+const styles = {
+  card: {
+    component: m.div,
+    initial: "hidden",
+    sx: { minHeight: 1 },
+    variants: item,
+    whileInView: "show",
+  },
+} as const;

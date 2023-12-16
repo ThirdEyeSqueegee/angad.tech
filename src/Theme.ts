@@ -184,8 +184,13 @@ export const theme = extendTheme({
         component: m.div,
         enterTouchDelay: 0,
         placement: "top",
-        sx: { backdropFilter: "blur(0.5rem)", backgroundColor: "rgba(3, 7, 18, 0.5)" },
+        sx: { backdropFilter: "blur(0.5rem)" },
         variant: "outlined",
+      },
+      styleOverrides: {
+        root: ({ theme: t }) => ({
+          backgroundColor: t.palette.colorScheme === "dark" ? "rgba(3, 7, 18, 0.5)" : "transparent",
+        }),
       },
     },
   },
