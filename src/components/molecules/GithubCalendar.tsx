@@ -1,0 +1,63 @@
+import { IconButton, Link, Tooltip, useColorScheme } from "@mui/joy";
+import { m } from "framer-motion";
+import { memo } from "react";
+import { isMobile } from "react-device-detect";
+import GitHubCalendar from "react-github-calendar";
+import { IconContext } from "react-icons";
+import { FaGithub } from "react-icons/fa6";
+
+import { Flexbox } from "../atoms/Flexbox.tsx";
+
+export const GithubCalendar = memo(function GithubCalendar() {
+  const { mode } = useColorScheme();
+
+  return (
+    <Flexbox {...styles.calendarBox}>
+      {!isMobile ?
+        <Tooltip title="GitHub" {...styles.tooltip}>
+          <IconButton {...styles.iconButton}>
+            <Link href="https://github.com/ThirdEyeSqueegee" overlay />
+            <IconContext.Provider value={{ size: "3rem" }}>
+              <FaGithub />
+            </IconContext.Provider>
+          </IconButton>
+        </Tooltip>
+      : null}
+      <GitHubCalendar
+        blockMargin={isMobile ? 1 : 2}
+        blockSize={isMobile ? 6 : 10}
+        colorScheme={mode === "dark" ? "dark" : "light"}
+        hideColorLegend
+        hideMonthLabels={isMobile}
+        labels={{ totalCount: "{{count}} contributions in the past year" }}
+        renderBlock={(b, a) => (
+          <Tooltip size="sm" title={`${a.count} contributions on ${new Date(a.date).toLocaleDateString()}`} {...styles.tooltip}>
+            {b}
+          </Tooltip>
+        )}
+        username="ThirdEyeSqueegee"
+      />
+    </Flexbox>
+  );
+});
+
+const styles = {
+  calendarBox: {
+    alignSelf: "center",
+    component: m.div,
+    gap: 3,
+    initial: { opacity: 0 },
+    whileInView: { opacity: 1 },
+  },
+  iconButton: {
+    component: m.button,
+    sx: { alignSelf: "center" },
+    whileHover: { backgroundColor: "transparent", scale: 1.1 },
+    whileTap: { scale: 0.9 },
+  },
+  tooltip: {
+    animate: { opacity: 1 },
+    component: m.div,
+    initial: { opacity: 0 },
+  },
+} as const;

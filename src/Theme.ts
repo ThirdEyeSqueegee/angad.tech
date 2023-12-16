@@ -1,5 +1,4 @@
 import { extendTheme } from "@mui/joy/styles";
-import { m } from "framer-motion";
 
 declare module "@mui/joy/styles" {
   interface PalettePrimaryOverrides {
@@ -181,16 +180,20 @@ export const theme = extendTheme({
     JoyTooltip: {
       defaultProps: {
         arrow: true,
-        component: m.div,
         enterTouchDelay: 0,
         placement: "top",
-        sx: { backdropFilter: "blur(0.5rem)" },
+        sx: { backdropFilter: "blur(0.5rem)", userSelect: "none" },
         variant: "outlined",
       },
       styleOverrides: {
         root: ({ theme: t }) => ({
           backgroundColor: t.palette.colorScheme === "dark" ? "rgba(3, 7, 18, 0.5)" : "transparent",
         }),
+      },
+    },
+    JoyTypography: {
+      defaultProps: {
+        sx: { userSelect: "none" },
       },
     },
   },

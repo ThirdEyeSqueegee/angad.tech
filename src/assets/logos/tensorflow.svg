@@ -1,1 +1,16 @@
-<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155 155"><defs><clipPath clipPathUnits="userSpaceOnUse" id="cp1"><path d="m143.76 38.86l-64.47-36.84v150.98l25.76-14.96v-42.47l19.45 11.25-0.11-29.05-19.34-11.05v-16.87l38.8 22.42-0.09-33.41z"/></clipPath><linearGradient id="P" gradientUnits="userSpaceOnUse"/><linearGradient id="g1" x2="1" href="#P" gradientTransform="matrix(158.31,0,0,151.72,3.08,77.33)"><stop stop-color="#ff6f00"/><stop offset="1" stop-color="#ffa800"/></linearGradient><clipPath clipPathUnits="userSpaceOnUse" id="cp2"><path d="m9.03 38.86l64.47-36.84v150.98l-25.76-14.96v-88.19l-38.8 22.42 0.09-33.41z"/></clipPath><linearGradient id="g2" x2="1" href="#P" gradientTransform="matrix(158.32,0,0,151.73,2,77.33)"><stop stop-color="#ff6f00"/><stop offset="1" stop-color="#ffa800"/></linearGradient></defs><style>.a{fill:url(#g1)}.b{fill:url(#g2)}</style><g clip-path="url(#cp1)"><path class="a" d="m3.1 1.5h158.3v151.7h-158.3z"/></g><g clip-path="url(#cp2)"><path class="b" d="m2 1.5h158.3v151.7h-158.3z"/></g></svg>
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155 155"><defs><clipPath clipPathUnits="userSpaceOnUse" id="cp1"><path
+        d="m143.76 38.86l-64.47-36.84v150.98l25.76-14.96v-42.47l19.45 11.25-0.11-29.05-19.34-11.05v-16.87l38.8 22.42-0.09-33.41z"
+      /></clipPath><linearGradient id="P" gradientUnits="userSpaceOnUse" /><linearGradient
+      id="g1"
+      x2="1"
+      href="#P"
+      gradientTransform="matrix(158.31,0,0,151.72,3.08,77.33)"
+    ><stop stop-color="#ff6f00" /><stop offset="1" stop-color="#ffa800" /></linearGradient><clipPath clipPathUnits="userSpaceOnUse" id="cp2"><path
+        d="m9.03 38.86l64.47-36.84v150.98l-25.76-14.96v-88.19l-38.8 22.42 0.09-33.41z"
+      /></clipPath><linearGradient id="g2" x2="1" href="#P" gradientTransform="matrix(158.32,0,0,151.73,2,77.33)"><stop stop-color="#ff6f00" /><stop
+        offset="1"
+        stop-color="#ffa800"
+      /></linearGradient></defs><style>.a{fill:url(#g1)}.b{fill:url(#g2)}</style><g clip-path="url(#cp1)"><path
+      class="a"
+      d="m3.1 1.5h158.3v151.7h-158.3z"
+    /></g><g clip-path="url(#cp2)"><path class="b" d="m2 1.5h158.3v151.7h-158.3z" /></g></svg>

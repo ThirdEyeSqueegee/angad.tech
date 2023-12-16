@@ -1,4 +1,5 @@
-import { Switch, Tooltip, Typography, switchClasses, useColorScheme } from "@mui/joy";
+import { Link, Switch, Tooltip, Typography, switchClasses, useColorScheme } from "@mui/joy";
+import { m } from "framer-motion";
 import { memo } from "react";
 import { isMobile } from "react-device-detect";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
@@ -12,11 +13,13 @@ export const Header = memo(function Header() {
 
   return (
     <Flexbox sx={{ backdropFilter: "blur(0.5rem)", backgroundColor: mode === "dark" ? "rgba(3, 7, 18, 0.5)" : "transparent" }} {...styles.flex}>
-      <img height={48} src={heptagram} style={{ filter: mode === "dark" ? "invert(1)" : undefined }} />
+      <Link onClick={() => window.scrollTo({ behavior: "smooth", top: 0 })}>
+        <img height={48} src={heptagram} style={{ filter: mode === "dark" ? "invert(1)" : undefined }} />
+      </Link>
       <Typography level="h1">
         <TypeIt options={{ cursor: false }}>Angad Misra</TypeIt>
       </Typography>
-      <Tooltip title={`Switch to ${mode === "dark" ? "light" : "dark"} mode`}>
+      <Tooltip title={`Switch to ${mode === "dark" ? "light" : "dark"} mode`} {...styles.tooltip}>
         <Switch
           checked={mode !== "dark"}
           color={mode === "dark" ? "primary" : "warning"}
@@ -25,13 +28,6 @@ export const Header = memo(function Header() {
             thumb: {
               children: mode === "dark" ? <MdDarkMode /> : <MdLightMode />,
             },
-          }}
-          sx={{
-            [`& .${switchClasses.thumb}`]: {
-              transition: "0.25s",
-            },
-            position: "absolute",
-            right: "1rem",
           }}
           {...styles.switch}
         />
@@ -51,6 +47,16 @@ const styles = {
   },
   switch: {
     size: isMobile ? "sm" : "lg",
+    sx: {
+      [`& .${switchClasses.thumb}`]: { transition: "0.25s" },
+      position: "absolute",
+      right: "1rem",
+    },
     variant: "soft",
+  },
+  tooltip: {
+    animate: { opacity: 1 },
+    component: m.div,
+    initial: { opacity: 0 },
   },
 } as const;
