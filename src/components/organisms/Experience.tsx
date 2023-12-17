@@ -33,6 +33,7 @@ const styles = {
   card: {
     component: m.div,
     initial: { opacity: 0 },
+    layout: true,
     sx: { minHeight: 1 },
     whileInView: { opacity: 1 },
     ...(!isMobile && {

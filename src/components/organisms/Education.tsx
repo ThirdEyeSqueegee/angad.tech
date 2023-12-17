@@ -4,6 +4,8 @@ import { memo } from "react";
 import { isMobile } from "react-device-detect";
 import TypeIt from "typeit-react";
 
+import ucla from "../../assets/logos/ucla.svg";
+
 export const Education = memo(function Education() {
   const { mode } = useColorScheme();
 
@@ -13,7 +15,9 @@ export const Education = memo(function Education() {
         <TypeIt options={{ cursor: false }}>Education</TypeIt>
       </Typography>
       <Card key={mode} whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
-        <Typography level="title-md">University of California, Los Angeles</Typography>
+        <Typography level="title-md" startDecorator={<img height={32} src={ucla} style={{ alignSelf: "start" }} />}>
+          University of California, Los Angeles
+        </Typography>
         <Typography level="title-sm">B.S. Computer Science and Engineering</Typography>
       </Card>
     </Stack>
@@ -24,6 +28,7 @@ const styles = {
   card: {
     component: m.div,
     initial: { opacity: 0 },
+    layout: true,
     sx: { minHeight: 1 },
     whileInView: { opacity: 1 },
     ...(!isMobile && {

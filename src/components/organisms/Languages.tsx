@@ -32,13 +32,7 @@ export const Languages = memo(function Languages() {
           </IconContext.Provider>
         </IconButton>
       </Flexbox>
-      <Grid
-        alignItems={expanded ? "start" : "center"}
-        direction={expanded ? "column" : "row"}
-        justifyContent={expanded ? "center" : "start"}
-        minWidth={expanded ? "auto" : 1}
-        {...styles.gridContainer}
-      >
+      <Grid alignItems={expanded ? "start" : "center"} direction={expanded ? "column" : "row"} {...styles.gridContainer}>
         <LanguageItem expanded={expanded} src={cpp} title="C++" />
         <LanguageItem expanded={expanded} src={python} title="Python" />
         <LanguageItem expanded={expanded} src={c} title="C" />

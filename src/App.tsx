@@ -71,11 +71,11 @@ export const App = () => {
               <Languages />
               <Skills />
               <Grid {...styles.gridContainer}>
-                <Grid xs={isMobile ? 12 : 6}>
+                <Grid {...styles.gridItem}>
                   <Projects />
                 </Grid>
-                <Grid xs={isMobile ? 12 : 6}>
-                  <Stack gap={2}>
+                <Grid {...styles.gridItem}>
+                  <Stack {...styles.stack}>
                     <Experience />
                     <Education />
                   </Stack>
@@ -105,9 +105,16 @@ const styles = {
   },
   gridContainer: {
     alignItems: "start",
+    component: m.div,
     container: true,
     direction: isMobile ? "column" : "row",
+    layout: true,
     spacing: 2,
+  },
+  gridItem: {
+    component: m.div,
+    layout: true,
+    xs: isMobile ? 12 : 6,
   },
   heptagram: {
     animate: { opacity: 0, rotate: -360, scale: 1, transitionEnd: { display: "none" } },
@@ -132,5 +139,10 @@ const styles = {
     minHeight: "100vh",
     minWidth: 1,
     mt: 1,
+  },
+  stack: {
+    component: m.div,
+    gap: 2,
+    layout: true,
   },
 } as const;
