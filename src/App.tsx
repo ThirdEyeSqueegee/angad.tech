@@ -1,4 +1,5 @@
 import { Grid, Stack, Typography, useColorScheme } from "@mui/joy";
+import { useIsFirstRender } from "@uidotdev/usehooks";
 import { LazyMotion, domMax, m, useMotionTemplate, useMotionValue } from "framer-motion";
 // eslint-disable-next-line perfectionist/sort-named-imports
 import { useState, type MouseEvent } from "react";
@@ -8,10 +9,10 @@ import { LuCopyleft } from "react-icons/lu";
 import heptagram from "./assets/heptagram.svg";
 import { Flexbox } from "./components/atoms/Flexbox.tsx";
 import { GithubCalendar } from "./components/molecules/GithubCalendar.tsx";
-import { Header } from "./components/molecules/Header.tsx";
 import { ScrollButton } from "./components/molecules/ScrollButton.tsx";
 import { Education } from "./components/organisms/Education.tsx";
 import { Experience } from "./components/organisms/Experience.tsx";
+import { Header } from "./components/organisms/Header.tsx";
 import { Intro } from "./components/organisms/Intro.tsx";
 import { Languages } from "./components/organisms/Languages.tsx";
 import { Projects } from "./components/organisms/Projects.tsx";
@@ -32,6 +33,8 @@ export const App = () => {
     mouseY.set(clientY - top);
   };
 
+  const isFirstRender = useIsFirstRender();
+
   return (
     <LazyMotion features={domMax} strict>
       <Stack
@@ -42,7 +45,7 @@ export const App = () => {
             {
               background: useMotionTemplate`
                 radial-gradient(
-                  420px circle at ${mouseX}px ${mouseY}px,
+                  300px circle at ${mouseX}px ${mouseY}px,
                   ${mode === "dark" ? "rgba(17, 24, 39, 0.5)" : "rgba(229, 231, 235, 0.5)"},
                   transparent
                 )
@@ -58,7 +61,7 @@ export const App = () => {
           <m.img
             onAnimationComplete={() => setShowContent(true)}
             src={heptagram}
-            style={{ filter: mode === "dark" ? "invert(.75)" : undefined, width: "300px" }}
+            style={{ display: isFirstRender ? undefined : "none", filter: mode === "dark" ? "invert(.75)" : undefined, width: "300px" }}
             {...styles.heptagram}
           />
           {showContent ?
@@ -96,6 +99,7 @@ const styles = {
     component: m.div,
     gap: 5,
     initial: { opacity: 0 },
+    layout: true,
     maxWidth: { lg: 0.5, xs: 0.9 },
     py: 2,
   },

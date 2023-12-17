@@ -1,17 +1,1 @@
-<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 115"><defs><linearGradient
-      id="P"
-      gradientUnits="userSpaceOnUse"
-    /><linearGradient id="g1" x2="1" href="#P" gradientTransform="matrix(61.326,53.272,-83.692,96.344,1,1)"><stop stop-color="#5a9fd4" /><stop
-        offset="1"
-        stop-color="#306998"
-      /></linearGradient><linearGradient id="g2" x2="1" href="#P" gradientTransform="matrix(-21.9,-31.283,50.601,-35.423,70.931,98.548)"><stop
-        stop-color="#ffd43b"
-      /><stop offset="1" stop-color="#ffe873" /></linearGradient></defs><style>.a{fill:url(#g1)}.b{fill:url(#g2)}</style><path
-    fill-rule="evenodd"
-    class="a"
-    d="m69.9 2.1c7.3 1.2 13.4 6.7 13.4 13.9v25.6c0 7.5-6 13.6-13.4 13.6h-26.8c-9.1 0-16.7 7.8-16.7 16.6v12.3h-9.3c-7.8 0-12.3-5.7-14.2-13.6-2.6-10.7-2.5-17 0-27.2 2.1-9 8.9-13.6 16.7-13.6h36.9v-3.4h-26.8v-10.3c0-7.7 2.1-11.9 13.4-13.9 3.9-0.7 8.2-1.1 12.8-1.1 4.6 0 9.4 0.3 14 1.1zm-33.5 12.2c0 2.9 2.2 5.1 5 5.1 2.8 0 5.1-2.2 5.1-5.1 0-2.8-2.3-5.1-5.1-5.1-2.8 0-5 2.3-5 5.1z"
-  /><path
-    fill-rule="evenodd"
-    class="b"
-    d="m96.7 29.7c7.8 0 11.5 5.8 13.4 13.6 2.7 10.7 2.8 18.8 0 27.2-2.7 8.2-5.6 13.6-13.4 13.6h-40.2v3.4h26.8v10.2c0 7.8-6.7 11.7-13.4 13.6-10.2 3-18.3 2.5-26.8 0-7.1-2-13.4-6.3-13.4-13.6v-25.5c0-7.4 6.1-13.6 13.4-13.6h26.8c8.9 0 16.7-7.8 16.7-17v-11.9zm-30.1 69.7c0 2.8 2.2 5.1 5 5.1 2.8 0 5-2.3 5-5.1 0-2.8-2.2-5.1-5-5.1-2.8 0-5 2.3-5 5.1z"
-  /></svg>
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 115"><defs><linearGradient id="P" gradientUnits="userSpaceOnUse"/><linearGradient id="g1" x2="1" href="#P" gradientTransform="matrix(61.326,53.272,-83.675,96.326,1,1)"><stop stop-color="#5a9fd4"/><stop offset="1" stop-color="#306998"/></linearGradient><linearGradient id="g2" x2="1" href="#P" gradientTransform="matrix(-21.9,-31.283,50.615,-35.434,70.931,98.548)"><stop stop-color="#ffd43b"/><stop offset="1" stop-color="#ffe873"/></linearGradient></defs><style>.a{fill:url(#g1)}.b{fill:url(#g2)}</style><path fill-rule="evenodd" class="a" d="m69.9 2.1c7.3 1.2 13.4 6.7 13.4 13.9v25.6c0 7.5-6 13.6-13.4 13.6h-26.8c-9.1 0-16.7 7.8-16.7 16.6v12.3h-9.3c-7.8 0-12.3-5.7-14.2-13.6-2.6-10.7-2.5-17 0-27.2 2.1-9 8.9-13.6 16.7-13.6h36.9v-3.4h-26.8v-10.3c0-7.7 2.1-11.9 13.4-13.9 3.9-0.7 8.2-1.1 12.8-1.1 4.6 0 9.4 0.3 14 1.1zm-33.5 12.2c0 2.9 2.2 5.1 5 5.1 2.8 0 5.1-2.2 5.1-5.1 0-2.8-2.3-5.1-5.1-5.1-2.8 0-5 2.3-5 5.1z"/><path fill-rule="evenodd" class="b" d="m96.7 29.7c7.8 0 11.5 5.8 13.4 13.6 2.7 10.7 2.8 18.8 0 27.2-2.7 8.2-5.6 13.6-13.4 13.6h-40.2v3.4h26.8v10.2c0 7.8-6.7 11.7-13.4 13.6-10.2 3-18.3 2.5-26.8 0-7.1-2-13.4-6.3-13.4-13.6v-25.5c0-7.4 6.1-13.6 13.4-13.6h26.8c8.9 0 16.7-7.8 16.7-17v-11.9zm-30.1 69.7c0 2.8 2.2 5.1 5 5.1 2.8 0 5-2.3 5-5.1 0-2.8-2.2-5.1-5-5.1-2.8 0-5 2.3-5 5.1z"/></svg>

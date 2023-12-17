@@ -34,7 +34,7 @@ export const Skills = memo(function Skills() {
       <Typography level="h3">
         <TypeIt options={{ cursor: false }}>Skills</TypeIt>
       </Typography>
-      <Grid {...styles.gridContainer}>
+      <Grid key={mode} {...styles.gridContainer}>
         <Grid {...styles.gridItem}>
           <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
             <Typography level="title-md">Frontend</Typography>
@@ -90,12 +90,7 @@ export const Skills = memo(function Skills() {
             <Grid {...styles.iconGridContainer}>
               <Grid xs={8}>
                 <Tooltip title="Next.js" {...styles.tooltip}>
-                  <m.img
-                    height={isMobile ? 12 : 18}
-                    src={nextjs}
-                    style={{ filter: mode === "dark" ? undefined : "drop-shadow(0 0 0.5rem)" }}
-                    {...styles.img}
-                  />
+                  <m.img height={isMobile ? 12 : 18} src={nextjs} style={{ filter: mode === "dark" ? undefined : "invert(1)" }} {...styles.img} />
                 </Tooltip>
               </Grid>
               <Grid xs={4}>
@@ -112,7 +107,12 @@ export const Skills = memo(function Skills() {
             <Grid {...styles.iconGridContainer}>
               <Grid xs>
                 <Tooltip title="AWS Cloud" {...styles.tooltip}>
-                  <m.img height={26} src={aws} style={{ filter: mode === "dark" ? undefined : "drop-shadow(0 0 0.5rem)" }} {...styles.img} />
+                  <m.img
+                    height={isMobile ? 26 : 32}
+                    src={aws}
+                    style={{ filter: mode === "dark" ? undefined : "drop-shadow(0 0 0.5rem)" }}
+                    {...styles.img}
+                  />
                 </Tooltip>
               </Grid>
             </Grid>
@@ -195,7 +195,7 @@ export const Skills = memo(function Skills() {
             <Grid {...styles.iconGridContainer}>
               <Grid xs>
                 <Tooltip title="VS Code" {...styles.tooltip}>
-                  <m.img height={isMobile ? 24 : 30} src={vscode} {...styles.img} />
+                  <m.img height={isMobile ? 26 : 32} src={vscode} {...styles.img} />
                 </Tooltip>
               </Grid>
               <Grid xs>
@@ -234,7 +234,11 @@ const item = {
 const styles = {
   card: {
     component: m.div,
-    sx: { minHeight: "6.5rem", minWidth: 1 },
+    drag: true,
+    dragSnapToOrigin: true,
+    dragTransition: { bounceDamping: 10, bounceStiffness: 100 },
+    sx: { minHeight: 1, minWidth: 1 },
+    whileDrag: { zIndex: 5 },
   },
   contentItem: {
     gap: 2,
@@ -244,6 +248,7 @@ const styles = {
     component: m.div,
     container: true,
     initial: "hidden",
+    layout: true,
     minWidth: 1,
     spacing: 2,
     variants: container,
@@ -251,6 +256,7 @@ const styles = {
   },
   gridItem: {
     component: m.div,
+    layout: true,
     variants: item,
     xl: 3,
     xs: 6,

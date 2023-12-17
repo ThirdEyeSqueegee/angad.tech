@@ -47,6 +47,7 @@ const styles = {
     component: m.div,
     gap: 3,
     initial: { opacity: 0 },
+    layout: true,
     whileInView: { opacity: 1 },
   },
   iconButton: {

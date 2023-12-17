@@ -1,7 +1,8 @@
-import { Grid, Stack, Tooltip, Typography, useColorScheme } from "@mui/joy";
+import { Grid, IconButton, Stack, Tooltip, Typography } from "@mui/joy";
 import { m } from "framer-motion";
-import { memo } from "react";
-import { isMobile } from "react-device-detect";
+import { memo, useState } from "react";
+import { IconContext } from "react-icons";
+import { FiChevronRight } from "react-icons/fi";
 import TypeIt from "typeit-react";
 
 import c from "../../assets/logos/c.svg";
@@ -13,78 +14,59 @@ import python from "../../assets/logos/python.svg";
 import rust from "../../assets/logos/rust.svg";
 import typescript from "../../assets/logos/typescript.svg";
 import x64 from "../../assets/logos/x64.svg";
+import { Flexbox } from "../atoms/Flexbox.tsx";
+import { LanguageItem } from "../molecules/LanguageItem.tsx";
 
 export const Languages = memo(function Languages() {
-  const { mode } = useColorScheme();
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <Stack {...styles.contentItem}>
-      <Typography level="h3">
-        <TypeIt options={{ cursor: false }}>Languages</TypeIt>
-      </Typography>
-      <Grid {...styles.gridContainer}>
-        <Grid {...styles.gridItem}>
-          <Tooltip title="C++" {...styles.tooltip}>
-            <m.img src={cpp} {...styles.img} />
-          </Tooltip>
-        </Grid>
-        <Grid {...styles.gridItem}>
-          <Tooltip title="Python" {...styles.tooltip}>
-            <m.img src={python} {...styles.img} />
-          </Tooltip>
-        </Grid>
-        <Grid {...styles.gridItem}>
-          <Tooltip title="C" {...styles.tooltip}>
-            <m.img src={c} {...styles.img} />
-          </Tooltip>
-        </Grid>
-        <Grid {...styles.gridItem}>
-          <Tooltip title="TypeScript" {...styles.tooltip}>
-            <m.img src={typescript} {...styles.img} />
-          </Tooltip>
-        </Grid>
-        <Grid {...styles.gridItem}>
-          <Tooltip title="Java" {...styles.tooltip}>
-            <m.img src={java} {...styles.img} />
-          </Tooltip>
-        </Grid>
-        <Grid {...styles.gridItem}>
-          <Tooltip title="C#" {...styles.tooltip}>
-            <m.img src={csharp} {...styles.img} />
-          </Tooltip>
-        </Grid>
-        <Grid {...styles.gridItem}>
-          <Tooltip title="x64 Assembly" {...styles.tooltip}>
-            <m.img src={x64} {...styles.img} />
-          </Tooltip>
-        </Grid>
-        <Grid {...styles.gridItem}>
-          <Tooltip title="Rust" {...styles.tooltip}>
-            <m.img src={rust} style={{ filter: mode === "dark" ? undefined : "invert(1)" }} {...styles.img} />
-          </Tooltip>
-        </Grid>
-        <Grid {...styles.gridItem}>
-          <Tooltip title="Lisps" {...styles.tooltip}>
-            <m.img src={lisp} {...styles.img} />
-          </Tooltip>
-        </Grid>
+      <Flexbox justifyContent="start">
+        <Typography level="h3">
+          <TypeIt options={{ cursor: false }}>Languages</TypeIt>
+        </Typography>
+        <IconButton onClick={() => setExpanded(!expanded)} size="sm" sx={{ "&:hover,&:active": { backgroundColor: "transparent" } }}>
+          <IconContext.Provider value={{ size: "1.5rem", style: { transform: expanded ? "rotate(90deg)" : undefined, transition: "0.25s" } }}>
+            <FiChevronRight />
+          </IconContext.Provider>
+        </IconButton>
+      </Flexbox>
+      <Grid
+        alignItems={expanded ? "start" : "center"}
+        direction={expanded ? "column" : "row"}
+        justifyContent={expanded ? "center" : "start"}
+        minWidth={expanded ? "auto" : 1}
+        {...styles.gridContainer}
+      >
+        <LanguageItem expanded={expanded} src={cpp} title="C++" />
+        <LanguageItem expanded={expanded} src={python} title="Python" />
+        <LanguageItem expanded={expanded} src={c} title="C" />
+        <LanguageItem expanded={expanded} src={typescript} title="TypeScript" />
+        <LanguageItem expanded={expanded} src={java} title="Java" />
+        <LanguageItem expanded={expanded} src={csharp} title="C#" />
+        <LanguageItem expanded={expanded} src={x64} title="x64 Assembly" />
+        <LanguageItem expanded={expanded} src={rust} title="Rust" />
+        <LanguageItem expanded={expanded} src={lisp} title="Lisps" />
       </Grid>
-      <Typography level="body-sm">
-        I speak human languages too! I&apos;m fluent in 🇺🇸 English and 🇮🇳 Hindi, fairly good at 🇪🇸 Spanish, and currently learning 🇩🇪 German.
+      <Typography {...styles.typography}>
+        I speak human languages too! I&apos;m fluent in 🇺🇸 English and{" "}
+        <Tooltip title="Hindi" {...styles.tooltip}>
+          <Typography>🇮🇳 हिन्दी</Typography>
+        </Tooltip>
+        , no hablo el{" "}
+        <Tooltip title="Spanish" {...styles.tooltip}>
+          <Typography>🇪🇸 Espa&ntilde;ol</Typography>
+        </Tooltip>{" "}
+        con fluidez pero me defiendo, und zurzeit ich lerne{" "}
+        <Tooltip title="German" {...styles.tooltip}>
+          <Typography>🇩🇪 Deutsch</Typography>
+        </Tooltip>
+        .
       </Typography>
     </Stack>
   );
 });
-
-const container = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.075 } },
-} as const;
-
-const item = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 },
-} as const;
 
 const styles = {
   contentItem: {
@@ -92,30 +74,22 @@ const styles = {
     minWidth: 1,
   },
   gridContainer: {
-    alignItems: "center",
     component: m.div,
     container: true,
-    initial: "hidden",
-    justifyContent: "start",
-    minWidth: 1,
+    initial: { opacity: 0 },
+    layout: true,
     spacing: 2,
-    variants: container,
-    whileInView: "show",
-  },
-  gridItem: {
-    component: m.div,
-    lg: 1,
-    variants: item,
-    xs: 2,
-  },
-  img: {
-    height: isMobile ? 32 : 40,
-    whileHover: { scale: 1.15 },
-    whileTap: { scale: 0.9 },
+    whileInView: { opacity: 1 },
   },
   tooltip: {
     animate: { opacity: 1 },
     component: m.div,
     initial: { opacity: 0 },
+  },
+  typography: {
+    component: m.span,
+    initial: { opacity: 0 },
+    mt: 1,
+    whileInView: { opacity: 1 },
   },
 } as const;

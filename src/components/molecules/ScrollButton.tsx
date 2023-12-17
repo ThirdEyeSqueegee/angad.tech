@@ -2,7 +2,7 @@ import { IconButton } from "@mui/joy";
 import { m, scroll } from "framer-motion";
 import { memo, useState } from "react";
 import { IconContext } from "react-icons";
-import { FaCircleArrowDown } from "react-icons/fa6";
+import { FiArrowDownCircle } from "react-icons/fi";
 
 export const ScrollButton = memo(function ScrollButton() {
   const [scrollButtonOpacity, setScrollButtonOpacity] = useState(1);
@@ -22,7 +22,7 @@ export const ScrollButton = memo(function ScrollButton() {
       }}
     >
       <IconContext.Provider value={{ color: "#6b7280", size: "2rem" }}>
-        <FaCircleArrowDown />
+        <FiArrowDownCircle />
       </IconContext.Provider>
     </IconButton>
   );
