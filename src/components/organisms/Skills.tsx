@@ -1,8 +1,9 @@
-import { Card, Grid, IconButton, Stack, Tooltip, Typography, useColorScheme } from "@mui/joy";
+import { Card, Grid, Link, Stack, Tooltip, Typography, useColorScheme } from "@mui/joy";
 import { m } from "framer-motion";
 import { memo, useState } from "react";
 import { isMobile } from "react-device-detect";
 import { IconContext } from "react-icons";
+import { FaLink } from "react-icons/fa6";
 import { FiChevronRight } from "react-icons/fi";
 import TypeIt from "typeit-react";
 
@@ -38,40 +39,65 @@ export const Skills = memo(function Skills() {
 
   return (
     <Stack {...styles.contentItem}>
-      <Flexbox justifyContent="start">
-        <Typography level="h3">
-          <TypeIt options={{ cursor: false }}>Skills</TypeIt>
-        </Typography>
-        <IconButton onClick={() => setExpanded(!expanded)} size="sm" sx={{ "&:hover,&:active": { backgroundColor: "transparent" } }}>
+      <Link color="neutral" onClick={() => setExpanded(!expanded)} underline="none">
+        <Flexbox gap={1} justifyContent="start">
+          <Typography level="h3">
+            <TypeIt options={{ cursor: false }}>Skills</TypeIt>
+          </Typography>
           <IconContext.Provider value={{ size: "1.5rem", style: { transform: expanded ? "rotate(90deg)" : undefined, transition: "0.25s" } }}>
             <FiChevronRight />
           </IconContext.Provider>
-        </IconButton>
-      </Flexbox>
+        </Flexbox>
+      </Link>
       <Grid key={mode} {...styles.gridContainer}>
         <Grid {...styles.gridItem}>
           <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
             <Typography {...styles.typography}>Frontend</Typography>
-            <Grid alignItems={expanded ? "start" : "center"} direction={expanded ? "column" : "row"} {...styles.iconGridContainer}>
+            <Grid
+              alignItems={expanded ? "start" : "center"}
+              direction={expanded ? "column" : "row"}
+              rowGap={expanded ? 2 : undefined}
+              {...styles.iconGridContainer}
+            >
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="React" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={react} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://react.dev/">
+                    React
+                  </Link>
+                : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="Vite" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={vite} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://vitejs.dev/">
+                    Vite
+                  </Link>
+                : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="MUI" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={mui} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://mui.com/">
+                    MUI
+                  </Link>
+                : null}
               </Grid>
               <Grid xs {...styles.iconGridItem} {...styles.iconGridItem}>
                 <Tooltip title="Vercel" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={vercel} style={{ filter: mode === "dark" ? undefined : "invert(1)" }} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://vercel.com/">
+                    Vercel
+                  </Link>
+                : null}
               </Grid>
             </Grid>
           </Card>
@@ -82,7 +108,7 @@ export const Skills = memo(function Skills() {
             <Grid
               alignItems={expanded ? "start" : "center"}
               direction={expanded ? "column" : "row"}
-              rowGap={expanded ? 0.5 : undefined}
+              rowGap={expanded ? 2.5 : undefined}
               {...styles.iconGridContainer}
             >
               <Grid xs={8} {...styles.iconGridItem}>
@@ -94,11 +120,21 @@ export const Skills = memo(function Skills() {
                     {...styles.img}
                   />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://nodejs.org">
+                    Node.js
+                  </Link>
+                : null}
               </Grid>
               <Grid xs={4} {...styles.iconGridItem}>
                 <Tooltip title="Spring" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={spring} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://spring.io/">
+                    Spring
+                  </Link>
+                : null}
               </Grid>
             </Grid>
           </Card>
@@ -109,18 +145,28 @@ export const Skills = memo(function Skills() {
             <Grid
               alignItems={expanded ? "start" : "center"}
               direction={expanded ? "column" : "row"}
-              rowGap={expanded ? 1.25 : undefined}
+              rowGap={expanded ? 2.5 : undefined}
               {...styles.iconGridContainer}
             >
               <Grid xs={8} {...styles.iconGridItem}>
                 <Tooltip title="Next.js" {...styles.tooltip}>
                   <m.img height={isMobile ? 12 : 18} src={nextjs} style={{ filter: mode === "dark" ? undefined : "invert(1)" }} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://nextjs.org/">
+                    Next.js
+                  </Link>
+                : null}
               </Grid>
               <Grid xs={4} {...styles.iconGridItem}>
                 <Tooltip title=".NET" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={dotnet} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://dotnet.microsoft.com">
+                    .NET
+                  </Link>
+                : null}
               </Grid>
             </Grid>
           </Card>
@@ -128,7 +174,12 @@ export const Skills = memo(function Skills() {
         <Grid {...styles.gridItem}>
           <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
             <Typography {...styles.typography}>Cloud</Typography>
-            <Grid alignItems={expanded ? "start" : "center"} direction={expanded ? "column" : "row"} {...styles.iconGridContainer}>
+            <Grid
+              alignItems={expanded ? "start" : "center"}
+              direction={expanded ? "column" : "row"}
+              rowGap={expanded ? 2 : undefined}
+              {...styles.iconGridContainer}
+            >
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="AWS Cloud" {...styles.tooltip}>
                   <m.img
@@ -138,16 +189,31 @@ export const Skills = memo(function Skills() {
                     {...styles.img}
                   />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://aws.amazon.com/">
+                    AWS Cloud
+                  </Link>
+                : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="Terraform" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={terraform} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://www.terraform.io/">
+                    Terraform
+                  </Link>
+                : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="Docker" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={docker} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://www.docker.com/">
+                    Docker
+                  </Link>
+                : null}
               </Grid>
             </Grid>
           </Card>
@@ -155,21 +221,41 @@ export const Skills = memo(function Skills() {
         <Grid {...styles.gridItem}>
           <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
             <Typography {...styles.typography}>{isMobile ? "ML" : "Machine learning"}</Typography>
-            <Grid alignItems={expanded ? "start" : "center"} direction={expanded ? "column" : "row"} {...styles.iconGridContainer}>
+            <Grid
+              alignItems={expanded ? "start" : "center"}
+              direction={expanded ? "column" : "row"}
+              rowGap={expanded ? 2 : undefined}
+              {...styles.iconGridContainer}
+            >
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="Keras" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={keras} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://keras.io/">
+                    Keras
+                  </Link>
+                : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="TensorFlow" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={tensorflow} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://www.tensorflow.org/">
+                    TensorFlow
+                  </Link>
+                : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="PyTorch" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={pytorch} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://pytorch.org/">
+                    PyTorch
+                  </Link>
+                : null}
               </Grid>
             </Grid>
           </Card>
@@ -180,13 +266,18 @@ export const Skills = memo(function Skills() {
             <Grid
               alignItems={expanded ? "start" : "center"}
               direction={expanded ? "column" : "row"}
-              rowGap={expanded ? 1 : undefined}
+              rowGap={expanded ? 2 : undefined}
               {...styles.iconGridContainer}
             >
               <Grid xs={4} {...styles.iconGridItem}>
                 <Tooltip title="CMake" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={cmake} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://cmake.org/">
+                    CMake
+                  </Link>
+                : null}
               </Grid>
               <Grid xs={8} {...styles.iconGridItem}>
                 <Tooltip title="Maven" {...styles.tooltip}>
@@ -197,6 +288,11 @@ export const Skills = memo(function Skills() {
                     {...styles.img}
                   />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://maven.apache.org/">
+                    Maven
+                  </Link>
+                : null}
               </Grid>
             </Grid>
           </Card>
@@ -204,11 +300,21 @@ export const Skills = memo(function Skills() {
         <Grid {...styles.gridItem}>
           <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
             <Typography {...styles.typography}>Data</Typography>
-            <Grid alignItems={expanded ? "start" : "center"} direction={expanded ? "column" : "row"} {...styles.iconGridContainer}>
+            <Grid
+              alignItems={expanded ? "start" : "center"}
+              direction={expanded ? "column" : "row"}
+              rowGap={expanded ? 2 : undefined}
+              {...styles.iconGridContainer}
+            >
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="PostgreSQL" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={postgresql} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://www.postgresql.org/">
+                    PostgreSQL
+                  </Link>
+                : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="Pandas" {...styles.tooltip}>
@@ -219,11 +325,21 @@ export const Skills = memo(function Skills() {
                     {...styles.img}
                   />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://pandas.pydata.org/">
+                    Pandas
+                  </Link>
+                : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="NumPy" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={numpy} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://numpy.org/">
+                    NumPy
+                  </Link>
+                : null}
               </Grid>
             </Grid>
           </Card>
@@ -231,26 +347,51 @@ export const Skills = memo(function Skills() {
         <Grid {...styles.gridItem}>
           <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
             <Typography {...styles.typography}>IDEs</Typography>
-            <Grid alignItems={expanded ? "start" : "center"} direction={expanded ? "column" : "row"} {...styles.iconGridContainer}>
+            <Grid
+              alignItems={expanded ? "start" : "center"}
+              direction={expanded ? "column" : "row"}
+              rowGap={expanded ? 2 : undefined}
+              {...styles.iconGridContainer}
+            >
               <Grid xs {...styles.iconGridItem}>
-                <Tooltip title="VS Code" {...styles.tooltip}>
+                <Tooltip title="Visual Studio Code" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={vscode} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://code.visualstudio.com/">
+                    VS Code
+                  </Link>
+                : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="Visual Studio 2022" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={visualstudio} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://visualstudio.microsoft.com/">
+                    VS 2022
+                  </Link>
+                : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="IntelliJ IDEA" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={intellij} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://www.jetbrains.com/idea">
+                    IntelliJ IDEA
+                  </Link>
+                : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="Rider" {...styles.tooltip}>
                   <m.img height={isMobile ? 26 : 32} src={rider} {...styles.img} />
                 </Tooltip>
+                {expanded ?
+                  <Link endDecorator={<FaLink />} href="https://www.jetbrains.com/rider">
+                    Rider
+                  </Link>
+                : null}
               </Grid>
             </Grid>
           </Card>
@@ -309,7 +450,10 @@ const styles = {
     layout: true,
   },
   iconGridItem: {
+    alignItems: "center",
     component: m.div,
+    display: "flex",
+    gap: 2,
     layout: true,
   },
   img: {

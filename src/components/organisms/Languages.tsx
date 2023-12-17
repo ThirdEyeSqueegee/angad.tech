@@ -1,4 +1,4 @@
-import { Grid, IconButton, Stack, Tooltip, Typography } from "@mui/joy";
+import { Grid, Link, Stack, Tooltip, Typography } from "@mui/joy";
 import { m } from "framer-motion";
 import { memo, useState } from "react";
 import { IconContext } from "react-icons";
@@ -22,16 +22,16 @@ export const Languages = memo(function Languages() {
 
   return (
     <Stack {...styles.contentItem}>
-      <Flexbox justifyContent="start">
-        <Typography level="h3">
-          <TypeIt options={{ cursor: false }}>Languages</TypeIt>
-        </Typography>
-        <IconButton onClick={() => setExpanded(!expanded)} size="sm" sx={{ "&:hover,&:active": { backgroundColor: "transparent" } }}>
+      <Link color="neutral" onClick={() => setExpanded(!expanded)} underline="none">
+        <Flexbox gap={1} justifyContent="start">
+          <Typography level="h3">
+            <TypeIt options={{ cursor: false }}>Languages</TypeIt>
+          </Typography>
           <IconContext.Provider value={{ size: "1.5rem", style: { transform: expanded ? "rotate(90deg)" : undefined, transition: "0.25s" } }}>
             <FiChevronRight />
           </IconContext.Provider>
-        </IconButton>
-      </Flexbox>
+        </Flexbox>
+      </Link>
       <Grid alignItems={expanded ? "start" : "center"} direction={expanded ? "column" : "row"} {...styles.gridContainer}>
         <LanguageItem expanded={expanded} src={cpp} title="C++" />
         <LanguageItem expanded={expanded} src={python} title="Python" />
