@@ -1,6 +1,7 @@
 import { Card, Link, Stack, Typography, useColorScheme } from "@mui/joy";
 import { m } from "framer-motion";
 import { memo } from "react";
+import { isMobile } from "react-device-detect";
 import { FaLink } from "react-icons/fa6";
 import TypeIt from "typeit-react";
 
@@ -41,13 +42,15 @@ export const Projects = memo(function Projects() {
 const styles = {
   card: {
     component: m.div,
-    drag: true,
-    dragSnapToOrigin: true,
-    dragTransition: { bounceDamping: 10, bounceStiffness: 100 },
     initial: { opacity: 0 },
     sx: { minHeight: 1 },
-    whileDrag: { zIndex: 5 },
     whileInView: { opacity: 1 },
+    ...(!isMobile && {
+      drag: true,
+      dragSnapToOrigin: true,
+      dragTransition: { bounceDamping: 10, bounceStiffness: 100 },
+      whileDrag: { zIndex: 5 },
+    }),
   },
   contentItem: {
     gap: 2,

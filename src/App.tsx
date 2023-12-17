@@ -45,8 +45,8 @@ export const App = () => {
             {
               background: useMotionTemplate`
                 radial-gradient(
-                  300px circle at ${mouseX}px ${mouseY}px,
-                  ${mode === "dark" ? "rgba(17, 24, 39, 0.5)" : "rgba(229, 231, 235, 0.5)"},
+                  32rem circle at ${mouseX}px ${mouseY}px,
+                  ${mode === "dark" ? "rgba(17, 24, 39, 0.5)" : "rgba(209, 213, 219, 0.5)"},
                   transparent
                 )
               `,
@@ -131,5 +131,6 @@ const styles = {
   mainFlex: {
     minHeight: "100vh",
     minWidth: 1,
+    mt: 1,
   },
 } as const;

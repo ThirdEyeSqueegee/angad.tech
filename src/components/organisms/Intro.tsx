@@ -10,7 +10,31 @@ import { ProfileLinks } from "../molecules/ProfileLinks.tsx";
 export const Intro = memo(function Intro() {
   return (
     <Flexbox flexDirection={isMobile ? "column" : "row"} {...styles.intro}>
-      <img src={mugshot} {...styles.img} />
+      <Flexbox
+        component={m.div}
+        display="grid"
+        {...(!isMobile && {
+          drag: true,
+          dragSnapToOrigin: true,
+          dragTransition: { bounceDamping: 10, bounceStiffness: 100 },
+          whileDrag: { zIndex: 5 },
+        })}
+      >
+        <img src={mugshot} {...styles.img} />
+        <m.div
+          animate={{ rotate: 360, transition: { duration: 25, ease: "linear", repeat: Infinity } }}
+          style={{
+            borderRadius: "100%",
+            gridColumn: 1,
+            gridRow: 1,
+            height: "100%",
+            outline: "#6b7280 dashed 2px",
+            outlineOffset: "0.5rem",
+            width: "100%",
+          }}
+          whileTap={{ rotate: -360, transition: { duration: 10, ease: "linear", repeat: Infinity } }}
+        />
+      </Flexbox>
       <Stack gap={2}>
         <Typography>
           I am a Los Angeles based software engineer specialized in system programming, data engineering, and full-stack development. My interests
@@ -26,6 +50,8 @@ const styles = {
   img: {
     style: {
       borderRadius: "100%",
+      gridColumn: 1,
+      gridRow: 1,
       maxHeight: "10rem",
       maxWidth: "10rem",
     },

@@ -6,6 +6,7 @@ import TypeIt from "typeit-react";
 
 import aws from "../../assets/logos/aws.svg";
 import cmake from "../../assets/logos/cmake.svg";
+import docker from "../../assets/logos/docker.svg";
 import dotnet from "../../assets/logos/dotnet.svg";
 import intellij from "../../assets/logos/intellij.svg";
 import keras from "../../assets/logos/keras.svg";
@@ -21,6 +22,7 @@ import react from "../../assets/logos/react.svg";
 import rider from "../../assets/logos/rider.svg";
 import spring from "../../assets/logos/spring.svg";
 import tensorflow from "../../assets/logos/tensorflow.svg";
+import terraform from "../../assets/logos/terraform.svg";
 import vercel from "../../assets/logos/vercel.svg";
 import visualstudio from "../../assets/logos/visualstudio.svg";
 import vite from "../../assets/logos/vite.svg";
@@ -113,6 +115,16 @@ export const Skills = memo(function Skills() {
                     style={{ filter: mode === "dark" ? undefined : "drop-shadow(0 0 0.5rem)" }}
                     {...styles.img}
                   />
+                </Tooltip>
+              </Grid>
+              <Grid xs>
+                <Tooltip title="Terraform" {...styles.tooltip}>
+                  <m.img height={isMobile ? 26 : 32} src={terraform} {...styles.img} />
+                </Tooltip>
+              </Grid>
+              <Grid xs>
+                <Tooltip title="Docker" {...styles.tooltip}>
+                  <m.img height={isMobile ? 26 : 32} src={docker} {...styles.img} />
                 </Tooltip>
               </Grid>
             </Grid>
@@ -227,18 +239,20 @@ const container = {
 } as const;
 
 const item = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 },
+  hidden: { opacity: 0, y: -64 },
+  show: { opacity: 1, transition: { duration: 0.25 }, y: 0 },
 } as const;
 
 const styles = {
   card: {
     component: m.div,
-    drag: true,
-    dragSnapToOrigin: true,
-    dragTransition: { bounceDamping: 10, bounceStiffness: 100 },
     sx: { minHeight: 1, minWidth: 1 },
-    whileDrag: { zIndex: 5 },
+    ...(!isMobile && {
+      drag: true,
+      dragSnapToOrigin: true,
+      dragTransition: { bounceDamping: 10, bounceStiffness: 100 },
+      whileDrag: { zIndex: 5 },
+    }),
   },
   contentItem: {
     gap: 2,
