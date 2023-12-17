@@ -15,7 +15,7 @@ export const LanguageItem = memo(function LanguageItem(props: { expanded: boolea
   return (
     <Grid {...styles.gridItem}>
       <Tooltip title={title} {...styles.tooltip}>
-        <m.img src={src} {...styles.img} {...(title === "Rust" && { style: { filter: mode === "dark" ? undefined : "invert(1)" } })} />
+        <m.img alt={title} src={src} {...styles.img} {...(title === "Rust" && { style: { filter: mode === "dark" ? undefined : "invert(1)" } })} />
       </Tooltip>
       {expanded ?
         <>

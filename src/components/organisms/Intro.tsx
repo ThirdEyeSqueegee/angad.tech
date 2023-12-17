@@ -27,6 +27,7 @@ export const Intro = memo(function Intro() {
 
 const styles = {
   img: {
+    alt: "Profile picture",
     style: {
       borderRadius: "100%",
       gridColumn: 1,

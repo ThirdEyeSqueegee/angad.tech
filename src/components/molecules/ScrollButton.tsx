@@ -1,6 +1,7 @@
 import { IconButton } from "@mui/joy";
 import { m, scroll } from "framer-motion";
 import { memo, useState } from "react";
+import { isMobile } from "react-device-detect";
 import { IconContext } from "react-icons";
 import { FiArrowDownCircle } from "react-icons/fi";
 
@@ -11,15 +12,15 @@ export const ScrollButton = memo(function ScrollButton() {
 
   return (
     <IconButton
-      component={m.button}
       onClick={() => window.scrollTo({ behavior: "smooth", top: document.body.scrollHeight })}
       sx={{
         "&:hover,&:active": { backgroundColor: "transparent" },
         bottom: "1rem",
         opacity: scrollButtonOpacity,
         position: "fixed",
-        right: "1rem",
+        right: isMobile ? "0.5rem" : "1rem",
       }}
+      {...styles.iconButton}
     >
       <IconContext.Provider value={{ color: "#6b7280", size: "2rem" }}>
         <FiArrowDownCircle />
@@ -27,3 +28,10 @@ export const ScrollButton = memo(function ScrollButton() {
     </IconButton>
   );
 });
+
+const styles = {
+  iconButton: {
+    "aria-label": "Scroll down",
+    component: m.button,
+  },
+} as const;

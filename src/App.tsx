@@ -117,6 +117,7 @@ const styles = {
     xs: isMobile ? 12 : 6,
   },
   heptagram: {
+    alt: "Heptagram",
     animate: { opacity: 0, rotate: -360, scale: 1, transitionEnd: { display: "none" } },
     initial: { scale: 0 },
     transition: { duration: 1, opacity: { delay: 1.5, duration: 0.5 } },

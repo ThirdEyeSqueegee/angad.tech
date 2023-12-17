@@ -15,8 +15,9 @@ export const Header = memo(function Header() {
 
   return (
     <Flexbox sx={{ backdropFilter: "blur(0.5rem)", backgroundColor: mode === "dark" ? "rgba(3, 7, 18, 0.5)" : "transparent" }} {...styles.flex}>
-      <Link>
+      <Link aria-label="Scroll up">
         <m.img
+          alt="Scroll up"
           animate={{ rotate: mode === "dark" ? -360 : 360, transition: { duration: 1 } }}
           height={48}
           key={`${mode} ${scrollUp}`}

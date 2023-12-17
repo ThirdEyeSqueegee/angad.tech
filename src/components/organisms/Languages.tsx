@@ -22,7 +22,7 @@ export const Languages = memo(function Languages() {
 
   return (
     <Stack {...styles.contentItem}>
-      <Link color="neutral" onClick={() => setExpanded(!expanded)} underline="none">
+      <Link aria-label="Expand Languages section" color="neutral" onClick={() => setExpanded(!expanded)} underline="none">
         <Flexbox gap={1} justifyContent="start">
           <Typography level="h3">
             <TypeIt options={{ cursor: false }}>Languages</TypeIt>

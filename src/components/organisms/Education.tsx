@@ -15,7 +15,7 @@ export const Education = memo(function Education() {
         <TypeIt options={{ cursor: false }}>Education</TypeIt>
       </Typography>
       <Card key={mode} whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
-        <Typography level="title-md" startDecorator={<img height={32} src={ucla} style={{ alignSelf: "start" }} />}>
+        <Typography level="title-md" startDecorator={<img alt="UCLA" height={32} src={ucla} style={{ alignSelf: "start" }} />}>
           University of California, Los Angeles
         </Typography>
         <Typography level="title-sm">B.S. Computer Science and Engineering</Typography>

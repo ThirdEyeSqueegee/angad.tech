@@ -16,7 +16,7 @@ export const GithubCalendar = memo(function GithubCalendar() {
       {!isMobile ?
         <Tooltip title="GitHub" {...styles.tooltip}>
           <IconButton {...styles.iconButton}>
-            <Link href="https://github.com/ThirdEyeSqueegee" overlay />
+            <Link aria-label="GitHub" href="https://github.com/ThirdEyeSqueegee" overlay />
             <IconContext.Provider value={{ size: "3rem" }}>
               <FaGithub />
             </IconContext.Provider>
@@ -51,6 +51,7 @@ const styles = {
     whileInView: { opacity: 1 },
   },
   iconButton: {
+    "aria-label": "GitHub",
     component: m.button,
     sx: { alignSelf: "center" },
     whileHover: { backgroundColor: "transparent", scale: 1.1 },

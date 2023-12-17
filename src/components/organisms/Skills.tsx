@@ -39,7 +39,7 @@ export const Skills = memo(function Skills() {
 
   return (
     <Stack {...styles.contentItem}>
-      <Link color="neutral" onClick={() => setExpanded(!expanded)} underline="none">
+      <Link aria-label="Expand Skills section" color="neutral" onClick={() => setExpanded(!expanded)} underline="none">
         <Flexbox gap={1} justifyContent="start">
           <Typography level="h3">
             <TypeIt options={{ cursor: false }}>Skills</TypeIt>
@@ -61,40 +61,46 @@ export const Skills = memo(function Skills() {
             >
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="React" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={react} {...styles.img} />
+                  <m.img alt="React" height={isMobile ? 26 : 32} src={react} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://react.dev/">
+                  <Link aria-label="React" href="https://react.dev/" {...styles.link}>
                     React
                   </Link>
                 : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="Vite" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={vite} {...styles.img} />
+                  <m.img alt="Vite" height={isMobile ? 26 : 32} src={vite} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://vitejs.dev/">
+                  <Link aria-label="Vite" href="https://vitejs.dev/" {...styles.link}>
                     Vite
                   </Link>
                 : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="MUI" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={mui} {...styles.img} />
+                  <m.img alt="MUI" height={isMobile ? 26 : 32} src={mui} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://mui.com/">
+                  <Link aria-label="MUI" href="https://mui.com/" {...styles.link}>
                     MUI
                   </Link>
                 : null}
               </Grid>
               <Grid xs {...styles.iconGridItem} {...styles.iconGridItem}>
                 <Tooltip title="Vercel" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={vercel} style={{ filter: mode === "dark" ? undefined : "invert(1)" }} {...styles.img} />
+                  <m.img
+                    alt="Vercel"
+                    height={isMobile ? 26 : 32}
+                    src={vercel}
+                    style={{ filter: mode === "dark" ? undefined : "invert(1)" }}
+                    {...styles.img}
+                  />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://vercel.com/">
+                  <Link aria-label="Vercel" href="https://vercel.com/" {...styles.link}>
                     Vercel
                   </Link>
                 : null}
@@ -114,6 +120,7 @@ export const Skills = memo(function Skills() {
               <Grid xs={8} {...styles.iconGridItem}>
                 <Tooltip title="Node.js" {...styles.tooltip}>
                   <m.img
+                    alt="Node.js"
                     height={isMobile ? 22 : 26}
                     src={nodejs}
                     style={{ filter: mode === "dark" ? undefined : "drop-shadow(0 0 0.5rem)" }}
@@ -121,17 +128,17 @@ export const Skills = memo(function Skills() {
                   />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://nodejs.org">
+                  <Link aria-label="Node.js" href="https://nodejs.org" {...styles.link}>
                     Node.js
                   </Link>
                 : null}
               </Grid>
               <Grid xs={4} {...styles.iconGridItem}>
                 <Tooltip title="Spring" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={spring} {...styles.img} />
+                  <m.img alt="Spring" height={isMobile ? 26 : 32} src={spring} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://spring.io/">
+                  <Link aria-label="Spring" href="https://spring.io/" {...styles.link}>
                     Spring
                   </Link>
                 : null}
@@ -150,20 +157,26 @@ export const Skills = memo(function Skills() {
             >
               <Grid xs={8} {...styles.iconGridItem}>
                 <Tooltip title="Next.js" {...styles.tooltip}>
-                  <m.img height={isMobile ? 12 : 18} src={nextjs} style={{ filter: mode === "dark" ? undefined : "invert(1)" }} {...styles.img} />
+                  <m.img
+                    alt="Next.js"
+                    height={isMobile ? 12 : 18}
+                    src={nextjs}
+                    style={{ filter: mode === "dark" ? undefined : "invert(1)" }}
+                    {...styles.img}
+                  />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://nextjs.org/">
+                  <Link aria-label="Next.js" href="https://nextjs.org/" {...styles.link}>
                     Next.js
                   </Link>
                 : null}
               </Grid>
               <Grid xs={4} {...styles.iconGridItem}>
                 <Tooltip title=".NET" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={dotnet} {...styles.img} />
+                  <m.img alt=".NET" height={isMobile ? 26 : 32} src={dotnet} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://dotnet.microsoft.com">
+                  <Link aria-label=".NET" href="https://dotnet.microsoft.com" {...styles.link}>
                     .NET
                   </Link>
                 : null}
@@ -183,6 +196,7 @@ export const Skills = memo(function Skills() {
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="AWS Cloud" {...styles.tooltip}>
                   <m.img
+                    alt="AWS Cloud"
                     height={isMobile ? 26 : 32}
                     src={aws}
                     style={{ filter: mode === "dark" ? undefined : "drop-shadow(0 0 0.5rem)" }}
@@ -190,27 +204,27 @@ export const Skills = memo(function Skills() {
                   />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://aws.amazon.com/">
+                  <Link aria-label="AWS Cloud" href="https://aws.amazon.com/" {...styles.link}>
                     AWS Cloud
                   </Link>
                 : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="Terraform" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={terraform} {...styles.img} />
+                  <m.img alt="Terraform" height={isMobile ? 26 : 32} src={terraform} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://www.terraform.io/">
+                  <Link aria-label="Terraform" href="https://www.terraform.io/" {...styles.link}>
                     Terraform
                   </Link>
                 : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="Docker" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={docker} {...styles.img} />
+                  <m.img alt="Docker" height={isMobile ? 26 : 32} src={docker} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://www.docker.com/">
+                  <Link aria-label="Docker" href="https://www.docker.com/" {...styles.link}>
                     Docker
                   </Link>
                 : null}
@@ -229,30 +243,30 @@ export const Skills = memo(function Skills() {
             >
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="Keras" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={keras} {...styles.img} />
+                  <m.img alt="Keras" height={isMobile ? 26 : 32} src={keras} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://keras.io/">
+                  <Link aria-label="Keras" href="https://keras.io/" {...styles.link}>
                     Keras
                   </Link>
                 : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="TensorFlow" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={tensorflow} {...styles.img} />
+                  <m.img alt="TensorFlow" height={isMobile ? 26 : 32} src={tensorflow} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://www.tensorflow.org/">
+                  <Link aria-label="TensorFlow" href="https://www.tensorflow.org/" {...styles.link}>
                     TensorFlow
                   </Link>
                 : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="PyTorch" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={pytorch} {...styles.img} />
+                  <m.img alt="PyTorch" height={isMobile ? 26 : 32} src={pytorch} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://pytorch.org/">
+                  <Link aria-label="PyTorch" href="https://pytorch.org/" {...styles.link}>
                     PyTorch
                   </Link>
                 : null}
@@ -271,10 +285,10 @@ export const Skills = memo(function Skills() {
             >
               <Grid xs={4} {...styles.iconGridItem}>
                 <Tooltip title="CMake" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={cmake} {...styles.img} />
+                  <m.img alt="CMake" height={isMobile ? 26 : 32} src={cmake} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://cmake.org/">
+                  <Link aria-label="CMake" href="https://cmake.org/" {...styles.link}>
                     CMake
                   </Link>
                 : null}
@@ -282,6 +296,7 @@ export const Skills = memo(function Skills() {
               <Grid xs={8} {...styles.iconGridItem}>
                 <Tooltip title="Maven" {...styles.tooltip}>
                   <m.img
+                    alt="Maven"
                     height={isMobile ? 20 : 24}
                     src={maven}
                     style={{ filter: mode === "dark" ? undefined : "drop-shadow(0 0 0.5rem)" }}
@@ -289,7 +304,7 @@ export const Skills = memo(function Skills() {
                   />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://maven.apache.org/">
+                  <Link aria-label="Maven" href="https://maven.apache.org/" {...styles.link}>
                     Maven
                   </Link>
                 : null}
@@ -308,10 +323,10 @@ export const Skills = memo(function Skills() {
             >
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="PostgreSQL" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={postgresql} {...styles.img} />
+                  <m.img alt="PostgreSQL" height={isMobile ? 26 : 32} src={postgresql} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://www.postgresql.org/">
+                  <Link aria-label="PostgreSQL" href="https://www.postgresql.org/" {...styles.link}>
                     PostgreSQL
                   </Link>
                 : null}
@@ -319,6 +334,7 @@ export const Skills = memo(function Skills() {
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="Pandas" {...styles.tooltip}>
                   <m.img
+                    alt="Pandas"
                     height={isMobile ? 26 : 32}
                     src={pandas}
                     style={{ filter: mode === "dark" ? undefined : "drop-shadow(0 0 0.5rem)" }}
@@ -326,17 +342,17 @@ export const Skills = memo(function Skills() {
                   />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://pandas.pydata.org/">
+                  <Link aria-label="Pandas" href="https://pandas.pydata.org/" {...styles.link}>
                     Pandas
                   </Link>
                 : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="NumPy" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={numpy} {...styles.img} />
+                  <m.img alt="NumPy" height={isMobile ? 26 : 32} src={numpy} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://numpy.org/">
+                  <Link aria-label="NumPy" href="https://numpy.org/" {...styles.link}>
                     NumPy
                   </Link>
                 : null}
@@ -355,40 +371,40 @@ export const Skills = memo(function Skills() {
             >
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="Visual Studio Code" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={vscode} {...styles.img} />
+                  <m.img alt="Visual Studio Code" height={isMobile ? 26 : 32} src={vscode} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://code.visualstudio.com/">
+                  <Link aria-label="Visual Studio Code" href="https://code.visualstudio.com/" {...styles.link}>
                     VS Code
                   </Link>
                 : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="Visual Studio 2022" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={visualstudio} {...styles.img} />
+                  <m.img alt="Visual Studio 2022" height={isMobile ? 26 : 32} src={visualstudio} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://visualstudio.microsoft.com/">
+                  <Link aria-label="Visual Studio 2022" href="https://visualstudio.microsoft.com/" {...styles.link}>
                     VS 2022
                   </Link>
                 : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="IntelliJ IDEA" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={intellij} {...styles.img} />
+                  <m.img alt="IntelliJ IDEA" height={isMobile ? 26 : 32} src={intellij} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://www.jetbrains.com/idea">
+                  <Link aria-label="IntelliJ IDEA" href="https://www.jetbrains.com/idea" {...styles.link}>
                     IntelliJ IDEA
                   </Link>
                 : null}
               </Grid>
               <Grid xs {...styles.iconGridItem}>
                 <Tooltip title="Rider" {...styles.tooltip}>
-                  <m.img height={isMobile ? 26 : 32} src={rider} {...styles.img} />
+                  <m.img alt="Rider" height={isMobile ? 26 : 32} src={rider} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link endDecorator={<FaLink />} href="https://www.jetbrains.com/rider">
+                  <Link aria-label="Rider" href="https://www.jetbrains.com/rider" {...styles.link}>
                     Rider
                   </Link>
                 : null}
@@ -453,13 +469,17 @@ const styles = {
     alignItems: "center",
     component: m.div,
     display: "flex",
-    gap: 2,
+    gap: isMobile ? 1 : 2,
     layout: true,
   },
   img: {
     layout: true,
     whileHover: { scale: 1.15 },
     whileTap: { scale: 0.9 },
+  },
+  link: {
+    endDecorator: <FaLink />,
+    level: isMobile ? "body-xs" : "body-md",
   },
   tooltip: {
     animate: { opacity: 1 },
