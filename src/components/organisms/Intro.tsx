@@ -10,30 +10,9 @@ import { ProfileLinks } from "../molecules/ProfileLinks.tsx";
 export const Intro = memo(function Intro() {
   return (
     <Flexbox flexDirection={isMobile ? "column" : "row"} {...styles.intro}>
-      <Flexbox
-        component={m.div}
-        display="grid"
-        {...(!isMobile && {
-          drag: true,
-          dragSnapToOrigin: true,
-          dragTransition: { bounceDamping: 10, bounceStiffness: 100 },
-          whileDrag: { zIndex: 5 },
-        })}
-      >
+      <Flexbox {...styles.imgBox}>
         <img src={mugshot} {...styles.img} />
-        <m.div
-          animate={{ rotate: 360, transition: { duration: 25, ease: "linear", repeat: Infinity } }}
-          style={{
-            borderRadius: "100%",
-            gridColumn: 1,
-            gridRow: 1,
-            height: "100%",
-            outline: "#6b7280 dashed 2px",
-            outlineOffset: "0.5rem",
-            width: "100%",
-          }}
-          whileTap={{ rotate: -360, transition: { duration: 10, ease: "linear", repeat: Infinity } }}
-        />
+        <m.div {...styles.imgBorder} />
       </Flexbox>
       <Stack gap={2}>
         <Typography>
@@ -55,6 +34,29 @@ const styles = {
       maxHeight: "10rem",
       maxWidth: "10rem",
     },
+  },
+  imgBorder: {
+    animate: { rotate: 360, transition: { duration: 25, ease: "linear", repeat: Infinity } },
+    style: {
+      borderRadius: "100%",
+      gridColumn: 1,
+      gridRow: 1,
+      height: "10rem",
+      outline: "#6b7280 dashed 2px",
+      outlineOffset: "0.5rem",
+      width: "10rem",
+    },
+    whileTap: { rotate: -360, transition: { duration: 10, ease: "linear", repeat: Infinity } },
+  },
+  imgBox: {
+    component: m.div,
+    display: "grid",
+    ...(!isMobile && {
+      drag: true,
+      dragSnapToOrigin: true,
+      dragTransition: { bounceDamping: 10, bounceStiffness: 100 },
+      whileDrag: { zIndex: 5 },
+    }),
   },
   intro: {
     component: m.div,
