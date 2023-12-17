@@ -54,7 +54,7 @@ export const Languages = memo(function Languages() {
         <Tooltip title="Hindi" {...styles.tooltip}>
           <Typography>🇮🇳 हिन्दी</Typography>
         </Tooltip>
-        , no hablo el{" "}
+        , no hablo{" "}
         <Tooltip title="Spanish" {...styles.tooltip}>
           <Typography>🇪🇸 Espa&ntilde;ol</Typography>
         </Tooltip>{" "}
