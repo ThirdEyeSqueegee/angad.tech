@@ -12,7 +12,7 @@ export const Experience = memo(function Experience() {
       <Typography level="h3">
         <TypeIt options={{ cursor: false }}>Experience</TypeIt>
       </Typography>
-      <Card key={mode} whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
+      <Card key={mode} {...styles.card}>
         <Typography level="title-md">
           BuildingEase
           <Typography level="body-sm" ml={1}>
@@ -34,8 +34,9 @@ const styles = {
     component: m.div,
     initial: { opacity: 0 },
     layout: true,
-    sx: { minHeight: 1 },
-    whileInView: { opacity: 1 },
+    sx: { backdropFilter: "blur(0.5rem)", backgroundColor: "transparent", minHeight: 1, minWidth: 1 },
+    whileHover: { borderColor: "#172554" },
+    whileInView: { opacity: 1, transition: { duration: 0.5 } },
     ...(!isMobile && {
       drag: true,
       dragSnapToOrigin: true,

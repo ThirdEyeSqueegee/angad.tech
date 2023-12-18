@@ -14,10 +14,8 @@ export const Education = memo(function Education() {
       <Typography level="h3">
         <TypeIt options={{ cursor: false }}>Education</TypeIt>
       </Typography>
-      <Card key={mode} whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
-        <Typography level="title-md" startDecorator={<img alt="UCLA" height={32} src={ucla} style={{ alignSelf: "start" }} />}>
-          University of California, Los Angeles
-        </Typography>
+      <Card key={mode} {...styles.card}>
+        <Typography {...styles.ucla}>University of California, Los Angeles</Typography>
         <Typography level="title-sm">B.S. Computer Science and Engineering</Typography>
       </Card>
     </Stack>
@@ -29,8 +27,9 @@ const styles = {
     component: m.div,
     initial: { opacity: 0 },
     layout: true,
-    sx: { minHeight: 1 },
-    whileInView: { opacity: 1 },
+    sx: { backdropFilter: "blur(0.5rem)", backgroundColor: "transparent", minHeight: 1, minWidth: 1 },
+    whileHover: { borderColor: "#172554" },
+    whileInView: { opacity: 1, transition: { duration: 0.5 } },
     ...(!isMobile && {
       drag: true,
       dragSnapToOrigin: true,
@@ -41,5 +40,9 @@ const styles = {
   contentItem: {
     gap: 2,
     minWidth: 1,
+  },
+  ucla: {
+    level: "title-md",
+    startDecorator: <img alt="UCLA" height={32} src={ucla} style={{ alignSelf: "start" }} />,
   },
 } as const;

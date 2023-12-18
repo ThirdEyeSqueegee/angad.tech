@@ -14,7 +14,7 @@ export const Projects = memo(function Projects() {
         <TypeIt options={{ cursor: false }}>Projects</TypeIt>
       </Typography>
       <Stack key={mode} {...styles.stack}>
-        <Card {...styles.card} whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }}>
+        <Card {...styles.card}>
           <Link
             aria-label="Project: CommonLibSF"
             endDecorator={<FaLink />}
@@ -25,13 +25,13 @@ export const Projects = memo(function Projects() {
           </Link>
           <Typography>A collaborative reverse-engineered library for hacking Starfield</Typography>
         </Card>
-        <Card {...styles.card} whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }}>
+        <Card {...styles.card}>
           <Link aria-label="Project: gig.quest" endDecorator={<FaLink />} href="https://gig.quest" level="title-md">
             gig.quest
           </Link>
           <Typography>A simple web app for finding concerts and other events nearby</Typography>
         </Card>
-        <Card {...styles.card} whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }}>
+        <Card {...styles.card}>
           <Link aria-label="Project: PintOS" endDecorator={<FaLink />} href="https://en.wikipedia.org/wiki/Pintos" level="title-md">
             PintOS
           </Link>
@@ -49,8 +49,9 @@ const styles = {
     component: m.div,
     initial: { opacity: 0 },
     layout: true,
-    sx: { minHeight: 1 },
-    whileInView: { opacity: 1 },
+    sx: { backdropFilter: "blur(0.5rem)", backgroundColor: "transparent", minHeight: 1, minWidth: 1 },
+    whileHover: { borderColor: "#172554" },
+    whileInView: { opacity: 1, transition: { duration: 0.5 } },
     ...(!isMobile && {
       drag: true,
       dragSnapToOrigin: true,

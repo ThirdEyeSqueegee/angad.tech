@@ -20,7 +20,7 @@ export const LanguageItem = memo(function LanguageItem(props: { expanded: boolea
       {expanded ?
         <>
           <Divider orientation="vertical" />
-          <Flexbox component={m.div} gap={2} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+          <Flexbox {...styles.flex}>
             <Typography level="body-sm">Proficiency: </Typography>
             <Typography color={intermediate.includes(title) ? "primary" : "success"} level="body-sm">
               {intermediate.includes(title) ? "Intermediate" : "Fluent"}
@@ -33,6 +33,12 @@ export const LanguageItem = memo(function LanguageItem(props: { expanded: boolea
 });
 
 const styles = {
+  flex: {
+    component: m.div,
+    gap: 2,
+    initial: { opacity: 0 },
+    whileInView: { opacity: 1, transition: { duration: 0.5 } },
+  },
   gridItem: {
     alignItems: "center",
     component: m.div,

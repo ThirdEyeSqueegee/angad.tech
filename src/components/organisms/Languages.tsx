@@ -73,7 +73,7 @@ const styles = {
     initial: { opacity: 0 },
     layout: true,
     spacing: 2,
-    whileInView: { opacity: 1 },
+    whileInView: { opacity: 1, transition: { duration: 0.5 } },
   },
   tooltip: {
     animate: { opacity: 1 },
@@ -84,6 +84,6 @@ const styles = {
     component: m.span,
     initial: { opacity: 0 },
     mt: 1,
-    whileInView: { opacity: 1 },
+    whileInView: { opacity: 1, transition: { duration: 0.5 } },
   },
 } as const;

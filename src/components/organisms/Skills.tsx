@@ -11,6 +11,7 @@ import aws from "../../assets/logos/aws.svg";
 import cmake from "../../assets/logos/cmake.svg";
 import docker from "../../assets/logos/docker.svg";
 import dotnet from "../../assets/logos/dotnet.svg";
+import framer from "../../assets/logos/framer.svg";
 import intellij from "../../assets/logos/intellij.svg";
 import keras from "../../assets/logos/keras.svg";
 import maven from "../../assets/logos/maven.svg";
@@ -26,7 +27,6 @@ import rider from "../../assets/logos/rider.svg";
 import spring from "../../assets/logos/spring.svg";
 import tensorflow from "../../assets/logos/tensorflow.svg";
 import terraform from "../../assets/logos/terraform.svg";
-import vercel from "../../assets/logos/vercel.svg";
 import visualstudio from "../../assets/logos/visualstudio.svg";
 import vite from "../../assets/logos/vite.svg";
 import vscode from "../../assets/logos/vscode.svg";
@@ -51,7 +51,7 @@ export const Skills = memo(function Skills() {
       </Link>
       <Grid key={mode} {...styles.gridContainer}>
         <Grid {...styles.gridItem}>
-          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
+          <Card {...styles.card}>
             <Typography {...styles.typography}>Frontend</Typography>
             <Grid
               alignItems={expanded ? "start" : "center"}
@@ -64,7 +64,7 @@ export const Skills = memo(function Skills() {
                   <m.img alt="React" height={isMobile ? 26 : 32} src={react} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="React" href="https://react.dev/" {...styles.link}>
+                  <Link aria-label="React" href="https://react.dev" {...styles.link}>
                     React
                   </Link>
                 : null}
@@ -74,7 +74,7 @@ export const Skills = memo(function Skills() {
                   <m.img alt="Vite" height={isMobile ? 26 : 32} src={vite} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="Vite" href="https://vitejs.dev/" {...styles.link}>
+                  <Link aria-label="Vite" href="https://vitejs.dev" {...styles.link}>
                     Vite
                   </Link>
                 : null}
@@ -84,24 +84,24 @@ export const Skills = memo(function Skills() {
                   <m.img alt="MUI" height={isMobile ? 26 : 32} src={mui} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="MUI" href="https://mui.com/" {...styles.link}>
+                  <Link aria-label="MUI" href="https://mui.com" {...styles.link}>
                     MUI
                   </Link>
                 : null}
               </Grid>
               <Grid xs {...styles.iconGridItem} {...styles.iconGridItem}>
-                <Tooltip title="Vercel" {...styles.tooltip}>
+                <Tooltip title="Framer Motion" {...styles.tooltip}>
                   <m.img
-                    alt="Vercel"
+                    alt="Framer Motion"
                     height={isMobile ? 26 : 32}
-                    src={vercel}
+                    src={framer}
                     style={{ filter: mode === "dark" ? undefined : "invert(1)" }}
                     {...styles.img}
                   />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="Vercel" href="https://vercel.com/" {...styles.link}>
-                    Vercel
+                  <Link aria-label="Framer Motion" href="https://www.framer.com/motion" {...styles.link}>
+                    Framer Motion
                   </Link>
                 : null}
               </Grid>
@@ -109,7 +109,7 @@ export const Skills = memo(function Skills() {
           </Card>
         </Grid>
         <Grid {...styles.gridItem}>
-          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
+          <Card {...styles.card}>
             <Typography {...styles.typography}>Backend</Typography>
             <Grid
               alignItems={expanded ? "start" : "center"}
@@ -138,7 +138,7 @@ export const Skills = memo(function Skills() {
                   <m.img alt="Spring" height={isMobile ? 26 : 32} src={spring} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="Spring" href="https://spring.io/" {...styles.link}>
+                  <Link aria-label="Spring" href="https://spring.io" {...styles.link}>
                     Spring
                   </Link>
                 : null}
@@ -147,7 +147,7 @@ export const Skills = memo(function Skills() {
           </Card>
         </Grid>
         <Grid {...styles.gridItem}>
-          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
+          <Card {...styles.card}>
             <Typography {...styles.typography}>Full-stack</Typography>
             <Grid
               alignItems={expanded ? "start" : "center"}
@@ -166,7 +166,7 @@ export const Skills = memo(function Skills() {
                   />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="Next.js" href="https://nextjs.org/" {...styles.link}>
+                  <Link aria-label="Next.js" href="https://nextjs.org" {...styles.link}>
                     Next.js
                   </Link>
                 : null}
@@ -185,7 +185,7 @@ export const Skills = memo(function Skills() {
           </Card>
         </Grid>
         <Grid {...styles.gridItem}>
-          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
+          <Card {...styles.card}>
             <Typography {...styles.typography}>Cloud</Typography>
             <Grid
               alignItems={expanded ? "start" : "center"}
@@ -204,7 +204,7 @@ export const Skills = memo(function Skills() {
                   />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="AWS Cloud" href="https://aws.amazon.com/" {...styles.link}>
+                  <Link aria-label="AWS Cloud" href="https://aws.amazon.com" {...styles.link}>
                     AWS Cloud
                   </Link>
                 : null}
@@ -214,7 +214,7 @@ export const Skills = memo(function Skills() {
                   <m.img alt="Terraform" height={isMobile ? 26 : 32} src={terraform} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="Terraform" href="https://www.terraform.io/" {...styles.link}>
+                  <Link aria-label="Terraform" href="https://www.terraform.io" {...styles.link}>
                     Terraform
                   </Link>
                 : null}
@@ -224,7 +224,7 @@ export const Skills = memo(function Skills() {
                   <m.img alt="Docker" height={isMobile ? 26 : 32} src={docker} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="Docker" href="https://www.docker.com/" {...styles.link}>
+                  <Link aria-label="Docker" href="https://www.docker.com" {...styles.link}>
                     Docker
                   </Link>
                 : null}
@@ -233,7 +233,7 @@ export const Skills = memo(function Skills() {
           </Card>
         </Grid>
         <Grid {...styles.gridItem}>
-          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
+          <Card {...styles.card}>
             <Typography {...styles.typography}>{isMobile ? "ML" : "Machine learning"}</Typography>
             <Grid
               alignItems={expanded ? "start" : "center"}
@@ -246,7 +246,7 @@ export const Skills = memo(function Skills() {
                   <m.img alt="Keras" height={isMobile ? 26 : 32} src={keras} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="Keras" href="https://keras.io/" {...styles.link}>
+                  <Link aria-label="Keras" href="https://keras.io" {...styles.link}>
                     Keras
                   </Link>
                 : null}
@@ -256,7 +256,7 @@ export const Skills = memo(function Skills() {
                   <m.img alt="TensorFlow" height={isMobile ? 26 : 32} src={tensorflow} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="TensorFlow" href="https://www.tensorflow.org/" {...styles.link}>
+                  <Link aria-label="TensorFlow" href="https://www.tensorflow.org" {...styles.link}>
                     TensorFlow
                   </Link>
                 : null}
@@ -266,7 +266,7 @@ export const Skills = memo(function Skills() {
                   <m.img alt="PyTorch" height={isMobile ? 26 : 32} src={pytorch} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="PyTorch" href="https://pytorch.org/" {...styles.link}>
+                  <Link aria-label="PyTorch" href="https://pytorch.org" {...styles.link}>
                     PyTorch
                   </Link>
                 : null}
@@ -275,7 +275,7 @@ export const Skills = memo(function Skills() {
           </Card>
         </Grid>
         <Grid {...styles.gridItem}>
-          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
+          <Card {...styles.card}>
             <Typography {...styles.typography}>Build systems</Typography>
             <Grid
               alignItems={expanded ? "start" : "center"}
@@ -288,7 +288,7 @@ export const Skills = memo(function Skills() {
                   <m.img alt="CMake" height={isMobile ? 26 : 32} src={cmake} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="CMake" href="https://cmake.org/" {...styles.link}>
+                  <Link aria-label="CMake" href="https://cmake.org" {...styles.link}>
                     CMake
                   </Link>
                 : null}
@@ -304,7 +304,7 @@ export const Skills = memo(function Skills() {
                   />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="Maven" href="https://maven.apache.org/" {...styles.link}>
+                  <Link aria-label="Maven" href="https://maven.apache.org" {...styles.link}>
                     Maven
                   </Link>
                 : null}
@@ -313,7 +313,7 @@ export const Skills = memo(function Skills() {
           </Card>
         </Grid>
         <Grid {...styles.gridItem}>
-          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
+          <Card {...styles.card}>
             <Typography {...styles.typography}>Data</Typography>
             <Grid
               alignItems={expanded ? "start" : "center"}
@@ -326,7 +326,7 @@ export const Skills = memo(function Skills() {
                   <m.img alt="PostgreSQL" height={isMobile ? 26 : 32} src={postgresql} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="PostgreSQL" href="https://www.postgresql.org/" {...styles.link}>
+                  <Link aria-label="PostgreSQL" href="https://www.postgresql.org" {...styles.link}>
                     PostgreSQL
                   </Link>
                 : null}
@@ -342,7 +342,7 @@ export const Skills = memo(function Skills() {
                   />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="Pandas" href="https://pandas.pydata.org/" {...styles.link}>
+                  <Link aria-label="Pandas" href="https://pandas.pydata.org" {...styles.link}>
                     Pandas
                   </Link>
                 : null}
@@ -352,7 +352,7 @@ export const Skills = memo(function Skills() {
                   <m.img alt="NumPy" height={isMobile ? 26 : 32} src={numpy} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="NumPy" href="https://numpy.org/" {...styles.link}>
+                  <Link aria-label="NumPy" href="https://numpy.org" {...styles.link}>
                     NumPy
                   </Link>
                 : null}
@@ -361,7 +361,7 @@ export const Skills = memo(function Skills() {
           </Card>
         </Grid>
         <Grid {...styles.gridItem}>
-          <Card whileHover={{ backgroundColor: mode === "dark" ? "#111827" : "#f3f4f6", borderColor: "#172554" }} {...styles.card}>
+          <Card {...styles.card}>
             <Typography {...styles.typography}>IDEs</Typography>
             <Grid
               alignItems={expanded ? "start" : "center"}
@@ -374,7 +374,7 @@ export const Skills = memo(function Skills() {
                   <m.img alt="Visual Studio Code" height={isMobile ? 26 : 32} src={vscode} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="Visual Studio Code" href="https://code.visualstudio.com/" {...styles.link}>
+                  <Link aria-label="Visual Studio Code" href="https://code.visualstudio.com" {...styles.link}>
                     VS Code
                   </Link>
                 : null}
@@ -384,7 +384,7 @@ export const Skills = memo(function Skills() {
                   <m.img alt="Visual Studio 2022" height={isMobile ? 26 : 32} src={visualstudio} {...styles.img} />
                 </Tooltip>
                 {expanded ?
-                  <Link aria-label="Visual Studio 2022" href="https://visualstudio.microsoft.com/" {...styles.link}>
+                  <Link aria-label="Visual Studio 2022" href="https://visualstudio.microsoft.com" {...styles.link}>
                     VS 2022
                   </Link>
                 : null}
@@ -423,15 +423,16 @@ const container = {
 } as const;
 
 const item = {
-  hidden: { opacity: 0, y: -64 },
-  show: { opacity: 1, transition: { duration: 0.25 }, y: 0 },
+  hidden: { opacity: 0, y: -128 },
+  show: { opacity: 1, transition: { duration: 0.5 }, y: 0 },
 } as const;
 
 const styles = {
   card: {
     component: m.div,
     layout: true,
-    sx: { minHeight: 1, minWidth: 1 },
+    sx: { backdropFilter: "blur(0.5rem)", backgroundColor: "transparent", minHeight: 1, minWidth: 1 },
+    whileHover: { borderColor: "#172554" },
     ...(!isMobile && {
       drag: true,
       dragSnapToOrigin: true,
@@ -475,7 +476,7 @@ const styles = {
   img: {
     layout: true,
     whileHover: { scale: 1.15 },
-    whileTap: { scale: 0.9 },
+    whileTap: { scale: 1 },
   },
   link: {
     endDecorator: <FaLink />,

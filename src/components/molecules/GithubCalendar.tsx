@@ -48,7 +48,7 @@ const styles = {
     gap: 3,
     initial: { opacity: 0 },
     layout: true,
-    whileInView: { opacity: 1 },
+    whileInView: { opacity: 1, transition: { duration: 0.5 } },
   },
   iconButton: {
     "aria-label": "GitHub",

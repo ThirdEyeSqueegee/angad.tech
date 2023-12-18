@@ -65,6 +65,6 @@ const styles = {
     initial: { opacity: 0 },
     justifyContent: "space-evenly",
     layout: true,
-    whileInView: { opacity: 1 },
+    whileInView: { opacity: 1, transition: { duration: 0.5 } },
   },
 } as const;

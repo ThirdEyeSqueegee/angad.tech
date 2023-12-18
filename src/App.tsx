@@ -134,7 +134,7 @@ const styles = {
     gap: isMobile ? 3 : 5,
     initial: { opacity: 0 },
     justifyContent: "space-evenly",
-    whileInView: { opacity: 1 },
+    whileInView: { opacity: 1, transition: { duration: 0.5 } },
   },
   mainFlex: {
     minHeight: "100vh",
