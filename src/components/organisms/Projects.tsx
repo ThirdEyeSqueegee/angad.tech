@@ -5,7 +5,7 @@ import { isMobile } from "react-device-detect";
 import { FaLink } from "react-icons/fa6";
 import TypeIt from "typeit-react";
 
-export const Projects = memo(function Projects() {
+const Projects = memo(function Projects() {
   const { mode } = useColorScheme();
 
   return (
@@ -43,6 +43,8 @@ export const Projects = memo(function Projects() {
     </Stack>
   );
 });
+
+export default Projects;
 
 const styles = {
   card: {

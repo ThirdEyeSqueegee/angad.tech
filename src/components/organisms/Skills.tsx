@@ -32,7 +32,7 @@ import vite from "../../assets/logos/vite.svg";
 import vscode from "../../assets/logos/vscode.svg";
 import { Flexbox } from "../atoms/Flexbox.tsx";
 
-export const Skills = memo(function Skills() {
+const Skills = memo(function Skills() {
   const { mode } = useColorScheme();
 
   const [expanded, setExpanded] = useState(false);
@@ -416,6 +416,8 @@ export const Skills = memo(function Skills() {
     </Stack>
   );
 });
+
+export default Skills;
 
 const container = {
   hidden: { opacity: 0 },

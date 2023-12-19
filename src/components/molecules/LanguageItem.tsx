@@ -49,7 +49,9 @@ const styles = {
     xs: 2,
   },
   img: {
+    initial: { scale: 0 },
     whileHover: { scale: 1.15 },
+    whileInView: { rotate: 360, scale: 1, transition: { duration: 0.75, type: "spring" } },
     whileTap: { scale: 0.9 },
     width: isMobile ? 32 : 40,
   },

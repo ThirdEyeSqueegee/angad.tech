@@ -8,7 +8,7 @@ import TypeIt from "typeit-react";
 import heptagram from "../../assets/heptagram.svg";
 import { Flexbox } from "../atoms/Flexbox.tsx";
 
-export const Header = memo(function Header() {
+const Header = memo(function Header() {
   const { mode, setMode } = useColorScheme();
 
   const [scrollUp, setScrollUp] = useState(false);
@@ -37,17 +37,15 @@ export const Header = memo(function Header() {
           checked={mode !== "dark"}
           color={mode === "dark" ? "primary" : "warning"}
           onChange={() => setMode(mode === "dark" ? "light" : "dark")}
-          slotProps={{
-            thumb: {
-              children: mode === "dark" ? <MdDarkMode /> : <MdLightMode />,
-            },
-          }}
+          slotProps={{ thumb: { children: mode === "dark" ? <MdDarkMode /> : <MdLightMode /> } }}
           {...styles.switch}
         />
       </Tooltip>
     </Flexbox>
   );
 });
+
+export default Header;
 
 const styles = {
   flex: {

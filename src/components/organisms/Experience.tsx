@@ -4,7 +4,7 @@ import { memo } from "react";
 import { isMobile } from "react-device-detect";
 import TypeIt from "typeit-react";
 
-export const Experience = memo(function Experience() {
+const Experience = memo(function Experience() {
   const { mode } = useColorScheme();
 
   return (
@@ -28,6 +28,8 @@ export const Experience = memo(function Experience() {
     </Stack>
   );
 });
+
+export default Experience;
 
 const styles = {
   card: {

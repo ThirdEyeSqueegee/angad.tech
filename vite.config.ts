@@ -24,7 +24,6 @@ export default defineConfig({
   plugins: [react({ devTarget: "esnext" }), splitVendorChunkPlugin(), million.vite({ auto: true })],
   resolve: {
     alias: {
-      "@mui/base": "@mui/base/modern",
       "@mui/joy": "@mui/joy/modern",
     },
   },

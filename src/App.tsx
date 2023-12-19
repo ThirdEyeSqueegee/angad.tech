@@ -1,8 +1,8 @@
 import { Grid, Stack, Typography, useColorScheme } from "@mui/joy";
 import { useIsFirstRender } from "@uidotdev/usehooks";
-import { LazyMotion, domMax, m, useMotionTemplate, useMotionValue } from "framer-motion";
+import { LazyMotion, m, useMotionTemplate, useMotionValue } from "framer-motion";
 // eslint-disable-next-line perfectionist/sort-named-imports
-import { useState, type MouseEvent } from "react";
+import { lazy, useState, type MouseEvent } from "react";
 import { isMobile } from "react-device-detect";
 import { LuCopyleft } from "react-icons/lu";
 
@@ -10,13 +10,16 @@ import heptagram from "./assets/heptagram.svg";
 import { Flexbox } from "./components/atoms/Flexbox.tsx";
 import { GithubCalendar } from "./components/molecules/GithubCalendar.tsx";
 import { ScrollButton } from "./components/molecules/ScrollButton.tsx";
-import { Education } from "./components/organisms/Education.tsx";
-import { Experience } from "./components/organisms/Experience.tsx";
-import { Header } from "./components/organisms/Header.tsx";
-import { Intro } from "./components/organisms/Intro.tsx";
-import { Languages } from "./components/organisms/Languages.tsx";
-import { Projects } from "./components/organisms/Projects.tsx";
-import { Skills } from "./components/organisms/Skills.tsx";
+
+const features = () => import("./framer.ts").then((res) => res.default);
+
+const Education = lazy(() => import("./components/organisms/Education.tsx"));
+const Experience = lazy(() => import("./components/organisms/Experience.tsx"));
+const Header = lazy(() => import("./components/organisms/Header.tsx"));
+const Intro = lazy(() => import("./components/organisms/Intro.tsx"));
+const Languages = lazy(() => import("./components/organisms/Languages.tsx"));
+const Projects = lazy(() => import("./components/organisms/Projects.tsx"));
+const Skills = lazy(() => import("./components/organisms/Skills.tsx"));
 
 export const App = () => {
   const { mode } = useColorScheme();
@@ -36,7 +39,7 @@ export const App = () => {
   const isFirstRender = useIsFirstRender();
 
   return (
-    <LazyMotion features={domMax} strict>
+    <LazyMotion features={features} strict>
       <Stack
         component={m.div}
         onMouseMove={!isMobile ? handleMouseMove : undefined}

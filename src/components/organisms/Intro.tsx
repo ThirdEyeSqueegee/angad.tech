@@ -7,9 +7,9 @@ import mugshot from "../../assets/mugshot.png";
 import { Flexbox } from "../atoms/Flexbox.tsx";
 import { ProfileLinks } from "../molecules/ProfileLinks.tsx";
 
-export const Intro = memo(function Intro() {
+const Intro = memo(function Intro() {
   return (
-    <Flexbox flexDirection={isMobile ? "column" : "row"} {...styles.intro}>
+    <Flexbox {...styles.intro}>
       <Flexbox {...styles.imgBox}>
         <img src={mugshot} {...styles.img} />
         <m.div {...styles.imgBorder} />
@@ -24,6 +24,8 @@ export const Intro = memo(function Intro() {
     </Flexbox>
   );
 });
+
+export default Intro;
 
 const styles = {
   img: {
@@ -61,6 +63,7 @@ const styles = {
   },
   intro: {
     component: m.div,
+    flexDirection: isMobile ? "column" : "row",
     gap: isMobile ? 3 : 5,
     initial: { opacity: 0 },
     justifyContent: "space-evenly",

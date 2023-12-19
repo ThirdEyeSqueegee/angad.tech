@@ -6,7 +6,7 @@ import TypeIt from "typeit-react";
 
 import ucla from "../../assets/logos/ucla.svg";
 
-export const Education = memo(function Education() {
+const Education = memo(function Education() {
   const { mode } = useColorScheme();
 
   return (
@@ -21,6 +21,8 @@ export const Education = memo(function Education() {
     </Stack>
   );
 });
+
+export default Education;
 
 const styles = {
   card: {

@@ -1,22 +1,26 @@
 import { IconButton } from "@mui/joy";
 import { m, scroll } from "framer-motion";
-import { memo, useState } from "react";
+import { memo, useRef } from "react";
 import { isMobile } from "react-device-detect";
 import { IconContext } from "react-icons";
 import { FiArrowDownCircle } from "react-icons/fi";
 
 export const ScrollButton = memo(function ScrollButton() {
-  const [scrollButtonOpacity, setScrollButtonOpacity] = useState(1);
+  const ref = useRef<HTMLButtonElement>(null);
 
-  scroll((progress) => setScrollButtonOpacity(1 - progress));
+  scroll((progress) => {
+    if (ref.current) {
+      ref.current.style.opacity = `${1 - progress}`;
+    }
+  });
 
   return (
     <IconButton
       onClick={() => window.scrollTo({ behavior: "smooth", top: document.body.scrollHeight })}
+      ref={ref}
       sx={{
         "&:hover,&:active": { backgroundColor: "transparent" },
         bottom: "1rem",
-        opacity: scrollButtonOpacity,
         position: "fixed",
         right: isMobile ? "0.5rem" : "1rem",
       }}

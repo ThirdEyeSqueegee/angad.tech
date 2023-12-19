@@ -17,12 +17,12 @@ import x64 from "../../assets/logos/x64.svg";
 import { Flexbox } from "../atoms/Flexbox.tsx";
 import { LanguageItem } from "../molecules/LanguageItem.tsx";
 
-export const Languages = memo(function Languages() {
+const Languages = memo(function Languages() {
   const [expanded, setExpanded] = useState(false);
 
   return (
     <Stack {...styles.contentItem}>
-      <Link aria-label="Expand Languages section" color="neutral" onClick={() => setExpanded(!expanded)} underline="none">
+      <Link onClick={() => setExpanded(!expanded)} {...styles.link}>
         <Flexbox gap={1} justifyContent="start">
           <Typography level="h3">
             <TypeIt options={{ cursor: false }}>Languages</TypeIt>
@@ -62,6 +62,8 @@ export const Languages = memo(function Languages() {
   );
 });
 
+export default Languages;
+
 const styles = {
   contentItem: {
     gap: 2,
@@ -74,6 +76,11 @@ const styles = {
     layout: true,
     spacing: 2,
     whileInView: { opacity: 1, transition: { duration: 0.5 } },
+  },
+  link: {
+    "aria-label": "Expand Languages section",
+    color: "neutral",
+    underline: "none",
   },
   tooltip: {
     animate: { opacity: 1 },
