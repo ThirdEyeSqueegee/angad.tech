@@ -48,9 +48,9 @@ export const App = () => {
             {
               background: useMotionTemplate`
                 radial-gradient(
-                  32rem circle at ${mouseX}px ${mouseY}px,
-                  ${mode === "dark" ? "rgba(17, 24, 39, 0.5)" : "rgba(209, 213, 219, 0.5)"},
-                  transparent
+                  16rem circle at ${mouseX}px ${mouseY}px,
+                  ${mode === "dark" ? "#111827" : "#e5e7eb"},
+                  ${mode === "dark" ? "#030712" : "#f3f4f6"}
                 )
               `,
             }

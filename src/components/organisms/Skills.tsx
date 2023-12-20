@@ -421,7 +421,7 @@ export default Skills;
 
 const container = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.075 } },
+  show: { opacity: 1, transition: { duration: 0.5, staggerChildren: 0.075 } },
 } as const;
 
 const item = {

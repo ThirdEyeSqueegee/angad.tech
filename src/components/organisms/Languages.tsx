@@ -1,4 +1,4 @@
-import { Grid, Link, Stack, Tooltip, Typography } from "@mui/joy";
+import { Grid, Link, Stack, Tooltip, Typography, useColorScheme } from "@mui/joy";
 import { m } from "framer-motion";
 import { memo, useState } from "react";
 import { IconContext } from "react-icons";
@@ -18,6 +18,8 @@ import { Flexbox } from "../atoms/Flexbox.tsx";
 import { LanguageItem } from "../molecules/LanguageItem.tsx";
 
 const Languages = memo(function Languages() {
+  const { mode } = useColorScheme();
+
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -32,7 +34,7 @@ const Languages = memo(function Languages() {
           </IconContext.Provider>
         </Flexbox>
       </Link>
-      <Grid alignItems={expanded ? "start" : "center"} direction={expanded ? "column" : "row"} {...styles.gridContainer}>
+      <Grid alignItems={expanded ? "start" : "center"} direction={expanded ? "column" : "row"} key={mode} {...styles.gridContainer}>
         <LanguageItem expanded={expanded} src={cpp} title="C++" />
         <LanguageItem expanded={expanded} src={python} title="Python" />
         <LanguageItem expanded={expanded} src={c} title="C" />
