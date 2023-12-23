@@ -4,15 +4,19 @@ declare module "@mui/joy/styles" {
   interface PalettePrimaryOverrides {
     950: true;
   }
+
   interface PaletteNeutralOverrides {
     950: true;
   }
+
   interface PaletteDangerOverrides {
     950: true;
   }
+
   interface PaletteSuccessOverrides {
     950: true;
   }
+
   interface PaletteWarningOverrides {
     950: true;
   }
