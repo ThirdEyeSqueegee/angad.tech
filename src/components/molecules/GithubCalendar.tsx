@@ -55,7 +55,7 @@ const styles = {
     component: m.button,
     initial: { opacity: 0, x: -128 },
     sx: { alignSelf: "center" },
-    whileHover: { backgroundColor: "transparent", scale: 1.1 },
+    whileHover: { backgroundColor: "rgba(0, 0, 0, 0)", scale: 1.1 },
     whileInView: { opacity: 1, rotate: 360, transition: { duration: 0.75, type: "spring" }, x: 0 },
     whileTap: { scale: 0.9 },
   },

@@ -12,6 +12,7 @@ import csharp from "../../assets/logos/csharp.svg";
 import go from "../../assets/logos/go.svg";
 import haskell from "../../assets/logos/haskell.svg";
 import java from "../../assets/logos/java.svg";
+import powershell from "../../assets/logos/powershell.svg";
 import python from "../../assets/logos/python.svg";
 import rust from "../../assets/logos/rust.svg";
 import typescript from "../../assets/logos/typescript.svg";
@@ -48,6 +49,7 @@ const Languages = memo(function Languages() {
         <LanguageItem expanded={expanded} src={go} title="Go" />
         <LanguageItem expanded={expanded} src={haskell} title="Haskell" />
         <LanguageItem expanded={expanded} src={clojure} title="Clojure" />
+        <LanguageItem expanded={expanded} src={powershell} title="PowerShell" />
       </Grid>
       <Typography {...styles.typography}>
         I speak human languages too! I&apos;m fluent in 🇺🇸 English and{" "}

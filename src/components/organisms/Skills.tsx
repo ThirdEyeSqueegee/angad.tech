@@ -20,6 +20,7 @@ import nextjs from "../../assets/logos/nextjs.svg";
 import nodejs from "../../assets/logos/nodejs.svg";
 import numpy from "../../assets/logos/numpy.svg";
 import pandas from "../../assets/logos/pandas.svg";
+import polars from "../../assets/logos/polars.svg";
 import postgresql from "../../assets/logos/postgresql.svg";
 import pytorch from "../../assets/logos/pytorch.svg";
 import react from "../../assets/logos/react.svg";
@@ -328,6 +329,22 @@ const Skills = memo(function Skills() {
                 {expanded ?
                   <Link aria-label="PostgreSQL" href="https://www.postgresql.org" {...styles.link}>
                     PostgreSQL
+                  </Link>
+                : null}
+              </Grid>
+              <Grid xs {...styles.iconGridItem}>
+                <Tooltip title="Polars" {...styles.tooltip}>
+                  <m.img
+                    alt="Polars"
+                    height={isMobile ? 26 : 32}
+                    src={polars}
+                    style={{ filter: mode === "dark" ? undefined : "invert(1)" }}
+                    {...styles.img}
+                  />
+                </Tooltip>
+                {expanded ?
+                  <Link aria-label="Polars" href="https://pola.rs/" {...styles.link}>
+                    Polars
                   </Link>
                 : null}
               </Grid>

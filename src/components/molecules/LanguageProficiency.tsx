@@ -93,7 +93,7 @@ export const LanguageProficiency = memo(function LanguageProficiency(props: { la
       return (
         <Flexbox {...styles.flex}>
           <Typography level={isMobile ? "body-xs" : "body-sm"}>Proficiency:</Typography>
-          <Typography color="warning" level={isMobile ? "body-xs" : "body-sm"} width={isMobile ? 128 : 512}>
+          <Typography color="warning" level={isMobile ? "body-xs" : "body-sm"}>
             4/10 (Learning)
           </Typography>
         </Flexbox>
@@ -102,7 +102,7 @@ export const LanguageProficiency = memo(function LanguageProficiency(props: { la
       return (
         <Flexbox {...styles.flex}>
           <Typography level={isMobile ? "body-xs" : "body-sm"}>Proficiency:</Typography>
-          <Typography color="warning" level={isMobile ? "body-xs" : "body-sm"} width={isMobile ? 128 : 512}>
+          <Typography color="warning" level={isMobile ? "body-xs" : "body-sm"}>
             4/10 (Learning)
           </Typography>
         </Flexbox>
@@ -111,8 +111,17 @@ export const LanguageProficiency = memo(function LanguageProficiency(props: { la
       return (
         <Flexbox {...styles.flex}>
           <Typography level={isMobile ? "body-xs" : "body-sm"}>Proficiency:</Typography>
-          <Typography color="warning" level={isMobile ? "body-xs" : "body-sm"} width={isMobile ? 128 : 512}>
+          <Typography color="warning" level={isMobile ? "body-xs" : "body-sm"}>
             4/10 (Learning)
+          </Typography>
+        </Flexbox>
+      );
+    case "PowerShell":
+      return (
+        <Flexbox {...styles.flex}>
+          <Typography level={isMobile ? "body-xs" : "body-sm"}>Proficiency:</Typography>
+          <Typography color="success" level={isMobile ? "body-xs" : "body-sm"}>
+            8/10
           </Typography>
         </Flexbox>
       );

@@ -1,5 +1,4 @@
 <div align="center">
-
 <img alt="Logo" src="https://raw.githubusercontent.com/ThirdEyeSqueegee/angad.tech/main/public/android-chrome-192x192.png" width="64">
 
 # [angad.tech](https://angad.tech)
