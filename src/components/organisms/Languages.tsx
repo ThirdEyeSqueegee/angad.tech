@@ -60,7 +60,7 @@ const Languages = memo(function Languages() {
         <Tooltip title="Spanish" {...styles.tooltip}>
           <Typography>🇪🇸 Espa&ntilde;ol</Typography>
         </Tooltip>{" "}
-        con fluidez pero me defiendo, und zurzeit ich lerne{" "}
+        con fluidez pero me defiendo, und ich lerne zurzeit{" "}
         <Tooltip title="German" {...styles.tooltip}>
           <Typography>🇩🇪 Deutsch</Typography>
         </Tooltip>
