@@ -107,16 +107,16 @@ export const LanguageProficiency = memo(function LanguageProficiency(props: { la
           </Typography>
         </Flexbox>
       );
-    case "Clojure":
+    case "PowerShell":
       return (
         <Flexbox {...styles.flex}>
           <Typography level={isMobile ? "body-xs" : "body-sm"}>Proficiency:</Typography>
-          <Typography color="warning" level={isMobile ? "body-xs" : "body-sm"}>
-            4/10 (Learning)
+          <Typography color="success" level={isMobile ? "body-xs" : "body-sm"}>
+            8/10
           </Typography>
         </Flexbox>
       );
-    case "PowerShell":
+    case "Nushell":
       return (
         <Flexbox {...styles.flex}>
           <Typography level={isMobile ? "body-xs" : "body-sm"}>Proficiency:</Typography>

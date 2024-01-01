@@ -8,6 +8,7 @@ import { FiChevronRight } from "react-icons/fi";
 import TypeIt from "typeit-react";
 
 import aws from "../../assets/logos/aws.svg";
+import cargo from "../../assets/logos/cargo.png";
 import cmake from "../../assets/logos/cmake.svg";
 import docker from "../../assets/logos/docker.svg";
 import dotnet from "../../assets/logos/dotnet.svg";
@@ -284,7 +285,7 @@ const Skills = memo(function Skills() {
               rowGap={expanded ? 2 : undefined}
               {...styles.iconGridContainer}
             >
-              <Grid xs={4} {...styles.iconGridItem}>
+              <Grid xs={3} {...styles.iconGridItem}>
                 <Tooltip title="CMake" {...styles.tooltip}>
                   <m.img alt="CMake" height={isMobile ? 26 : 32} src={cmake} {...styles.img} />
                 </Tooltip>
@@ -294,7 +295,17 @@ const Skills = memo(function Skills() {
                   </Link>
                 : null}
               </Grid>
-              <Grid xs={8} {...styles.iconGridItem}>
+              <Grid xs={3} {...styles.iconGridItem}>
+                <Tooltip title="Cargo" {...styles.tooltip}>
+                  <m.img alt="Cargo" height={isMobile ? 26 : 32} src={cargo} {...styles.img} />
+                </Tooltip>
+                {expanded ?
+                  <Link aria-label="Cargo" href="https://github.com/rust-lang/cargo" {...styles.link}>
+                    Cargo
+                  </Link>
+                : null}
+              </Grid>
+              <Grid xs={6} {...styles.iconGridItem}>
                 <Tooltip title="Maven" {...styles.tooltip}>
                   <m.img
                     alt="Maven"
