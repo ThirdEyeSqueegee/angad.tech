@@ -1,10 +1,9 @@
-import { Grid, Stack, Typography, useColorScheme } from "@mui/joy";
+import { Grid, Stack, useColorScheme } from "@mui/joy";
 import { useIsFirstRender } from "@uidotdev/usehooks";
 import { LazyMotion, m, useMotionTemplate, useMotionValue } from "framer-motion";
 // eslint-disable-next-line perfectionist/sort-named-imports
 import { lazy, useState, type MouseEvent } from "react";
 import { isMobile } from "react-device-detect";
-import { LuCopyleft } from "react-icons/lu";
 
 import heptagram from "./assets/heptagram.svg";
 import { Flexbox } from "./components/atoms/Flexbox.tsx";
@@ -88,9 +87,6 @@ export const App = () => {
             </Stack>
           : null}
         </Flexbox>
-        <Typography alignSelf="center" level="body-sm" startDecorator={<LuCopyleft />}>
-          Angad Misra, 2023
-        </Typography>
       </Stack>
     </LazyMotion>
   );
