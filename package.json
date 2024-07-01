@@ -8,42 +8,39 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives",
     "preview": "vite preview",
-    "format": "prettier --write src/ *.json *.ts *.md *.html *.cjs !package.json"
+    "format": "prettier --write src/ *.json *.ts *.md *.html !package.json"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.0",
-    "@fontsource-variable/fira-code": "^5.0.16",
-    "@fontsource-variable/inter": "^5.0.16",
-    "@mui/joy": "^5.0.0-beta.20",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@fontsource-variable/fira-code": "^5.0.18",
+    "@fontsource-variable/inter": "^5.0.18",
+    "@mui/joy": "^5.0.0-beta.36",
     "@uidotdev/usehooks": "2.4.1",
-    "framer-motion": "^10.16.16",
-    "million": "^2.6.4",
-    "react": "^18.2.0",
+    "framer-motion": "^11.2.12",
+    "million": "^3.1.11",
+    "react": "^18.3.1",
     "react-device-detect": "^2.2.3",
-    "react-dom": "^18.2.0",
-    "react-github-calendar": "^4.0.8",
-    "react-icons": "^4.12.0",
-    "typeit-react": "^2.7.0"
+    "react-dom": "^18.3.1",
+    "react-github-calendar": "^4.1.6",
+    "react-icons": "^5.2.1",
+    "typeit-react": "^2.7.1"
   },
   "devDependencies": {
-    "@types/react": "^18.2.46",
-    "@types/react-dom": "^18.2.18",
-    "@typescript-eslint/eslint-plugin": "^6.16.0",
-    "@typescript-eslint/parser": "^6.16.0",
-    "@vitejs/plugin-react-swc": "^3.5.0",
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-compat": "^4.2.0",
-    "eslint-plugin-perfectionist": "^2.5.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "lightningcss": "^1.22.1",
-    "prettier": "^3.1.1",
+    "@eslint/compat": "^1.1.0",
+    "@eslint/js": "^9.6.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "eslint": "^9.6.0",
+    "eslint-plugin-react": "^7.34.3",
+    "globals": "^15.6.0",
+    "lightningcss": "^1.25.1",
+    "prettier": "^3.3.2",
     "prettier-plugin-organize-imports": "^3.2.4",
-    "typescript": "^5.3.3",
-    "vite": "^5.0.10"
+    "typescript": "^5.5.2",
+    "typescript-eslint": "^7.14.1",
+    "vite": "^5.3.2"
   },
   "prettier": {
     "plugins": [
@@ -52,5 +49,6 @@
     "printWidth": 150,
     "endOfLine": "crlf",
     "experimentalTernaries": true
-  }
+  },
+  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a"
 }
