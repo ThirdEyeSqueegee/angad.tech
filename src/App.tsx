@@ -1,16 +1,13 @@
 import { Grid, Stack, useColorScheme } from "@mui/joy";
 import { useIsFirstRender } from "@uidotdev/usehooks";
-import { LazyMotion, m, useMotionTemplate, useMotionValue } from "framer-motion";
-// eslint-disable-next-line perfectionist/sort-named-imports
-import { lazy, useState, type MouseEvent } from "react";
+import { motion, useMotionTemplate, useMotionValue } from "motion/react";
+import { lazy, type MouseEvent, useState } from "react";
 import { isMobile } from "react-device-detect";
 
 import heptagram from "./assets/heptagram.svg";
 import { Flexbox } from "./components/atoms/Flexbox.tsx";
 import { GithubCalendar } from "./components/molecules/GithubCalendar.tsx";
 import { ScrollButton } from "./components/molecules/ScrollButton.tsx";
-
-const features = () => import("./framer.ts").then((res) => res.default);
 
 const Education = lazy(() => import("./components/organisms/Education.tsx"));
 const Experience = lazy(() => import("./components/organisms/Experience.tsx"));
@@ -28,6 +25,8 @@ export const App = () => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
+  const isFirstRender = useIsFirstRender();
+
   const handleMouseMove = ({ clientX, clientY, currentTarget }: MouseEvent) => {
     const { left, top } = currentTarget.getBoundingClientRect();
 
@@ -35,15 +34,13 @@ export const App = () => {
     mouseY.set(clientY - top);
   };
 
-  const isFirstRender = useIsFirstRender();
-
   return (
-    <LazyMotion features={features} strict>
+    <motion.div>
       <Stack
-        component={m.div}
-        onMouseMove={!isMobile ? handleMouseMove : undefined}
+        component={motion.div}
+        onMouseMove={isMobile ? undefined : handleMouseMove}
         style={
-          !isMobile ?
+          isMobile ? undefined : (
             {
               background: useMotionTemplate`
                 radial-gradient(
@@ -53,34 +50,38 @@ export const App = () => {
                 )
               `,
             }
-          : undefined
+          )
         }
       >
         {showContent ?
           <Header />
         : null}
         <Flexbox {...styles.mainFlex}>
-          <m.img
+          <motion.img
             onAnimationComplete={() => setShowContent(true)}
             src={heptagram}
-            style={{ display: isFirstRender ? undefined : "none", filter: mode === "dark" ? "invert(.75)" : undefined, width: "300px" }}
+            style={{
+              display: isFirstRender ? undefined : "none",
+              filter: mode === "dark" ? "invert(.75)" : undefined,
+              width: "300px",
+            }}
             {...styles.heptagram}
           />
           {showContent ?
-            <Stack alignSelf="start" {...styles.content}>
+            <Stack {...styles.content}>
               <Intro />
               <GithubCalendar />
               <Languages />
               <Skills />
               <Grid {...styles.gridContainer}>
                 <Grid {...styles.gridItem}>
-                  <Projects />
-                </Grid>
-                <Grid {...styles.gridItem}>
                   <Stack {...styles.stack}>
                     <Experience />
                     <Education />
                   </Stack>
+                </Grid>
+                <Grid {...styles.gridItem}>
+                  <Projects />
                 </Grid>
               </Grid>
               <ScrollButton />
@@ -88,30 +89,30 @@ export const App = () => {
           : null}
         </Flexbox>
       </Stack>
-    </LazyMotion>
+    </motion.div>
   );
 };
 
 const styles = {
   content: {
+    alignSelf: "start",
     animate: { opacity: 1, transition: { duration: 1 } },
-    component: m.div,
-    gap: 5,
+    component: motion.div,
+    gap: 6,
     initial: { opacity: 0 },
     layout: true,
     maxWidth: { lg: 0.5, xs: 0.9 },
-    py: 2,
   },
   gridContainer: {
     alignItems: "start",
-    component: m.div,
+    component: motion.div,
     container: true,
     direction: isMobile ? "column" : "row",
     layout: true,
     spacing: 2,
   },
   gridItem: {
-    component: m.div,
+    component: motion.div,
     layout: true,
     xs: isMobile ? 12 : 6,
   },
@@ -129,7 +130,7 @@ const styles = {
     },
   },
   intro: {
-    component: m.div,
+    component: motion.div,
     gap: isMobile ? 3 : 5,
     initial: { opacity: 0 },
     justifyContent: "space-evenly",
@@ -141,7 +142,7 @@ const styles = {
     mt: 1,
   },
   stack: {
-    component: m.div,
+    component: motion.div,
     gap: 2,
     layout: true,
   },

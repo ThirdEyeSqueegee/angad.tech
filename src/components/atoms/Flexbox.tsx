@@ -1,5 +1,5 @@
 import type { BoxProps } from "@mui/joy";
-import type { MotionProps } from "framer-motion";
+import type { MotionProps } from "motion/react";
 
 import { Box, styled } from "@mui/joy";
 

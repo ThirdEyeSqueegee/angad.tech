@@ -34,6 +34,7 @@ const styles = {
   },
   buttonGroup: {
     orientation: isMobile ? "vertical" : "horizontal",
+    size: "lg",
     sx: { alignSelf: "center", mt: 1 },
   },
 } as const;

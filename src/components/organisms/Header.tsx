@@ -1,5 +1,5 @@
 import { Link, Switch, Tooltip, Typography, switchClasses, useColorScheme } from "@mui/joy";
-import { m } from "framer-motion";
+import { motion } from "motion/react";
 import { memo, useState } from "react";
 import { isMobile } from "react-device-detect";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
@@ -16,7 +16,7 @@ const Header = memo(function Header() {
   return (
     <Flexbox sx={{ backdropFilter: "blur(0.5rem)", backgroundColor: mode === "dark" ? "rgba(3, 7, 18, 0.5)" : "transparent" }} {...styles.flex}>
       <Link aria-label="Scroll up">
-        <m.img
+        <motion.img
           alt="Scroll up"
           animate={{ rotate: mode === "dark" ? -360 : 360, transition: { duration: 1 } }}
           height={48}
@@ -67,7 +67,7 @@ const styles = {
   },
   tooltip: {
     animate: { opacity: 1 },
-    component: m.div,
+    component: motion.div,
     initial: { opacity: 0 },
   },
 } as const;

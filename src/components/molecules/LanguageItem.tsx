@@ -1,20 +1,23 @@
 import { Divider, Grid, Stack, Tooltip, Typography, useColorScheme } from "@mui/joy";
-import { m } from "framer-motion";
+import { motion } from "motion/react";
 import { memo } from "react";
 import { isMobile } from "react-device-detect";
 import TypeIt from "typeit-react";
 
 import { LanguageProficiency } from "./LanguageProficiency.tsx";
 
-export const LanguageItem = memo(function LanguageItem(props: { expanded: boolean; src: string; title: string }) {
-  const { expanded, src, title } = props;
-
+export const LanguageItem = memo(function LanguageItem({ expanded, src, title }: { expanded: boolean; src: string; title: string }) {
   const { mode } = useColorScheme();
 
   return (
     <Grid lg={expanded ? undefined : 1} xs={expanded ? undefined : 2} {...styles.gridItem}>
       <Tooltip title={title} {...styles.tooltip}>
-        <m.img alt={title} src={src} {...styles.img} {...(title === "Rust" && { style: { filter: mode === "dark" ? undefined : "invert(1)" } })} />
+        <motion.img
+          alt={title}
+          src={src}
+          {...styles.img}
+          {...(title === "Rust" && { style: { filter: mode === "dark" ? undefined : "invert(1)" } })}
+        />
       </Tooltip>
       {expanded ?
         <>
@@ -34,7 +37,7 @@ export const LanguageItem = memo(function LanguageItem(props: { expanded: boolea
 const styles = {
   gridItem: {
     alignItems: "center",
-    component: m.div,
+    component: motion.div,
     display: "flex",
     gap: isMobile ? 2 : 3,
     layout: true,
@@ -48,7 +51,7 @@ const styles = {
   },
   tooltip: {
     animate: { opacity: 1 },
-    component: m.div,
+    component: motion.div,
     initial: { opacity: 0 },
     layout: true,
   },

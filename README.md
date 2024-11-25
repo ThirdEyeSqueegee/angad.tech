@@ -5,7 +5,7 @@
 
 </div>
 
-## A personal website built with [Vite](https://vitejs.dev), [Joy UI](https://mui.com/joy-ui/getting-started), and [Framer Motion](https://www.framer.com/motion)
+## A personal website built with [Vite](https://vitejs.dev), [Joy UI](https://mui.com/joy-ui/getting-started), and [Motion](https://motion.dev)
 
 ### Prerequisites
 

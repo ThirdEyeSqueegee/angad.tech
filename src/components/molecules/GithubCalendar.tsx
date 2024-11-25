@@ -1,5 +1,5 @@
 import { IconButton, Link, Tooltip, useColorScheme } from "@mui/joy";
-import { m } from "framer-motion";
+import { motion } from "motion/react";
 import { memo } from "react";
 import { isMobile } from "react-device-detect";
 import GitHubCalendar from "react-github-calendar";
@@ -13,7 +13,7 @@ export const GithubCalendar = memo(function GithubCalendar() {
 
   return (
     <Flexbox {...styles.calendarBox}>
-      {!isMobile ?
+      {isMobile ? null : (
         <Tooltip title="GitHub" {...styles.tooltip}>
           <IconButton {...styles.iconButton}>
             <Link aria-label="GitHub" href="https://github.com/ThirdEyeSqueegee" overlay />
@@ -22,7 +22,7 @@ export const GithubCalendar = memo(function GithubCalendar() {
             </IconContext.Provider>
           </IconButton>
         </Tooltip>
-      : null}
+      )}
       <GitHubCalendar
         blockMargin={isMobile ? 1 : 2}
         blockSize={isMobile ? 6 : 10}
@@ -44,7 +44,7 @@ export const GithubCalendar = memo(function GithubCalendar() {
 const styles = {
   calendarBox: {
     alignSelf: "center",
-    component: m.div,
+    component: motion.div,
     gap: 3,
     initial: { opacity: 0 },
     layout: true,
@@ -52,16 +52,16 @@ const styles = {
   },
   iconButton: {
     "aria-label": "GitHub",
-    component: m.button,
+    component: motion.button,
     initial: { opacity: 0, x: -128 },
-    sx: { alignSelf: "center" },
-    whileHover: { backgroundColor: "rgba(0, 0, 0, 0)", scale: 1.1 },
+    sx: { alignSelf: "center", ":hover": { backgroundColor: "rgba(0, 0, 0, 0)" } },
+    whileHover: { scale: 1.1 },
     whileInView: { opacity: 1, rotate: 360, transition: { duration: 0.75, type: "spring" }, x: 0 },
     whileTap: { scale: 0.9 },
   },
   tooltip: {
     animate: { opacity: 1 },
-    component: m.div,
+    component: motion.div,
     initial: { opacity: 0 },
   },
 } as const;

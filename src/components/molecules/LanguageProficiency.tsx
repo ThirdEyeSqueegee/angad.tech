@@ -1,14 +1,12 @@
 import { Link, Typography } from "@mui/joy";
-import { m } from "framer-motion";
+import { motion } from "motion/react";
 import { memo } from "react";
 import { isMobile } from "react-device-detect";
 import { FaLink } from "react-icons/fa6";
 
 import { Flexbox } from "../atoms/Flexbox.tsx";
 
-export const LanguageProficiency = memo(function LanguageProficiency(props: { language: string }) {
-  const { language } = props;
-
+export const LanguageProficiency = memo(function LanguageProficiency({ language }: { language: string }) {
   switch (language) {
     case "C++":
       return (
@@ -130,7 +128,7 @@ export const LanguageProficiency = memo(function LanguageProficiency(props: { la
 
 const styles = {
   flex: {
-    component: m.div,
+    component: motion.div,
     gap: 1,
     initial: { opacity: 0 },
     whileInView: { opacity: 1, transition: { duration: 0.5 } },

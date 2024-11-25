@@ -1,5 +1,5 @@
 import { Grid, Link, Stack, Tooltip, Typography, useColorScheme } from "@mui/joy";
-import { m } from "framer-motion";
+import { motion } from "motion/react";
 import { memo, useState } from "react";
 import { IconContext } from "react-icons";
 import { FiChevronRight } from "react-icons/fi";
@@ -8,11 +8,7 @@ import TypeIt from "typeit-react";
 import c from "../../assets/logos/c.svg";
 import cpp from "../../assets/logos/cpp.svg";
 import csharp from "../../assets/logos/csharp.svg";
-import go from "../../assets/logos/go.svg";
-import haskell from "../../assets/logos/haskell.svg";
 import java from "../../assets/logos/java.svg";
-import nushell from "../../assets/logos/nushell.png";
-import powershell from "../../assets/logos/powershell.svg";
 import python from "../../assets/logos/python.svg";
 import rust from "../../assets/logos/rust.svg";
 import typescript from "../../assets/logos/typescript.svg";
@@ -32,24 +28,25 @@ const Languages = memo(function Languages() {
           <Typography level="h3">
             <TypeIt options={{ cursor: false }}>Languages</TypeIt>
           </Typography>
-          <IconContext.Provider value={{ size: "1.5rem", style: { transform: expanded ? "rotate(90deg)" : undefined, transition: "0.25s" } }}>
+          <IconContext.Provider
+            value={{
+              size: "1.5rem",
+              style: { transform: expanded ? "rotate(90deg)" : undefined, transition: "0.25s" },
+            }}
+          >
             <FiChevronRight />
           </IconContext.Provider>
         </Flexbox>
       </Link>
       <Grid alignItems={expanded ? "start" : "center"} direction={expanded ? "column" : "row"} key={mode} {...styles.gridContainer}>
         <LanguageItem expanded={expanded} src={cpp} title="C++" />
+        <LanguageItem expanded={expanded} src={java} title="Java" />
+        <LanguageItem expanded={expanded} src={typescript} title="TypeScript" />
         <LanguageItem expanded={expanded} src={python} title="Python" />
         <LanguageItem expanded={expanded} src={c} title="C" />
-        <LanguageItem expanded={expanded} src={typescript} title="TypeScript" />
-        <LanguageItem expanded={expanded} src={java} title="Java" />
-        <LanguageItem expanded={expanded} src={csharp} title="C#" />
         <LanguageItem expanded={expanded} src={x64} title="x64 Assembly" />
         <LanguageItem expanded={expanded} src={rust} title="Rust" />
-        <LanguageItem expanded={expanded} src={go} title="Go" />
-        <LanguageItem expanded={expanded} src={haskell} title="Haskell" />
-        <LanguageItem expanded={expanded} src={powershell} title="PowerShell" />
-        <LanguageItem expanded={expanded} src={nushell} title="Nushell" />
+        <LanguageItem expanded={expanded} src={csharp} title="C#" />
       </Grid>
       <Typography {...styles.typography}>
         I speak human languages too! I&apos;m fluent in 🇺🇸 English and{" "}
@@ -78,7 +75,7 @@ const styles = {
     minWidth: 1,
   },
   gridContainer: {
-    component: m.div,
+    component: motion.div,
     container: true,
     initial: { opacity: 0 },
     layout: true,
@@ -92,11 +89,11 @@ const styles = {
   },
   tooltip: {
     animate: { opacity: 1 },
-    component: m.div,
+    component: motion.div,
     initial: { opacity: 0 },
   },
   typography: {
-    component: m.span,
+    component: motion.span,
     initial: { opacity: 0 },
     mt: 1,
     whileInView: { opacity: 1, transition: { duration: 0.5 } },

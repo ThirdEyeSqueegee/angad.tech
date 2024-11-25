@@ -1,5 +1,5 @@
 import { Card, Stack, Typography, useColorScheme } from "@mui/joy";
-import { m } from "framer-motion";
+import { motion } from "motion/react";
 import { memo } from "react";
 import { isMobile } from "react-device-detect";
 import TypeIt from "typeit-react";
@@ -14,15 +14,16 @@ const Experience = memo(function Experience() {
       </Typography>
       <Card key={mode} {...styles.card}>
         <Typography level="title-md">
-          BuildingEase
+          BuildingEase, Inc.
           <Typography level="body-sm" ml={1}>
-            (2021 &ndash; Present)
+            (2024 &ndash; Present)
           </Typography>
         </Typography>
+        <Typography level="title-sm">Software Developer (Full-Stack)</Typography>
         <Typography>
-          Developing a first-of-its-kind full-stack web platform using PostgreSQL, Spring, and MUI to facilitate coordination of architects,
-          contractors, spec writers, etc. in medium-to-large scale construction projects, as well as providing a one-stop solution for all the
-          sustainability and human health requirements for such projects.
+          Developing a first-of-its-kind web platform using PostgreSQL, Spring, and MUI to facilitate coordination of architects, contractors, spec
+          writers, etc. in medium-to-large scale construction projects, as well as providing a one-stop solution for all the sustainability and human
+          health requirements for such projects.
         </Typography>
       </Card>
     </Stack>
@@ -33,7 +34,7 @@ export default Experience;
 
 const styles = {
   card: {
-    component: m.div,
+    component: motion.div,
     initial: { opacity: 0 },
     layout: true,
     sx: { backdropFilter: "blur(0.5rem)", backgroundColor: "transparent", minHeight: 1, minWidth: 1 },

@@ -1,5 +1,5 @@
 import { Card, Link, Stack, Typography, useColorScheme } from "@mui/joy";
-import { m } from "framer-motion";
+import { motion } from "motion/react";
 import { memo } from "react";
 import { isMobile } from "react-device-detect";
 import { FaLink } from "react-icons/fa6";
@@ -48,7 +48,7 @@ export default Projects;
 
 const styles = {
   card: {
-    component: m.div,
+    component: motion.div,
     initial: { opacity: 0 },
     layout: true,
     sx: { backdropFilter: "blur(0.5rem)", backgroundColor: "transparent", minHeight: 1, minWidth: 1 },

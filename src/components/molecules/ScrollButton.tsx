@@ -1,5 +1,5 @@
 import { IconButton } from "@mui/joy";
-import { m, scroll } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { memo, useRef } from "react";
 import { isMobile } from "react-device-detect";
 import { IconContext } from "react-icons";
@@ -7,8 +7,9 @@ import { FiArrowDownCircle } from "react-icons/fi";
 
 export const ScrollButton = memo(function ScrollButton() {
   const ref = useRef<HTMLButtonElement>(null);
+  const { scrollYProgress } = useScroll();
 
-  scroll((progress) => {
+  useMotionValueEvent(scrollYProgress, "change", (progress) => {
     if (ref.current) {
       ref.current.style.opacity = `${1 - progress}`;
     }
@@ -36,6 +37,6 @@ export const ScrollButton = memo(function ScrollButton() {
 const styles = {
   iconButton: {
     "aria-label": "Scroll down",
-    component: m.button,
+    component: motion.button,
   },
 } as const;

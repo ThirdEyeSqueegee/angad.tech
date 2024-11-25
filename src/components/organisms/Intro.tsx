@@ -1,5 +1,5 @@
 import { Stack, Typography } from "@mui/joy";
-import { m } from "framer-motion";
+import { motion } from "motion/react";
 import { memo } from "react";
 import { isMobile } from "react-device-detect";
 
@@ -11,13 +11,14 @@ const Intro = memo(function Intro() {
   return (
     <Flexbox {...styles.intro}>
       <Flexbox {...styles.imgBox}>
-        <img src={mugshot} {...styles.img} />
-        <m.div {...styles.imgBorder} />
+        <img src={mugshot} {...styles.img} alt="Angad" />
+        <motion.div {...styles.imgBorder} />
       </Flexbox>
       <Stack gap={2}>
         <Typography>
-          I am a Los Angeles based software engineer specialized in system programming, data engineering, and full-stack development. My interests
-          include machine learning, reverse engineering, game programming, and computability theory.
+          I am a Los Angeles based software engineer specialized in full-stack development. My computer-related interests include system programming,
+          machine learning, computability theory, programming language theory, and reverse engineering. My non-computer-related interests include
+          physics, history, philosophy of science, music theory (I've been playing guitar since I was 6!), and linguistics.
         </Typography>
         <ProfileLinks />
       </Stack>
@@ -52,7 +53,7 @@ const styles = {
     whileTap: { rotate: -360, transition: { duration: 10, ease: "linear", repeat: Infinity } },
   },
   imgBox: {
-    component: m.div,
+    component: motion.div,
     display: "grid",
     ...(!isMobile && {
       drag: true,
@@ -62,7 +63,7 @@ const styles = {
     }),
   },
   intro: {
-    component: m.div,
+    component: motion.div,
     flexDirection: isMobile ? "column" : "row",
     gap: isMobile ? 3 : 5,
     initial: { opacity: 0 },

@@ -1,4 +1,6 @@
+// @ts-ignore
 import "@fontsource-variable/fira-code";
+// @ts-ignore
 import "@fontsource-variable/inter";
 import { CssBaseline, CssVarsProvider } from "@mui/joy";
 import { createRoot } from "react-dom/client";
