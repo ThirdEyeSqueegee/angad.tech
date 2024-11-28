@@ -38,7 +38,7 @@ const styles = {
     initial: { opacity: 0 },
     layout: true,
     sx: { backdropFilter: "blur(0.5rem)", backgroundColor: "transparent", minHeight: 1, minWidth: 1 },
-    whileHover: { borderColor: "#172554" },
+    whileHover: { borderColor: "#172554", y: -4 },
     whileInView: { opacity: 1, transition: { duration: 0.5 } },
     ...(!isMobile && {
       drag: true,

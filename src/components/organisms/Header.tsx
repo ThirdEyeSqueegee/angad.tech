@@ -1,4 +1,4 @@
-import { Link, Switch, Tooltip, Typography, switchClasses, useColorScheme } from "@mui/joy";
+import { Link, Switch, switchClasses, Tooltip, Typography, useColorScheme } from "@mui/joy";
 import { motion } from "motion/react";
 import { memo, useState } from "react";
 import { isMobile } from "react-device-detect";
@@ -14,7 +14,14 @@ const Header = memo(function Header() {
   const [scrollUp, setScrollUp] = useState(false);
 
   return (
-    <Flexbox sx={{ backdropFilter: "blur(0.5rem)", backgroundColor: mode === "dark" ? "rgba(3, 7, 18, 0.5)" : "transparent" }} {...styles.flex}>
+    <Flexbox
+      sx={{
+        backdropFilter: "blur(0.5rem)",
+        backgroundColor: mode === "dark" ? "rgba(3, 7, 18, 0.5)" : "transparent",
+        mb: 2,
+      }}
+      {...styles.flex}
+    >
       <Link aria-label="Scroll up">
         <motion.img
           alt="Scroll up"

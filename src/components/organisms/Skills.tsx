@@ -330,7 +330,7 @@ const styles = {
     component: motion.div,
     layout: true,
     sx: { backdropFilter: "blur(0.5rem)", backgroundColor: "transparent", minHeight: 1, minWidth: 1 },
-    whileHover: { borderColor: "#172554" },
+    whileHover: { borderColor: "#172554", y: -4 },
     ...(!isMobile && {
       drag: true,
       dragSnapToOrigin: true,
