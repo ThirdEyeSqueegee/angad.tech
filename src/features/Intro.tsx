@@ -1,4 +1,4 @@
-import mugshot from "@/assets/mugshot.png";
+import mugshot from "@/assets/mugshot.webp";
 import { IntroButtons } from "@/components/IntroButtons.tsx";
 import { Box, Grid2 as Grid, Stack, Typography } from "@mui/material";
 import { motion } from "motion/react";
