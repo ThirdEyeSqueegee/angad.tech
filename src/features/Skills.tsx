@@ -32,7 +32,7 @@ export const Skills = () => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <Stack component={motion.div} layout spacing={1}>
+    <Stack component={motion.div} layout spacing={1} width={1}>
       <Box component={motion.div} layout onClick={() => setExpanded(!expanded)} sx={styles.headerBox}>
         <Typography component={motion.span} layout variant="h5" fontWeight={600}>
           <TypeIt options={{ cursor: false, lifeLike: true }}>Skills</TypeIt>
@@ -40,9 +40,9 @@ export const Skills = () => {
         <FaChevronRight style={{ transform: expanded ? "rotate(90deg)" : undefined, transitionDuration: "0.25s" }} />
       </Box>
       <Grid component={motion.div} layout container initial="hidden" whileInView="visible" variants={list} spacing={2}>
-        {skills.map((skill, i) => (
+        {skills.map(({ title, skills }, i) => (
           <Grid component={motion.div} layout variants={item} key={i}>
-            <SkillCard title={skill.title} skills={skill.skills} expanded={expanded} />
+            <SkillCard title={title} skills={skills} expanded={expanded} />
           </Grid>
         ))}
       </Grid>

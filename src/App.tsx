@@ -20,24 +20,22 @@ function App() {
       </AppBar>
       <Toolbar />
       <Container component={motion.div} layoutRoot initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-        <LayoutGroup>
-          <Stack component={motion.div} layout spacing={3} sx={styles.mainStack}>
+        <Stack component={motion.div} layout spacing={3} sx={styles.mainStack}>
+          <LayoutGroup>
             <Intro />
-            <Stack component={motion.div} layout spacing={3} width={1}>
-              <Languages />
-              <Skills />
-              <Grid component={motion.div} layout container spacing={2}>
-                <Grid component={motion.div} layout size={{ xs: 12, lg: 6 }}>
-                  <Experience />
-                </Grid>
-                <Grid component={motion.div} layout size={{ xs: 12, lg: 6 }}>
-                  <Education />
-                </Grid>
+            <Languages />
+            <Skills />
+            <Grid component={motion.div} layout container spacing={3}>
+              <Grid component={motion.div} layout size={{ xs: 12, lg: 6 }}>
+                <Experience />
               </Grid>
-              <Projects />
-            </Stack>
-          </Stack>
-        </LayoutGroup>
+              <Grid component={motion.div} layout size={{ xs: 12, lg: 6 }}>
+                <Education />
+              </Grid>
+            </Grid>
+            <Projects />
+          </LayoutGroup>
+        </Stack>
       </Container>
     </>
   );
@@ -58,6 +56,7 @@ const styles = {
   },
   mainStack: {
     py: 4,
-    alignItems: "center",
+    alignItems: "stretch",
+    width: 1,
   },
 };

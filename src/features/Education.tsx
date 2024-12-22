@@ -4,17 +4,17 @@ import { motion } from "motion/react";
 import TypeIt from "typeit-react";
 
 export const Education = () => (
-  <Stack component={motion.div} layout spacing={1}>
+  <Stack component={motion.div} layout spacing={1} width={1}>
     <Typography component={motion.span} layout variant="h5" fontWeight={600}>
       <TypeIt options={{ cursor: false, lifeLike: true }}>Education</TypeIt>
     </Typography>
     <Grid component={motion.div} layout container spacing={2}>
-      <Grid component={motion.div} layout>
+      <Grid component={motion.div} layout size="auto">
         <Link href="https://www.ucla.edu">
           <motion.img layout src={ucla} alt="UCLA" width={128} />
         </Link>
       </Grid>
-      <Grid component={motion.div} layout>
+      <Grid component={motion.div} layout size="auto">
         <Stack>
           <Typography component={motion.span} layout>
             B.S. Computer Science and Engineering

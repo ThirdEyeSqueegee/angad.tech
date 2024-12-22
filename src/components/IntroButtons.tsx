@@ -5,9 +5,9 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { MdDownload, MdEmail } from "react-icons/md";
 
 export const IntroButtons = () => (
-  <Grid component={motion.div} layout container spacing={4}>
+  <Grid component={motion.div} layout container spacing={{ xs: 2, lg: 4 }} width={{ xs: "100%", lg: "80%" }}>
     {buttons.map(({ href, icon, label }, i) => (
-      <Grid component={motion.div} layout key={i}>
+      <Grid component={motion.div} layout key={i} size={{ xs: 6, lg: 3 }}>
         <Link href={href}>
           <Button
             component={motion.button}
@@ -17,6 +17,7 @@ export const IntroButtons = () => (
             sx={styles.button}
             whileHover={{ scale: 1.1, boxShadow: "0px 0px 36px 0px rgba(240,246,252,0.5)" }}
             whileTap={{ scale: 0.9 }}
+            fullWidth
           >
             {label}
           </Button>

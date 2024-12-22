@@ -4,19 +4,19 @@ import TypeIt from "typeit-react";
 
 export const Projects = () => {
   return (
-    <Stack component={motion.div} layout spacing={1}>
+    <Stack component={motion.div} layout spacing={1} width={1}>
       <Typography component={motion.span} layout variant="h5" fontWeight={600}>
         <TypeIt options={{ cursor: false, lifeLike: true }}>Projects</TypeIt>
       </Typography>
       <Grid component={motion.div} layout container initial="hidden" whileInView="visible" variants={list} spacing={2}>
-        {projects.map((project, i) => (
-          <Grid component={motion.div} layout variants={item} key={i} flex={1}>
+        {projects.map(({ title, url, description }, i) => (
+          <Grid component={motion.div} layout variants={item} key={i} size={{ xs: 12, lg: 4 }}>
             <Card component={motion.div} layout variant="outlined" sx={styles.projectCard} whileHover={{ y: -4 }} drag dragSnapToOrigin>
               <Stack component={motion.div} layout spacing={1}>
                 <Typography variant="h6">
-                  <Link href={project.url}>{project.title}</Link>
+                  <Link href={url}>{title}</Link>
                 </Typography>
-                <Typography>{project.description}</Typography>
+                <Typography>{description}</Typography>
               </Stack>
             </Card>
           </Grid>

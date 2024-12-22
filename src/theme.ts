@@ -39,5 +39,10 @@ export const theme = createTheme({
         underline: "hover",
       },
     },
+    MuiStack: {
+      defaultProps: {
+        useFlexGap: true,
+      },
+    },
   },
 });

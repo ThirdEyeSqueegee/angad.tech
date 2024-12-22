@@ -10,13 +10,13 @@ export const SkillCard = ({ title, skills, expanded }: { title: string; skills: 
         <TypeIt options={{ cursor: false, lifeLike: true }}>{title}</TypeIt>
       </Typography>
       <Grid component={motion.div} layout container spacing={2} direction={expanded ? "column" : undefined}>
-        {skills.map((skill, i) => (
-          <Grid component={motion.div} layout key={i}>
+        {skills.map(({ title, url, icon }, i) => (
+          <Grid component={motion.div} layout key={i} size="auto">
             <Box component={motion.div} layout sx={styles.skillBox}>
-              <Tooltip title={expanded ? "" : skill.title}>
-                <motion.img layout src={skill.icon} alt={skill.title} width="36" height="36" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} />
+              <Tooltip title={expanded ? "" : title}>
+                <motion.img layout src={icon} alt={title} width="36" height="36" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} />
               </Tooltip>
-              {expanded && <Link href={skill.url}>{skill.title}</Link>}
+              {expanded && <Link href={url}>{title}</Link>}
             </Box>
           </Grid>
         ))}

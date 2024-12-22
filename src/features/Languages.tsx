@@ -6,7 +6,7 @@ import python from "@/assets/logos/python.svg";
 import rust from "@/assets/logos/rust.svg";
 import typescript from "@/assets/logos/typescript.svg";
 import x64 from "@/assets/logos/x64.svg";
-import { Box, Chip, Grid2 as Grid, Link, Stack, Tooltip, Typography } from "@mui/material";
+import { Box, Chip, Divider, Grid2 as Grid, Link, Stack, Tooltip, Typography } from "@mui/material";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { FaChevronRight } from "react-icons/fa6";
@@ -16,25 +16,25 @@ export const Languages = () => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <Stack component={motion.div} layout spacing={1}>
+    <Stack component={motion.div} layout spacing={1} width={1}>
       <Box component={motion.div} layout onClick={() => setExpanded(!expanded)} sx={styles.headerBox}>
         <Typography component={motion.span} layout variant="h5" fontWeight={600}>
           <TypeIt options={{ cursor: false, lifeLike: true }}>Languages</TypeIt>
         </Typography>
         <FaChevronRight style={{ transform: expanded ? "rotate(90deg)" : undefined, transitionDuration: "0.25s" }} />
       </Box>
-      <Stack component={motion.div} layout gap={2}>
-        <Grid component={motion.div} layout container spacing={expanded ? 2 : 6} direction={expanded ? "column" : undefined}>
-          {languages.map((language, i) => (
-            <Grid component={motion.div} layout key={i}>
-              <Box component={motion.div} layout sx={styles.languageBox}>
-                <Tooltip title={expanded ? "" : language.name}>
-                  <motion.img layout src={language.logo} alt="" height="40px" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} />
+      <Stack component={motion.div} layout spacing={2}>
+        <Grid component={motion.div} layout container spacing={{ xs: 3, lg: expanded ? 2 : 6 }} direction={expanded ? "column" : undefined}>
+          {languages.map(({ name, logo, level }, i) => (
+            <Grid component={motion.div} layout key={i} size="auto">
+              <Stack component={motion.div} layout spacing={2} direction="row" divider={<Divider orientation="vertical" flexItem />} sx={styles.languageBox}>
+                <Tooltip title={expanded ? "" : name}>
+                  <motion.img layout src={logo} alt="" height="40px" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} />
                 </Tooltip>
                 {expanded && (
                   <Stack component={motion.div} layout>
                     <Typography component={motion.span} layout fontFamily="Fira Code Variable">
-                      <TypeIt options={{ cursor: false, lifeLike: true }}>{language.name}</TypeIt>
+                      <TypeIt options={{ cursor: false, lifeLike: true }}>{name}</TypeIt>
                     </Typography>
                     <Grid component={motion.div} layout container spacing={1}>
                       <Grid component={motion.div} layout>
@@ -43,8 +43,8 @@ export const Languages = () => {
                         </Typography>
                       </Grid>
                       <Grid component={motion.div} layout>
-                        <Chip label={`${language.level}/10`} color={language.level > 7 ? "success" : "primary"} size="small" variant="outlined" />
-                        {language.name === "C++" && (
+                        <Chip label={`${level}/10`} color={level > 7 ? "success" : "primary"} size="small" variant="outlined" />
+                        {name === "C++" && (
                           <Typography component={motion.span} layout variant="caption">
                             {" "}
                             (keep in mind that <Link href="https://en.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne Stroustrup</Link> rates himself 7/10)
@@ -54,7 +54,7 @@ export const Languages = () => {
                     </Grid>
                   </Stack>
                 )}
-              </Box>
+              </Stack>
             </Grid>
           ))}
         </Grid>
@@ -87,8 +87,6 @@ const styles = {
     cursor: "pointer",
   },
   languageBox: {
-    display: "flex",
-    gap: 4,
     alignItems: "center",
   },
 };

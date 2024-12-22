@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import TypeIt from "typeit-react";
 
 export const Experience = () => (
-  <Stack component={motion.div} layout spacing={1}>
+  <Stack component={motion.div} layout spacing={1} width={1}>
     <Typography component={motion.span} layout variant="h5" fontWeight={600}>
       <TypeIt options={{ cursor: false, lifeLike: true }}>Experience</TypeIt>
     </Typography>
@@ -15,6 +15,8 @@ export const Experience = () => (
           padding: 0,
         },
         py: 0,
+        pl: 1,
+        mt: 0,
       }}
     >
       <TimelineItem>
