@@ -71,5 +71,6 @@ const styles = {
     p: 2,
     borderRadius: "1rem",
     backgroundColor: "#0d1117",
+    border: "1px solid #3d444d",
   },
 };

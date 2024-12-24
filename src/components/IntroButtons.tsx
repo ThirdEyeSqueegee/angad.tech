@@ -5,9 +5,9 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import { MdDownload, MdEmail } from "react-icons/md";
 
 export const IntroButtons = () => (
-  <Grid component={motion.div} layout container spacing={{ xs: 2, lg: 4 }} width={{ xs: "100%", lg: "80%" }}>
+  <Grid component={motion.div} layout initial="hidden" whileInView="visible" variants={list} container spacing={{ xs: 2, lg: 4 }} width={{ xs: "100%", lg: "80%" }}>
     {buttons.map(({ href, icon, label }, i) => (
-      <Grid component={motion.div} layout key={i} size={{ xs: 6, lg: 3 }}>
+      <Grid component={motion.div} layout variants={item} key={i} size={{ xs: 6, lg: 3 }}>
         <Link href={href}>
           <Button
             component={motion.button}
@@ -26,6 +26,27 @@ export const IntroButtons = () => (
     ))}
   </Grid>
 );
+
+const list = {
+  visible: {
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.1,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    transition: {
+      when: "afterChildren",
+    },
+  },
+};
+
+const item = {
+  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: -100 },
+};
 
 const buttons = [
   { href: "mailto:hello@angad.tech", icon: <MdEmail />, label: "Email" },

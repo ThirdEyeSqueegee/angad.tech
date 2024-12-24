@@ -9,7 +9,7 @@ export const Intro = () => {
     <Grid component={motion.div} layout container spacing={{ xs: 3, lg: 0 }}>
       <Grid component={motion.div} layout size={{ xs: 12, lg: 3 }} display="flex" justifyContent={{ xs: "center", lg: "start" }}>
         <Box component={motion.div} layout sx={styles.imageBox}>
-          <motion.img layout src={mugshot} alt="Photo" style={styles.image} />
+          <motion.img layout src={mugshot} alt="Photo" style={styles.image} initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} />
           <motion.div
             style={styles.borderBox}
             animate={{ rotate: 360, transition: { duration: 15, ease: "linear", repeat: Infinity } }}
