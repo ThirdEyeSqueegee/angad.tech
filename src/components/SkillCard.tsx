@@ -27,7 +27,6 @@ export const SkillCard = ({ title, skills, expanded }: { title: string; skills: 
 
 const styles = {
   card: {
-    minWidth: "12rem",
     p: 2,
     borderRadius: "1rem",
     backgroundColor: "#0d1117",

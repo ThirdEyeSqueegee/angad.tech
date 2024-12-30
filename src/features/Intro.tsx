@@ -1,6 +1,7 @@
 import mugshot from "@/assets/mugshot.webp";
+import { AnimatedText } from "@/components/AnimatedText.tsx";
 import { IntroButtons } from "@/components/IntroButtons.tsx";
-import { Box, Grid2 as Grid, Stack, Typography } from "@mui/material";
+import { Box, Grid2 as Grid, Stack, Tooltip } from "@mui/material";
 import { motion } from "motion/react";
 import GitHubCalendar from "react-github-calendar";
 
@@ -19,13 +20,19 @@ export const Intro = () => {
       </Grid>
       <Grid component={motion.div} layout size={{ xs: 12, lg: 9 }}>
         <Stack component={motion.div} layout spacing={3} sx={styles.mainStack}>
-          <Typography component={motion.span} layout align="justify">
+          <AnimatedText>
             I am a Los Angeles based software engineer specialized in full-stack development. My computer-related interests include system programming, machine learning,
             computability theory, programming language theory, and reverse engineering. My non-computer-related interests include physics, history, philosophy of science, music
             theory (I&#39;ve been playing guitar since I was 6!), and linguistics.
-          </Typography>
+          </AnimatedText>
           <IntroButtons />
-          <GitHubCalendar username="ThirdEyeSqueegee" blockMargin={2} blockSize={10} fontSize={12} />
+          <GitHubCalendar
+            username="ThirdEyeSqueegee"
+            blockMargin={2}
+            blockSize={10}
+            fontSize={12}
+            renderBlock={(block, activity) => <Tooltip title={`${activity.count} commit${activity.count === 1 ? "" : "s"} on ${activity.date}`}>{block}</Tooltip>}
+          />
         </Stack>
       </Grid>
     </Grid>

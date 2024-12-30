@@ -15,6 +15,7 @@ export const Experience = () => (
           padding: 0,
         },
         py: 0,
+        mb: 0,
         pl: 1,
         mt: 0,
       }}

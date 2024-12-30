@@ -6,6 +6,7 @@ import python from "@/assets/logos/python.svg";
 import rust from "@/assets/logos/rust.svg";
 import typescript from "@/assets/logos/typescript.svg";
 import x64 from "@/assets/logos/x64.svg";
+import { AnimatedText } from "@/components/AnimatedText.tsx";
 import { Box, Chip, Divider, Grid2 as Grid, Link, Stack, Tooltip, Typography } from "@mui/material";
 import { motion } from "motion/react";
 import { useState } from "react";
@@ -58,9 +59,9 @@ export const Languages = () => {
             </Grid>
           ))}
         </Grid>
-        <Typography component={motion.span} layout align="justify">
+        <AnimatedText>
           I speak human languages too! I&apos;m fluent in 🇺🇸 English and 🇮🇳 हिन्दी, no hablo 🇪🇸 Espa&ntilde;ol con fluidez pero me defiendo, und ich lerne zurzeit 🇩🇪 Deutsch.
-        </Typography>
+        </AnimatedText>
       </Stack>
     </Stack>
   );
