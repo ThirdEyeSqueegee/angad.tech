@@ -14,7 +14,7 @@ export const SkillCard = ({ title, skills, expanded }: { title: string; skills: 
           <Grid component={motion.div} layout key={i} size="auto">
             <Box component={motion.div} layout sx={styles.skillBox}>
               <Tooltip title={expanded ? "" : title}>
-                <motion.img layout src={icon} alt={title} width="36" height="36" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} />
+                <motion.img layout src={icon} alt={title} width={36} height={36} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} />
               </Tooltip>
               {expanded && <Link href={url}>{title}</Link>}
             </Box>

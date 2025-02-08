@@ -1,7 +1,7 @@
 import mugshot from "@/assets/mugshot.webp";
 import { AnimatedText } from "@/components/AnimatedText.tsx";
 import { IntroButtons } from "@/components/IntroButtons.tsx";
-import { Box, Grid2 as Grid, Stack, Tooltip } from "@mui/material";
+import { Box, Grid2 as Grid, Link, Stack, Tooltip } from "@mui/material";
 import { motion } from "motion/react";
 import GitHubCalendar from "react-github-calendar";
 
@@ -21,9 +21,9 @@ export const Intro = () => {
       <Grid component={motion.div} layout size={{ xs: 12, lg: 9 }}>
         <Stack component={motion.div} layout spacing={3} sx={styles.mainStack}>
           <AnimatedText>
-            I am a Los Angeles based software engineer specialized in full-stack development. My computer-related interests include system programming, machine learning,
-            computability theory, programming language theory, and reverse engineering. My non-computer-related interests include physics, history, philosophy of science, music
-            theory (I&#39;ve been playing guitar since I was 6!), and linguistics.
+            I am a Seattle-based software engineer currently working in the <Link href="https://aws.amazon.com/secrets-manager">Secrets Manager</Link> team at Amazon Web Services.
+            My computer-related interests include system programming, machine learning, computability theory, programming language theory, and reverse engineering. My
+            non-computer-related interests include physics, history, philosophy of science, music theory (I&#39;ve been playing guitar since I was 6!), and linguistics.
           </AnimatedText>
           <IntroButtons />
           <GitHubCalendar
